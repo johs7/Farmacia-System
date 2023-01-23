@@ -43,44 +43,44 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblFact = new System.Windows.Forms.Label();
             this.BtnClose = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.txtApeC = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ApeCliTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNomC = new Guna.UI2.WinForms.Guna2TextBox();
+            this.NomCliTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNomC = new System.Windows.Forms.Label();
-            this.txtDni = new Guna.UI2.WinForms.Guna2TextBox();
+            this.CedCliTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTel = new Guna.UI2.WinForms.Guna2TextBox();
+            this.TelCliTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPrecio = new Guna.UI2.WinForms.Guna2TextBox();
+            this.PrecMedTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtC = new Guna.UI2.WinForms.Guna2TextBox();
+            this.CantMedTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtNomMedi = new Guna.UI2.WinForms.Guna2TextBox();
+            this.NomMedTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.DgvMedicamentos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.DGVMedicamentos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnRegistrar = new Guna.UI2.WinForms.Guna2Button();
             this.BtnAgregar = new Guna.UI2.WinForms.Guna2Button();
-            this.DgvCuenta = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.TotalLbl = new System.Windows.Forms.Label();
-            this.DgvTrans = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.BtnImprimir = new Guna.UI2.WinForms.Guna2Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.DGVCuenta = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medicamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.TotalLbl = new System.Windows.Forms.Label();
+            this.DGVTransacciones = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.BtnImprimir = new Guna.UI2.WinForms.Guna2Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.btnValidarDni = new Guna.UI2.WinForms.Guna2Button();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvMedicamentos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvCuenta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvTrans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVMedicamentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVCuenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVTransacciones)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -144,33 +144,33 @@
             this.BtnClose.TabStop = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // txtApeC
+            // ApeCliTb
             // 
-            this.txtApeC.BackColor = System.Drawing.Color.Transparent;
-            this.txtApeC.BorderColor = System.Drawing.Color.LightPink;
-            this.txtApeC.BorderRadius = 8;
-            this.txtApeC.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtApeC.DefaultText = "";
-            this.txtApeC.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtApeC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtApeC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtApeC.DisabledState.Parent = this.txtApeC;
-            this.txtApeC.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtApeC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtApeC.FocusedState.Parent = this.txtApeC;
-            this.txtApeC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApeC.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtApeC.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtApeC.HoverState.Parent = this.txtApeC;
-            this.txtApeC.Location = new System.Drawing.Point(179, 99);
-            this.txtApeC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtApeC.Name = "txtApeC";
-            this.txtApeC.PasswordChar = '\0';
-            this.txtApeC.PlaceholderText = "";
-            this.txtApeC.SelectedText = "";
-            this.txtApeC.ShadowDecoration.Parent = this.txtApeC;
-            this.txtApeC.Size = new System.Drawing.Size(99, 29);
-            this.txtApeC.TabIndex = 51;
+            this.ApeCliTb.BackColor = System.Drawing.Color.Transparent;
+            this.ApeCliTb.BorderColor = System.Drawing.Color.LightPink;
+            this.ApeCliTb.BorderRadius = 8;
+            this.ApeCliTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ApeCliTb.DefaultText = "";
+            this.ApeCliTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ApeCliTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ApeCliTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ApeCliTb.DisabledState.Parent = this.ApeCliTb;
+            this.ApeCliTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ApeCliTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ApeCliTb.FocusedState.Parent = this.ApeCliTb;
+            this.ApeCliTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApeCliTb.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ApeCliTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ApeCliTb.HoverState.Parent = this.ApeCliTb;
+            this.ApeCliTb.Location = new System.Drawing.Point(179, 99);
+            this.ApeCliTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ApeCliTb.Name = "ApeCliTb";
+            this.ApeCliTb.PasswordChar = '\0';
+            this.ApeCliTb.PlaceholderText = "";
+            this.ApeCliTb.SelectedText = "";
+            this.ApeCliTb.ShadowDecoration.Parent = this.ApeCliTb;
+            this.ApeCliTb.Size = new System.Drawing.Size(99, 29);
+            this.ApeCliTb.TabIndex = 51;
             // 
             // label2
             // 
@@ -184,33 +184,33 @@
             this.label2.TabIndex = 50;
             this.label2.Text = "Apellido del cliente:";
             // 
-            // txtNomC
+            // NomCliTb
             // 
-            this.txtNomC.BackColor = System.Drawing.Color.Transparent;
-            this.txtNomC.BorderColor = System.Drawing.Color.LightPink;
-            this.txtNomC.BorderRadius = 8;
-            this.txtNomC.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNomC.DefaultText = "";
-            this.txtNomC.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNomC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNomC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNomC.DisabledState.Parent = this.txtNomC;
-            this.txtNomC.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNomC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNomC.FocusedState.Parent = this.txtNomC;
-            this.txtNomC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomC.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomC.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNomC.HoverState.Parent = this.txtNomC;
-            this.txtNomC.Location = new System.Drawing.Point(179, 66);
-            this.txtNomC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtNomC.Name = "txtNomC";
-            this.txtNomC.PasswordChar = '\0';
-            this.txtNomC.PlaceholderText = "";
-            this.txtNomC.SelectedText = "";
-            this.txtNomC.ShadowDecoration.Parent = this.txtNomC;
-            this.txtNomC.Size = new System.Drawing.Size(99, 29);
-            this.txtNomC.TabIndex = 49;
+            this.NomCliTb.BackColor = System.Drawing.Color.Transparent;
+            this.NomCliTb.BorderColor = System.Drawing.Color.LightPink;
+            this.NomCliTb.BorderRadius = 8;
+            this.NomCliTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NomCliTb.DefaultText = "";
+            this.NomCliTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.NomCliTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.NomCliTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.NomCliTb.DisabledState.Parent = this.NomCliTb;
+            this.NomCliTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.NomCliTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NomCliTb.FocusedState.Parent = this.NomCliTb;
+            this.NomCliTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomCliTb.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.NomCliTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NomCliTb.HoverState.Parent = this.NomCliTb;
+            this.NomCliTb.Location = new System.Drawing.Point(179, 66);
+            this.NomCliTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.NomCliTb.Name = "NomCliTb";
+            this.NomCliTb.PasswordChar = '\0';
+            this.NomCliTb.PlaceholderText = "";
+            this.NomCliTb.SelectedText = "";
+            this.NomCliTb.ShadowDecoration.Parent = this.NomCliTb;
+            this.NomCliTb.Size = new System.Drawing.Size(99, 29);
+            this.NomCliTb.TabIndex = 49;
             // 
             // lblNomC
             // 
@@ -224,33 +224,33 @@
             this.lblNomC.TabIndex = 48;
             this.lblNomC.Text = "Nombre del Cliente:";
             // 
-            // txtDni
+            // CedCliTb
             // 
-            this.txtDni.BackColor = System.Drawing.Color.Transparent;
-            this.txtDni.BorderColor = System.Drawing.Color.LightPink;
-            this.txtDni.BorderRadius = 8;
-            this.txtDni.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDni.DefaultText = "";
-            this.txtDni.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtDni.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtDni.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDni.DisabledState.Parent = this.txtDni;
-            this.txtDni.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtDni.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDni.FocusedState.Parent = this.txtDni;
-            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDni.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtDni.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDni.HoverState.Parent = this.txtDni;
-            this.txtDni.Location = new System.Drawing.Point(357, 98);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.PasswordChar = '\0';
-            this.txtDni.PlaceholderText = "";
-            this.txtDni.SelectedText = "";
-            this.txtDni.ShadowDecoration.Parent = this.txtDni;
-            this.txtDni.Size = new System.Drawing.Size(99, 29);
-            this.txtDni.TabIndex = 55;
+            this.CedCliTb.BackColor = System.Drawing.Color.Transparent;
+            this.CedCliTb.BorderColor = System.Drawing.Color.LightPink;
+            this.CedCliTb.BorderRadius = 8;
+            this.CedCliTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.CedCliTb.DefaultText = "";
+            this.CedCliTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.CedCliTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.CedCliTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CedCliTb.DisabledState.Parent = this.CedCliTb;
+            this.CedCliTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CedCliTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CedCliTb.FocusedState.Parent = this.CedCliTb;
+            this.CedCliTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CedCliTb.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CedCliTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CedCliTb.HoverState.Parent = this.CedCliTb;
+            this.CedCliTb.Location = new System.Drawing.Point(357, 98);
+            this.CedCliTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.CedCliTb.Name = "CedCliTb";
+            this.CedCliTb.PasswordChar = '\0';
+            this.CedCliTb.PlaceholderText = "";
+            this.CedCliTb.SelectedText = "";
+            this.CedCliTb.ShadowDecoration.Parent = this.CedCliTb;
+            this.CedCliTb.Size = new System.Drawing.Size(99, 29);
+            this.CedCliTb.TabIndex = 55;
             // 
             // label1
             // 
@@ -264,33 +264,33 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Cedula:";
             // 
-            // txtTel
+            // TelCliTb
             // 
-            this.txtTel.BackColor = System.Drawing.Color.Transparent;
-            this.txtTel.BorderColor = System.Drawing.Color.LightPink;
-            this.txtTel.BorderRadius = 8;
-            this.txtTel.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTel.DefaultText = "";
-            this.txtTel.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTel.DisabledState.Parent = this.txtTel;
-            this.txtTel.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTel.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTel.FocusedState.Parent = this.txtTel;
-            this.txtTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTel.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtTel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTel.HoverState.Parent = this.txtTel;
-            this.txtTel.Location = new System.Drawing.Point(370, 66);
-            this.txtTel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.PasswordChar = '\0';
-            this.txtTel.PlaceholderText = "";
-            this.txtTel.SelectedText = "";
-            this.txtTel.ShadowDecoration.Parent = this.txtTel;
-            this.txtTel.Size = new System.Drawing.Size(99, 29);
-            this.txtTel.TabIndex = 53;
+            this.TelCliTb.BackColor = System.Drawing.Color.Transparent;
+            this.TelCliTb.BorderColor = System.Drawing.Color.LightPink;
+            this.TelCliTb.BorderRadius = 8;
+            this.TelCliTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TelCliTb.DefaultText = "";
+            this.TelCliTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TelCliTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TelCliTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TelCliTb.DisabledState.Parent = this.TelCliTb;
+            this.TelCliTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TelCliTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TelCliTb.FocusedState.Parent = this.TelCliTb;
+            this.TelCliTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TelCliTb.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.TelCliTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TelCliTb.HoverState.Parent = this.TelCliTb;
+            this.TelCliTb.Location = new System.Drawing.Point(370, 66);
+            this.TelCliTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TelCliTb.Name = "TelCliTb";
+            this.TelCliTb.PasswordChar = '\0';
+            this.TelCliTb.PlaceholderText = "";
+            this.TelCliTb.SelectedText = "";
+            this.TelCliTb.ShadowDecoration.Parent = this.TelCliTb;
+            this.TelCliTb.Size = new System.Drawing.Size(99, 29);
+            this.TelCliTb.TabIndex = 53;
             // 
             // label3
             // 
@@ -304,33 +304,33 @@
             this.label3.TabIndex = 52;
             this.label3.Text = "Telefono:";
             // 
-            // txtPrecio
+            // PrecMedTb
             // 
-            this.txtPrecio.BackColor = System.Drawing.Color.Transparent;
-            this.txtPrecio.BorderColor = System.Drawing.Color.LightPink;
-            this.txtPrecio.BorderRadius = 8;
-            this.txtPrecio.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPrecio.DefaultText = "";
-            this.txtPrecio.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPrecio.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPrecio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPrecio.DisabledState.Parent = this.txtPrecio;
-            this.txtPrecio.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPrecio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrecio.FocusedState.Parent = this.txtPrecio;
-            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtPrecio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPrecio.HoverState.Parent = this.txtPrecio;
-            this.txtPrecio.Location = new System.Drawing.Point(540, 97);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.PasswordChar = '\0';
-            this.txtPrecio.PlaceholderText = "";
-            this.txtPrecio.SelectedText = "";
-            this.txtPrecio.ShadowDecoration.Parent = this.txtPrecio;
-            this.txtPrecio.Size = new System.Drawing.Size(99, 29);
-            this.txtPrecio.TabIndex = 59;
+            this.PrecMedTb.BackColor = System.Drawing.Color.Transparent;
+            this.PrecMedTb.BorderColor = System.Drawing.Color.LightPink;
+            this.PrecMedTb.BorderRadius = 8;
+            this.PrecMedTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PrecMedTb.DefaultText = "";
+            this.PrecMedTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.PrecMedTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.PrecMedTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PrecMedTb.DisabledState.Parent = this.PrecMedTb;
+            this.PrecMedTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PrecMedTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PrecMedTb.FocusedState.Parent = this.PrecMedTb;
+            this.PrecMedTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrecMedTb.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.PrecMedTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.PrecMedTb.HoverState.Parent = this.PrecMedTb;
+            this.PrecMedTb.Location = new System.Drawing.Point(540, 97);
+            this.PrecMedTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.PrecMedTb.Name = "PrecMedTb";
+            this.PrecMedTb.PasswordChar = '\0';
+            this.PrecMedTb.PlaceholderText = "";
+            this.PrecMedTb.SelectedText = "";
+            this.PrecMedTb.ShadowDecoration.Parent = this.PrecMedTb;
+            this.PrecMedTb.Size = new System.Drawing.Size(99, 29);
+            this.PrecMedTb.TabIndex = 59;
             // 
             // label4
             // 
@@ -344,33 +344,33 @@
             this.label4.TabIndex = 58;
             this.label4.Text = "Precio:";
             // 
-            // txtC
+            // CantMedTb
             // 
-            this.txtC.BackColor = System.Drawing.Color.Transparent;
-            this.txtC.BorderColor = System.Drawing.Color.LightPink;
-            this.txtC.BorderRadius = 8;
-            this.txtC.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtC.DefaultText = "";
-            this.txtC.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtC.DisabledState.Parent = this.txtC;
-            this.txtC.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtC.FocusedState.Parent = this.txtC;
-            this.txtC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtC.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtC.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtC.HoverState.Parent = this.txtC;
-            this.txtC.Location = new System.Drawing.Point(561, 65);
-            this.txtC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtC.Name = "txtC";
-            this.txtC.PasswordChar = '\0';
-            this.txtC.PlaceholderText = "";
-            this.txtC.SelectedText = "";
-            this.txtC.ShadowDecoration.Parent = this.txtC;
-            this.txtC.Size = new System.Drawing.Size(99, 29);
-            this.txtC.TabIndex = 57;
+            this.CantMedTb.BackColor = System.Drawing.Color.Transparent;
+            this.CantMedTb.BorderColor = System.Drawing.Color.LightPink;
+            this.CantMedTb.BorderRadius = 8;
+            this.CantMedTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.CantMedTb.DefaultText = "";
+            this.CantMedTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.CantMedTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.CantMedTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CantMedTb.DisabledState.Parent = this.CantMedTb;
+            this.CantMedTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CantMedTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CantMedTb.FocusedState.Parent = this.CantMedTb;
+            this.CantMedTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CantMedTb.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CantMedTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CantMedTb.HoverState.Parent = this.CantMedTb;
+            this.CantMedTb.Location = new System.Drawing.Point(561, 65);
+            this.CantMedTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.CantMedTb.Name = "CantMedTb";
+            this.CantMedTb.PasswordChar = '\0';
+            this.CantMedTb.PlaceholderText = "";
+            this.CantMedTb.SelectedText = "";
+            this.CantMedTb.ShadowDecoration.Parent = this.CantMedTb;
+            this.CantMedTb.Size = new System.Drawing.Size(99, 29);
+            this.CantMedTb.TabIndex = 57;
             // 
             // label5
             // 
@@ -384,34 +384,34 @@
             this.label5.TabIndex = 56;
             this.label5.Text = "Cantidad:";
             // 
-            // txtNomMedi
+            // NomMedTb
             // 
-            this.txtNomMedi.BackColor = System.Drawing.Color.Transparent;
-            this.txtNomMedi.BorderColor = System.Drawing.Color.LightPink;
-            this.txtNomMedi.BorderRadius = 8;
-            this.txtNomMedi.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNomMedi.DefaultText = "";
-            this.txtNomMedi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtNomMedi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtNomMedi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNomMedi.DisabledState.Parent = this.txtNomMedi;
-            this.txtNomMedi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtNomMedi.Enabled = false;
-            this.txtNomMedi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNomMedi.FocusedState.Parent = this.txtNomMedi;
-            this.txtNomMedi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomMedi.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomMedi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNomMedi.HoverState.Parent = this.txtNomMedi;
-            this.txtNomMedi.Location = new System.Drawing.Point(413, 137);
-            this.txtNomMedi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtNomMedi.Name = "txtNomMedi";
-            this.txtNomMedi.PasswordChar = '\0';
-            this.txtNomMedi.PlaceholderText = "";
-            this.txtNomMedi.SelectedText = "";
-            this.txtNomMedi.ShadowDecoration.Parent = this.txtNomMedi;
-            this.txtNomMedi.Size = new System.Drawing.Size(99, 29);
-            this.txtNomMedi.TabIndex = 61;
+            this.NomMedTb.BackColor = System.Drawing.Color.Transparent;
+            this.NomMedTb.BorderColor = System.Drawing.Color.LightPink;
+            this.NomMedTb.BorderRadius = 8;
+            this.NomMedTb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NomMedTb.DefaultText = "";
+            this.NomMedTb.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.NomMedTb.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.NomMedTb.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.NomMedTb.DisabledState.Parent = this.NomMedTb;
+            this.NomMedTb.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.NomMedTb.Enabled = false;
+            this.NomMedTb.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NomMedTb.FocusedState.Parent = this.NomMedTb;
+            this.NomMedTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NomMedTb.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.NomMedTb.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.NomMedTb.HoverState.Parent = this.NomMedTb;
+            this.NomMedTb.Location = new System.Drawing.Point(413, 137);
+            this.NomMedTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.NomMedTb.Name = "NomMedTb";
+            this.NomMedTb.PasswordChar = '\0';
+            this.NomMedTb.PlaceholderText = "";
+            this.NomMedTb.SelectedText = "";
+            this.NomMedTb.ShadowDecoration.Parent = this.NomMedTb;
+            this.NomMedTb.Size = new System.Drawing.Size(99, 29);
+            this.NomMedTb.TabIndex = 61;
             // 
             // label6
             // 
@@ -425,15 +425,15 @@
             this.label6.TabIndex = 60;
             this.label6.Text = "Medicamento:";
             // 
-            // DgvMedicamentos
+            // DGVMedicamentos
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvMedicamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvMedicamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvMedicamentos.BackgroundColor = System.Drawing.Color.White;
-            this.DgvMedicamentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvMedicamentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DgvMedicamentos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGVMedicamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGVMedicamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVMedicamentos.BackgroundColor = System.Drawing.Color.White;
+            this.DGVMedicamentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DGVMedicamentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DGVMedicamentos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -441,8 +441,8 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvMedicamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.DgvMedicamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVMedicamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DGVMedicamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -450,40 +450,40 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvMedicamentos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DgvMedicamentos.EnableHeadersVisualStyles = false;
-            this.DgvMedicamentos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DgvMedicamentos.Location = new System.Drawing.Point(1, 219);
-            this.DgvMedicamentos.Name = "DgvMedicamentos";
-            this.DgvMedicamentos.ReadOnly = true;
-            this.DgvMedicamentos.RowHeadersVisible = false;
-            this.DgvMedicamentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DgvMedicamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvMedicamentos.Size = new System.Drawing.Size(433, 244);
-            this.DgvMedicamentos.TabIndex = 62;
-            this.DgvMedicamentos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
-            this.DgvMedicamentos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvMedicamentos.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.DgvMedicamentos.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.DgvMedicamentos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.DgvMedicamentos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DgvMedicamentos.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.DgvMedicamentos.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DgvMedicamentos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            this.DgvMedicamentos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DgvMedicamentos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.DgvMedicamentos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.DgvMedicamentos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.DgvMedicamentos.ThemeStyle.HeaderStyle.Height = 23;
-            this.DgvMedicamentos.ThemeStyle.ReadOnly = true;
-            this.DgvMedicamentos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
-            this.DgvMedicamentos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DgvMedicamentos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.DgvMedicamentos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.DgvMedicamentos.ThemeStyle.RowsStyle.Height = 22;
-            this.DgvMedicamentos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
-            this.DgvMedicamentos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.DgvMedicamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMedicamentos_CellContentClick);
+            this.DGVMedicamentos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DGVMedicamentos.EnableHeadersVisualStyles = false;
+            this.DGVMedicamentos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.DGVMedicamentos.Location = new System.Drawing.Point(1, 219);
+            this.DGVMedicamentos.Name = "DGVMedicamentos";
+            this.DGVMedicamentos.ReadOnly = true;
+            this.DGVMedicamentos.RowHeadersVisible = false;
+            this.DGVMedicamentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DGVMedicamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVMedicamentos.Size = new System.Drawing.Size(433, 244);
+            this.DGVMedicamentos.TabIndex = 62;
+            this.DGVMedicamentos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
+            this.DGVMedicamentos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.DGVMedicamentos.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DGVMedicamentos.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DGVMedicamentos.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DGVMedicamentos.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DGVMedicamentos.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DGVMedicamentos.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.DGVMedicamentos.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            this.DGVMedicamentos.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGVMedicamentos.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.DGVMedicamentos.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DGVMedicamentos.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVMedicamentos.ThemeStyle.HeaderStyle.Height = 23;
+            this.DGVMedicamentos.ThemeStyle.ReadOnly = true;
+            this.DGVMedicamentos.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            this.DGVMedicamentos.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DGVMedicamentos.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.DGVMedicamentos.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.DGVMedicamentos.ThemeStyle.RowsStyle.Height = 22;
+            this.DGVMedicamentos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            this.DGVMedicamentos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVMedicamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMedicamentos_CellContentClick);
             // 
             // label7
             // 
@@ -530,15 +530,15 @@
             this.BtnAgregar.Text = "Agregar a la cuenta";
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // DgvCuenta
+            // DGVCuenta
             // 
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvCuenta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.DgvCuenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvCuenta.BackgroundColor = System.Drawing.Color.White;
-            this.DgvCuenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvCuenta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DgvCuenta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGVCuenta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DGVCuenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVCuenta.BackgroundColor = System.Drawing.Color.White;
+            this.DGVCuenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DGVCuenta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DGVCuenta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -546,9 +546,9 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvCuenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.DgvCuenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.DgvCuenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGVCuenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DGVCuenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVCuenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Medicamento,
             this.Cantidad,
@@ -561,39 +561,69 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvCuenta.DefaultCellStyle = dataGridViewCellStyle6;
-            this.DgvCuenta.EnableHeadersVisualStyles = false;
-            this.DgvCuenta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DgvCuenta.Location = new System.Drawing.Point(667, 44);
-            this.DgvCuenta.Name = "DgvCuenta";
-            this.DgvCuenta.ReadOnly = true;
-            this.DgvCuenta.RowHeadersVisible = false;
-            this.DgvCuenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DgvCuenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvCuenta.Size = new System.Drawing.Size(538, 194);
-            this.DgvCuenta.TabIndex = 66;
-            this.DgvCuenta.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
-            this.DgvCuenta.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvCuenta.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.DgvCuenta.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.DgvCuenta.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.DgvCuenta.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DgvCuenta.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.DgvCuenta.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DgvCuenta.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            this.DgvCuenta.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DgvCuenta.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.DgvCuenta.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.DgvCuenta.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.DgvCuenta.ThemeStyle.HeaderStyle.Height = 23;
-            this.DgvCuenta.ThemeStyle.ReadOnly = true;
-            this.DgvCuenta.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
-            this.DgvCuenta.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DgvCuenta.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.DgvCuenta.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.DgvCuenta.ThemeStyle.RowsStyle.Height = 22;
-            this.DgvCuenta.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
-            this.DgvCuenta.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVCuenta.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DGVCuenta.EnableHeadersVisualStyles = false;
+            this.DGVCuenta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.DGVCuenta.Location = new System.Drawing.Point(667, 44);
+            this.DGVCuenta.Name = "DGVCuenta";
+            this.DGVCuenta.ReadOnly = true;
+            this.DGVCuenta.RowHeadersVisible = false;
+            this.DGVCuenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DGVCuenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVCuenta.Size = new System.Drawing.Size(538, 194);
+            this.DGVCuenta.TabIndex = 66;
+            this.DGVCuenta.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
+            this.DGVCuenta.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.DGVCuenta.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DGVCuenta.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DGVCuenta.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DGVCuenta.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DGVCuenta.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DGVCuenta.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.DGVCuenta.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            this.DGVCuenta.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGVCuenta.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.DGVCuenta.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DGVCuenta.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVCuenta.ThemeStyle.HeaderStyle.Height = 23;
+            this.DGVCuenta.ThemeStyle.ReadOnly = true;
+            this.DGVCuenta.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            this.DGVCuenta.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DGVCuenta.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.DGVCuenta.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.DGVCuenta.ThemeStyle.RowsStyle.Height = 22;
+            this.DGVCuenta.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            this.DGVCuenta.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Medicamento
+            // 
+            this.Medicamento.HeaderText = "Medicamento";
+            this.Medicamento.Name = "Medicamento";
+            this.Medicamento.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // lblTotal
             // 
@@ -619,15 +649,15 @@
             this.TotalLbl.TabIndex = 68;
             this.TotalLbl.Text = "C$ 0";
             // 
-            // DgvTrans
+            // DGVTransacciones
             // 
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvTrans.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.DgvTrans.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvTrans.BackgroundColor = System.Drawing.Color.White;
-            this.DgvTrans.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvTrans.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DgvTrans.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGVTransacciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.DGVTransacciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVTransacciones.BackgroundColor = System.Drawing.Color.White;
+            this.DGVTransacciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DGVTransacciones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DGVTransacciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -635,8 +665,8 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvTrans.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.DgvTrans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVTransacciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.DGVTransacciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -644,39 +674,39 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvTrans.DefaultCellStyle = dataGridViewCellStyle9;
-            this.DgvTrans.EnableHeadersVisualStyles = false;
-            this.DgvTrans.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DgvTrans.Location = new System.Drawing.Point(480, 264);
-            this.DgvTrans.Name = "DgvTrans";
-            this.DgvTrans.ReadOnly = true;
-            this.DgvTrans.RowHeadersVisible = false;
-            this.DgvTrans.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DgvTrans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvTrans.Size = new System.Drawing.Size(725, 199);
-            this.DgvTrans.TabIndex = 69;
-            this.DgvTrans.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
-            this.DgvTrans.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvTrans.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.DgvTrans.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.DgvTrans.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.DgvTrans.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.DgvTrans.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.DgvTrans.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DgvTrans.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            this.DgvTrans.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DgvTrans.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.DgvTrans.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.DgvTrans.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.DgvTrans.ThemeStyle.HeaderStyle.Height = 23;
-            this.DgvTrans.ThemeStyle.ReadOnly = true;
-            this.DgvTrans.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
-            this.DgvTrans.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DgvTrans.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.DgvTrans.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.DgvTrans.ThemeStyle.RowsStyle.Height = 22;
-            this.DgvTrans.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
-            this.DgvTrans.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVTransacciones.DefaultCellStyle = dataGridViewCellStyle9;
+            this.DGVTransacciones.EnableHeadersVisualStyles = false;
+            this.DGVTransacciones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.DGVTransacciones.Location = new System.Drawing.Point(480, 264);
+            this.DGVTransacciones.Name = "DGVTransacciones";
+            this.DGVTransacciones.ReadOnly = true;
+            this.DGVTransacciones.RowHeadersVisible = false;
+            this.DGVTransacciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DGVTransacciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVTransacciones.Size = new System.Drawing.Size(725, 199);
+            this.DGVTransacciones.TabIndex = 69;
+            this.DGVTransacciones.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
+            this.DGVTransacciones.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.DGVTransacciones.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.DGVTransacciones.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.DGVTransacciones.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.DGVTransacciones.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.DGVTransacciones.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.DGVTransacciones.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
+            this.DGVTransacciones.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            this.DGVTransacciones.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DGVTransacciones.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.DGVTransacciones.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.DGVTransacciones.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVTransacciones.ThemeStyle.HeaderStyle.Height = 23;
+            this.DGVTransacciones.ThemeStyle.ReadOnly = true;
+            this.DGVTransacciones.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            this.DGVTransacciones.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.DGVTransacciones.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.DGVTransacciones.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.DGVTransacciones.ThemeStyle.RowsStyle.Height = 22;
+            this.DGVTransacciones.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            this.DGVTransacciones.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
             // label8
             // 
@@ -721,36 +751,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Medicamento
-            // 
-            this.Medicamento.HeaderText = "Medicamento";
-            this.Medicamento.Name = "Medicamento";
-            this.Medicamento.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
             // btnValidarDni
             // 
             this.btnValidarDni.BorderRadius = 10;
@@ -776,27 +776,27 @@
             this.Controls.Add(this.btnValidarDni);
             this.Controls.Add(this.BtnImprimir);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.DgvTrans);
+            this.Controls.Add(this.DGVTransacciones);
             this.Controls.Add(this.TotalLbl);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.DgvCuenta);
+            this.Controls.Add(this.DGVCuenta);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.BtnRegistrar);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.DgvMedicamentos);
-            this.Controls.Add(this.txtNomMedi);
+            this.Controls.Add(this.DGVMedicamentos);
+            this.Controls.Add(this.NomMedTb);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.PrecMedTb);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtC);
+            this.Controls.Add(this.CantMedTb);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtDni);
+            this.Controls.Add(this.CedCliTb);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTel);
+            this.Controls.Add(this.TelCliTb);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtApeC);
+            this.Controls.Add(this.ApeCliTb);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNomC);
+            this.Controls.Add(this.NomCliTb);
             this.Controls.Add(this.lblNomC);
             this.Controls.Add(this.panelTitleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -807,9 +807,9 @@
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvMedicamentos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvCuenta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvTrans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVMedicamentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVCuenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVTransacciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -821,28 +821,28 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private System.Windows.Forms.Label lblFact;
         private Guna.UI2.WinForms.Guna2CirclePictureBox BtnClose;
-        private Guna.UI2.WinForms.Guna2TextBox txtApeC;
+        private Guna.UI2.WinForms.Guna2TextBox ApeCliTb;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2TextBox txtNomC;
+        private Guna.UI2.WinForms.Guna2TextBox NomCliTb;
         private System.Windows.Forms.Label lblNomC;
-        private Guna.UI2.WinForms.Guna2TextBox txtDni;
+        private Guna.UI2.WinForms.Guna2TextBox CedCliTb;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox txtTel;
+        private Guna.UI2.WinForms.Guna2TextBox TelCliTb;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox txtPrecio;
+        private Guna.UI2.WinForms.Guna2TextBox PrecMedTb;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2TextBox txtC;
+        private Guna.UI2.WinForms.Guna2TextBox CantMedTb;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2TextBox txtNomMedi;
+        private Guna.UI2.WinForms.Guna2TextBox NomMedTb;
         private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2DataGridView DgvMedicamentos;
+        private Guna.UI2.WinForms.Guna2DataGridView DGVMedicamentos;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2Button BtnRegistrar;
         private Guna.UI2.WinForms.Guna2Button BtnAgregar;
-        private Guna.UI2.WinForms.Guna2DataGridView DgvCuenta;
+        private Guna.UI2.WinForms.Guna2DataGridView DGVCuenta;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label TotalLbl;
-        private Guna.UI2.WinForms.Guna2DataGridView DgvTrans;
+        private Guna.UI2.WinForms.Guna2DataGridView DGVTransacciones;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblNomVen;
         private Guna.UI2.WinForms.Guna2Button BtnImprimir;
