@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FarmaciaModelStoreContainer" CdmEntityContainer="FarmaciaEntities">
+    <EntitySetMapping Name="TblCliente">
+      <EntityTypeMapping TypeName="FarmaciaModel.TblCliente">
+        <MappingFragment StoreEntitySet="TblCliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+          <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+          <ScalarProperty Name="TelCliente" ColumnName="TelCliente" />
+          <ScalarProperty Name="CedCliente" ColumnName="CedCliente" />
+          <ScalarProperty Name="TotalComp" ColumnName="TotalComp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCuentas">
+      <EntityTypeMapping TypeName="FarmaciaModel.TblCuentas">
+        <MappingFragment StoreEntitySet="TblCuentas">
+          <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+          <ScalarProperty Name="NumFact" ColumnName="NumFact" />
+          <ScalarProperty Name="NomVen" ColumnName="NomVen" />
+          <ScalarProperty Name="NomMed" ColumnName="NomMed" />
+          <ScalarProperty Name="CantMed" ColumnName="CantMed" />
+          <ScalarProperty Name="PrecioMed" ColumnName="PrecioMed" />
+          <ScalarProperty Name="TotalCuenta" ColumnName="TotalCuenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblFabricante">
+      <EntityTypeMapping TypeName="FarmaciaModel.TblFabricante">
+        <MappingFragment StoreEntitySet="TblFabricante">
+          <ScalarProperty Name="FabId" ColumnName="FabId" />
+          <ScalarProperty Name="NomFab" ColumnName="NomFab" />
+          <ScalarProperty Name="DirFab" ColumnName="DirFab" />
+          <ScalarProperty Name="CedulaFab" ColumnName="CedulaFab" />
+          <ScalarProperty Name="TelFab" ColumnName="TelFab" />
+          <ScalarProperty Name="FechaInFab" ColumnName="FechaInFab" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblFactura">
+      <EntityTypeMapping TypeName="FarmaciaModel.TblFactura">
+        <MappingFragment StoreEntitySet="TblFactura">
+          <ScalarProperty Name="FacId" ColumnName="FacId" />
+          <ScalarProperty Name="NomVen" ColumnName="NomVen" />
+          <ScalarProperty Name="NomCliente" ColumnName="NomCliente" />
+          <ScalarProperty Name="ApeCliente" ColumnName="ApeCliente" />
+          <ScalarProperty Name="TelCliente" ColumnName="TelCliente" />
+          <ScalarProperty Name="CedCliente" ColumnName="CedCliente" />
+          <ScalarProperty Name="FactFecha" ColumnName="FactFecha" />
+          <ScalarProperty Name="FactCantidad" ColumnName="FactCantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMedicamentos">
+      <EntityTypeMapping TypeName="FarmaciaModel.TblMedicamentos">
+        <MappingFragment StoreEntitySet="TblMedicamentos">
+          <ScalarProperty Name="NumMed" ColumnName="NumMed" />
+          <ScalarProperty Name="NomMed" ColumnName="NomMed" />
+          <ScalarProperty Name="TipoMed" ColumnName="TipoMed" />
+          <ScalarProperty Name="CantMed" ColumnName="CantMed" />
+          <ScalarProperty Name="PrecioMed" ColumnName="PrecioMed" />
+          <ScalarProperty Name="FabMedId" ColumnName="FabMedId" />
+          <ScalarProperty Name="FabricanteMed" ColumnName="FabricanteMed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblVendedor">
+      <EntityTypeMapping TypeName="FarmaciaModel.TblVendedor">
+        <MappingFragment StoreEntitySet="TblVendedor">
+          <ScalarProperty Name="IdVen" ColumnName="IdVen" />
+          <ScalarProperty Name="NomVen" ColumnName="NomVen" />
+          <ScalarProperty Name="FechaNacVen" ColumnName="FechaNacVen" />
+          <ScalarProperty Name="TelVen" ColumnName="TelVen" />
+          <ScalarProperty Name="DirVen" ColumnName="DirVen" />
+          <ScalarProperty Name="CedulaVen" ColumnName="CedulaVen" />
+          <ScalarProperty Name="GenVen" ColumnName="GenVen" />
+          <ScalarProperty Name="ContraVen" ColumnName="ContraVen" />
+          <ScalarProperty Name="SueldoVen" ColumnName="SueldoVen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FarmaciaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TblCliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApeCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TelCliente" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CedCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TotalComp" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCuentas">
+    <Key>
+      <PropertyRef Name="IdCuenta" />
+    </Key>
+    <Property Name="IdCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumFact" Type="Int32" Nullable="false" />
+    <Property Name="NomVen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NomMed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CantMed" Type="Int32" Nullable="false" />
+    <Property Name="PrecioMed" Type="Int32" Nullable="false" />
+    <Property Name="TotalCuenta" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblFabricante">
+    <Key>
+      <PropertyRef Name="FabId" />
+    </Key>
+    <Property Name="FabId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomFab" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DirFab" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CedulaFab" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TelFab" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaInFab" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="TblFactura">
+    <Key>
+      <PropertyRef Name="FacId" />
+    </Key>
+    <Property Name="FacId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomVen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NomCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApeCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TelCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CedCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FactFecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FactCantidad" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMedicamentos">
+    <Key>
+      <PropertyRef Name="NumMed" />
+    </Key>
+    <Property Name="NumMed" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomMed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoMed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CantMed" Type="Int32" Nullable="false" />
+    <Property Name="PrecioMed" Type="Int32" Nullable="false" />
+    <Property Name="FabMedId" Type="Int32" Nullable="false" />
+    <Property Name="FabricanteMed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblVendedor">
+    <Key>
+      <PropertyRef Name="IdVen" />
+    </Key>
+    <Property Name="IdVen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomVen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaNacVen" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TelVen" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DirVen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CedulaVen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GenVen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContraVen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SueldoVen" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FarmaciaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TblCliente" EntityType="Self.TblCliente" />
+    <EntitySet Name="TblCuentas" EntityType="Self.TblCuentas" />
+    <EntitySet Name="TblFabricante" EntityType="Self.TblFabricante" />
+    <EntitySet Name="TblFactura" EntityType="Self.TblFactura" />
+    <EntitySet Name="TblMedicamentos" EntityType="Self.TblMedicamentos" />
+    <EntitySet Name="TblVendedor" EntityType="Self.TblVendedor" />
+  </EntityContainer>
+</Schema>
