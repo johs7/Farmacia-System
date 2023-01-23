@@ -12,6 +12,7 @@ using WindowsFormsApp1.Clases;
 using WindowsFormsApp1.AppModel;
 using System.Windows.Media;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Net.WebRequestMethods;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -109,6 +110,61 @@ namespace WindowsFormsApp1.Formularios
                 return true;
             }
         }
+        private bool TamañoMinimoTelefono()
+        {
+            if (txtTel.Text.Length < 8)
+            {
+                Error.SetError(txtTel, "Debe escribir el tamaño minimo de caracteres");
+                return false;
+            }
+            else
+            {
+                Error.SetError(txtTel, "");
+                return true;
+            }
+        }
+        private bool ValidarDni()
+        {
+            if (string.IsNullOrEmpty(txtDni.Text))
+            {
+                Error.SetError(txtDni, "Debe Escribir la cedula del fabricante");
+                return false;
+            }
+            else
+            {
+                Error.SetError(txtDni, "");
+                return true;
+            }
+        }
+        private bool ValidarDirec()
+        {
+            if (string.IsNullOrEmpty(txtDirec.Text))
+            {
+                Error.SetError(txtDirec, "Debe Escribir la direccion del vendedor");
+                return false;
+            }
+            else
+            {
+                Error.SetError(txtDirec, "");
+                return true;
+            }
+        }
+        private bool ValidarFecha()
+        {
+            DateTime hoy = DateTime.Today;
+            if (dtpNac.Value.Date > hoy)
+            {
+                Error.SetError(dtpNac, "Debe Escribir una fecha presente o pasada");
+                return false;
+            }
+            else
+            {
+                Error.SetError(dtpNac, "");
+                return true;
+            }
+
+        }
+
         private void panelContainer_Paint(object sender, PaintEventArgs e)
         {
 
@@ -142,6 +198,25 @@ namespace WindowsFormsApp1.Formularios
         {
             try
             {
+                if (TamañoMinimoTelefono() == false)
+                {
+                    return;
+                }
+                if (ValidarNombre() == false)
+                {
+                    return;
+                }
+                if (ValidarDni() == false)
+                {
+                    return;
+                }
+                if (ValidarDirec() == false)
+                {
+                    return;
+                }
+                íf(ValidarFecha() == false){
+                    return;
+                }
                 TblFabricante fab = new TblFabricante();
                 fab.NomFab = txtNomFab.Text;
                 fab.DirFab = txtDirec.Text;
@@ -231,6 +306,86 @@ namespace WindowsFormsApp1.Formularios
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloNumeros(e);
+        }
+
+        private void txtDni_Validating(object sender, CancelEventArgs e)
+        {
+              //____________________________Validar Longitud_________________________
+
+            if (string.IsNullOrEmpty(txtDni.Text) || txtDni.Text.ToString().Length < 16 || txtDni.Text.ToString().Length > 16)
+            {
+                Error.SetError(txtDni, "La longitud minima es 16");
+                txtDni.Text = string.Empty;
+                return;
+            }
+
+            //_______________________________Validar Solo Numeros_________________________
+
+            if (!txtDni.Text.Substring(0, 3).All(char.IsDigit))
+            { 
+                Error.SetError(txtDni, "Formato incorrecto");
+                txtDni.Text = string.Empty;
+                return;
+            }
+
+            if (!txtDni.Text.Substring(4, 6).All(char.IsDigit))
+            {
+                Error.SetError(txtDni, "Formato incorrecto");
+                txtDni.Text = string.Empty;
+                return;
+            }
+
+            if (!txtDni.Text.Substring(11, 4).All(char.IsDigit))
+            {
+                Error.SetError(txtDni, "Formato incorrecto");
+                txtDni.Text = string.Empty;
+                return;
+            }
+
+            //________________________VAlidar DIa, mes, año____________________________
+
+            int Validia = Convert.ToInt32(txtDni.Text.Substring(4, 2));
+
+            if (Validia > 31 || Validia < 01)
+            {
+                Error.SetError(txtDni, "Formato del dia incorrecto");
+                txtDni.Text = string.Empty;
+                return;
+            }
+
+            int ValiMes = Convert.ToInt32(txtDni.Text.Substring(6, 2));
+
+            if (ValiMes > 09 || ValiMes > 12)
+            {
+                Error.SetError(txtDni, "Formato del mes incorrecto");
+                txtDni.Text = string.Empty;
+                return;
+            }
+
+            //________________________Ultima Letra_______________________________________
+   if (!char.IsLetter(txtDni.Text.Last()))
+            {
+                Error.SetError(txtDni, "Formato incorrecto");
+               txtDni.Text = string.Empty;
+                return;
+            }
+
+            //________________________Validar Guiones__________________________________________
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDni.Text.Substring(3, 1), "[-]"))
+            {
+                Error.SetError(txtDni, "Formato incorrecto");
+                txtDni.Text = string.Empty;
+                return;
+            }
+
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDni.Text.Substring(10, 1), "[-]"))
+            {
+                Error.SetError(txtDni, "Formato incorrecto");
+                txtDni.Text = string.Empty;
+                return;
+            }
         }
     }
 }
