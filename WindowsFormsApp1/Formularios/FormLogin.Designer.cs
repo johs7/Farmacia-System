@@ -38,7 +38,7 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnAdmin = new Guna.UI2.WinForms.Guna2Button();
             this.txtPass = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtUser = new Bunifu.UI.WinForms.BunifuTextBox();
             this.BtnLogin = new Guna.UI2.WinForms.Guna2Button();
@@ -54,7 +54,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.guna2Button1);
+            this.panel1.Controls.Add(this.BtnAdmin);
             this.panel1.Controls.Add(this.txtPass);
             this.panel1.Controls.Add(this.txtUser);
             this.panel1.Controls.Add(this.BtnLogin);
@@ -63,25 +63,25 @@
             this.panel1.Size = new System.Drawing.Size(301, 237);
             this.panel1.TabIndex = 1;
             // 
-            // guna2Button1
+            // BtnAdmin
             // 
-            this.guna2Button1.BorderColor = System.Drawing.Color.CadetBlue;
-            this.guna2Button1.BorderThickness = 2;
-            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.Color.LimeGreen;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.SlateBlue;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(81, 199);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(120, 31);
-            this.guna2Button1.TabIndex = 3;
-            this.guna2Button1.Text = "Administrador";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.BtnAdmin.BorderColor = System.Drawing.Color.CadetBlue;
+            this.BtnAdmin.BorderThickness = 2;
+            this.BtnAdmin.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton;
+            this.BtnAdmin.CheckedState.Parent = this.BtnAdmin;
+            this.BtnAdmin.CustomImages.Parent = this.BtnAdmin;
+            this.BtnAdmin.FillColor = System.Drawing.Color.Transparent;
+            this.BtnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAdmin.ForeColor = System.Drawing.Color.LimeGreen;
+            this.BtnAdmin.HoverState.FillColor = System.Drawing.Color.SlateBlue;
+            this.BtnAdmin.HoverState.Parent = this.BtnAdmin;
+            this.BtnAdmin.Location = new System.Drawing.Point(81, 199);
+            this.BtnAdmin.Name = "BtnAdmin";
+            this.BtnAdmin.ShadowDecoration.Parent = this.BtnAdmin;
+            this.BtnAdmin.Size = new System.Drawing.Size(120, 31);
+            this.BtnAdmin.TabIndex = 3;
+            this.BtnAdmin.Text = "Administrador";
+            this.BtnAdmin.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // txtPass
             // 
@@ -325,7 +325,7 @@
         private Bunifu.UI.WinForms.BunifuTextBox txtUser;
         private Guna.UI2.WinForms.Guna2Button BtnLogin;
         private Guna.UI2.WinForms.Guna2CirclePictureBox BtnClose;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button BtnAdmin;
     }
 }
 

@@ -95,3 +95,4 @@ C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFo
 C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Formularios.FormClientes.resources
 C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Formularios.FormMedicamentos.resources
 C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Formularios.FormFabricante.resources
+C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Formularios.FormFactura.resources

@@ -197,6 +197,9 @@ namespace WindowsFormsApp1.Formularios
             DgvCuentas.DataSource = ds.Tables[0];
             Con.Close();
         }
+
+   
+
     }
     }
 

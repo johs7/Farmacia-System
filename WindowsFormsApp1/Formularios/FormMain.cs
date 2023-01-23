@@ -17,6 +17,7 @@ namespace WindowsFormsApp1.Formularios
 {
     public partial class FormMain : Form
     {
+        SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
         //Fields
         private int borderRadius = 20;
         private int borderSize = 2;
@@ -134,7 +135,7 @@ namespace WindowsFormsApp1.Formularios
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-
+            SumCant();
         }
 
         private void FormMain_Paint(object sender, PaintEventArgs e)
@@ -163,7 +164,15 @@ namespace WindowsFormsApp1.Formularios
         {
             this.Invalidate();
         }
-
+        private void SumCant()
+        {
+            Con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select Sum(FactCantidad) from TblFactura", Con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            lblCantV.Text = "C$ " + dt.Rows[0][0].ToString();
+            Con.Close();
+        }
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();

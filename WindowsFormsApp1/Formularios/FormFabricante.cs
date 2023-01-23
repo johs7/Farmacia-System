@@ -33,7 +33,7 @@ namespace WindowsFormsApp1.Formularios
             Formularios.FormAlert frm = new Formularios.FormAlert();
             frm.showAlert(msg, type);
         }
-        public TblFabricante Update()
+       new public TblFabricante Update()
         {
             int id = int.Parse(txtBuscar.Text);
            TblFabricante fab = op.Buscar(id);
@@ -214,7 +214,7 @@ namespace WindowsFormsApp1.Formularios
                 {
                     return;
                 }
-                íf(ValidarFecha() == false){
+                if (ValidarFecha() == false){
                     return;
                 }
                 TblFabricante fab = new TblFabricante();
@@ -386,6 +386,11 @@ namespace WindowsFormsApp1.Formularios
                 txtDni.Text = string.Empty;
                 return;
             }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumeros(e);
         }
     }
 }

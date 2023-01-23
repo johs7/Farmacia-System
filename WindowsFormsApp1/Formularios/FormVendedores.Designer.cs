@@ -347,6 +347,7 @@
             this.txtSal.ShadowDecoration.Parent = this.txtSal;
             this.txtSal.Size = new System.Drawing.Size(67, 29);
             this.txtSal.TabIndex = 41;
+            this.txtSal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSal_KeyPress);
             // 
             // lblSal
             // 
@@ -516,6 +517,8 @@
             this.txtDni.ShadowDecoration.Parent = this.txtDni;
             this.txtDni.Size = new System.Drawing.Size(145, 29);
             this.txtDni.TabIndex = 31;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
+            this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
             // 
             // txtTel
             // 

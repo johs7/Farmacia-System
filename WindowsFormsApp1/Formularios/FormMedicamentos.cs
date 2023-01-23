@@ -193,7 +193,7 @@ namespace WindowsFormsApp1.Formularios
             CmbFabricante.DropDownStyle= ComboBoxStyle.DropDownList;
             CargarDatos();
         }
-        public TblMedicamentos Update()
+       new public TblMedicamentos Update()
         {
             int id = int.Parse(txtBuscar.Text);
            TblMedicamentos med = op.Buscar(id);
@@ -249,6 +249,8 @@ namespace WindowsFormsApp1.Formularios
         private void txtNombreMed_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
+            txtNombreMed.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombreMed.Text);
+            txtNombreMed.SelectionStart = txtNombreMed.Text.Length;
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -264,6 +266,8 @@ namespace WindowsFormsApp1.Formularios
         private void txtNomFabricante_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
+             txtNomFabricante.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNomFabricante.Text);
+            txtNomFabricante.SelectionStart = txtNomFabricante.Text.Length;
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
@@ -353,6 +357,11 @@ namespace WindowsFormsApp1.Formularios
         private void CmbFabricante_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ObtenerNomFab();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumeros(e);
         }
     }
     }
