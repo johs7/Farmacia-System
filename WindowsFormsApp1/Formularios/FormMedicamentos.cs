@@ -283,7 +283,7 @@ namespace WindowsFormsApp1.Formularios
                     txtCantidad.Text = ven.CantMed.ToString();
                      txtPrecio.Text = ven.PrecioMed.ToString();
                     CmbFabricante.Text=ven.FabMedId.ToString();
-                    txtNombreMed.Text=ven.FabricanteMed;
+                    txtNomFabricante.Text=ven.FabricanteMed;
                 }
                 else
                     this.Alert("No se pudo encontrar el registro", FormAlert.enmType.Error);

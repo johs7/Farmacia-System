@@ -162,21 +162,7 @@ namespace WindowsFormsApp1.Formularios
                 return true;
             }
         }
-        private bool ValidarFecha()
-        {
-            DateTime hoy = DateTime.Today;
-            if (dtpNac.Value.Date > hoy)
-            {
-                Error.SetError(dtpNac, "Debe Escribir una fecha presente o pasada");
-                return false;
-            }
-            else
-            {
-                Error.SetError(dtpNac, "");
-                return true;
-            }
-
-        }
+     
         private bool ValidarSexo()
         {
             if (string.IsNullOrEmpty(cmbSexo.Text))
@@ -450,6 +436,21 @@ namespace WindowsFormsApp1.Formularios
                 txtDni.Text = string.Empty;
                 return;
             }
+        }
+        private bool ValidarFecha()
+        {
+            DateTime hoy = DateTime.Today;
+            if (dtpNac.Value.AddYears(18) > hoy)
+            {
+                Error.SetError(dtpNac, "Debe ser mayor de edad");
+                return false;
+            }
+            else
+            {
+                Error.SetError(dtpNac, "");
+                return true;
+            }
+
         }
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)

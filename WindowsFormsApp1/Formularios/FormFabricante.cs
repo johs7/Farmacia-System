@@ -392,5 +392,10 @@ namespace WindowsFormsApp1.Formularios
         {
             SoloNumeros(e);
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

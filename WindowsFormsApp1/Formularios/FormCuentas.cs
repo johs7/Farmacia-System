@@ -19,6 +19,7 @@ namespace WindowsFormsApp1.Formularios
    
     public partial class FormCuentas : Form
     {
+        SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
         //Fields
         private int borderRadius = 20;
         private int borderSize = 2;
@@ -188,7 +189,7 @@ namespace WindowsFormsApp1.Formularios
 
         private void FormCuentas_Load(object sender, EventArgs e)
         {
-            SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
+         
             string Query = "select * from TblCuentas";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
             SqlCommandBuilder Builder = new SqlCommandBuilder(sda);

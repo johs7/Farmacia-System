@@ -29,11 +29,140 @@ namespace WindowsFormsApp1.Formularios
         }
         SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
         ClassCliente op = new ClassCliente();
+        ClassFactura op2=new ClassFactura();
+        ClassCuentas op3=new ClassCuentas();
         public void Alert(string msg, Formularios.FormAlert.enmType type)
         {
             Formularios.FormAlert frm = new Formularios.FormAlert();
             frm.showAlert(msg, type);
         }
+        public static void SoloLetras(KeyPressEventArgs v)
+        {
+            if (char.IsLetter(v.KeyChar))
+            {
+
+                v.Handled = false;
+            }
+            else if (char.IsSeparator(v.KeyChar))
+            {
+                v.Handled = false;
+                MessageBox.Show("Espacios no permitidos");
+            }
+            else if (char.IsControl(v.KeyChar))
+            {
+                v.Handled = false;
+            }
+            else
+            {
+
+                v.Handled = true;
+                MessageBox.Show("Digite solo letras porfavor");
+
+            }
+        }
+
+        public static void SoloNumeros(KeyPressEventArgs v)
+        {
+
+            if (char.IsDigit(v.KeyChar))
+            {
+                v.Handled = false;
+            }
+            else if (char.IsSeparator(v.KeyChar))
+            {
+
+                v.Handled = false;
+            }
+            else if (char.IsControl(v.KeyChar))
+            {
+                v.Handled = false;
+            }
+            else
+            {
+                v.Handled = true;
+                MessageBox.Show("Digite solo números porfavor");
+            }
+        }
+        private bool TamañoMinimoTelefono()
+        {
+            if (TelCliTb.Text.Length < 8)
+            {
+                Error.SetError(TelCliTb, "Debe escribir el tamaño minimo de caracteres");
+                return false;
+            }
+            else
+            {
+                Error.SetError(TelCliTb, "");
+                return true;
+            }
+        }
+
+        private bool ValidarNom()
+        {
+            if (string.IsNullOrEmpty(NomCliTb.Text))
+            {
+                Error.SetError(NomCliTb, "Debe Escribir El nombre del cliente");
+                return false;
+            }
+            else
+            {
+                Error.SetError(NomCliTb, "");
+                return true;
+            }
+        }
+        private bool ValidarApe()
+        {
+            if (string.IsNullOrEmpty(ApeCliTb.Text))
+            {
+                Error.SetError(ApeCliTb, "Debe Escribir El apellido del cliente");
+                return false;
+            }
+            else
+            {
+                Error.SetError(ApeCliTb, "");
+                return true;
+            }
+        }
+        private bool ValidarTel()
+        {
+            if (string.IsNullOrEmpty(TelCliTb.Text))
+            {
+                Error.SetError(TelCliTb, "Debe Escribir El telefono del cliente");
+                return false;
+            }
+            else
+            {
+                Error.SetError(TelCliTb, "");
+                return true;
+            }
+        }
+        private bool ValidarCant()
+        {
+            if (string.IsNullOrEmpty(CantMedTb.Text))
+            {
+                Error.SetError(CantMedTb, "Debe Escribir la cantidad de medicamentos");
+                return false;
+            }
+            else
+            {
+                Error.SetError(CantMedTb, "");
+                return true;
+            }
+        }
+        private bool ValidarCedula()
+        {
+            if (string.IsNullOrEmpty(CedCliTb.Text))
+            {
+                Error.SetError(CedCliTb, "Debe Escribir la cedula del cliente");
+                return false;
+            }
+            else
+            {
+                Error.SetError(CedCliTb, "");
+                return true;
+            }
+        }
+        
         private void BloquearCliente()
         {
             NomCliTb.Enabled = false;
@@ -104,25 +233,30 @@ namespace WindowsFormsApp1.Formularios
         private void GuardarCuentas()
         {
             ContFact();
-            Con.Open();
+
       
 
             foreach (DataGridViewRow row in DGVCuenta.Rows)
             {
 
+                TblCuentas cuent=new TblCuentas();
+                cuent.NumFact = ContVentas;
+                cuent.NomVen = lblNomVen.Text;
+                cuent.NomMed = Convert.ToString(row.Cells[1].Value);
+                cuent.CantMed = Convert.ToInt32(row.Cells[2].Value);
+                cuent.PrecioMed=Convert.ToInt32(row.Cells[3].Value);
+                cuent.TotalCuenta = Convert.ToInt32(row.Cells[4].Value);
+                if (op3.Guardar(cuent) == true)
+                {
 
-                SqlCommand cmd = new SqlCommand("insert into TblCuentas(NumFact,NomVen,NomMed,CantMed,PrecioMed,TotalCuenta)values(@NF,@NV,@NM,@CM,@PM,@TC)", Con);
-                cmd.Parameters.AddWithValue("@NF", ContVentas);
-                cmd.Parameters.AddWithValue("@NV", lblNomVen.Text);
-                cmd.Parameters.AddWithValue("@NM", (string)row.Cells[1].Value);
-                cmd.Parameters.AddWithValue("@CM", Convert.ToInt32(row.Cells[2].Value));
-                cmd.Parameters.AddWithValue("@PM", Convert.ToInt32(row.Cells[3].Value));
-                cmd.Parameters.AddWithValue("@TC", Convert.ToInt32(row.Cells[4].Value));
-                cmd.ExecuteNonQuery();
+                    
+                    ShowFact();
+                }
+                else
+                {
 
+                }
             }
-            MessageBox.Show("Detalles de venta guardada.");
-            Con.Close();
         }
 
 
@@ -130,22 +264,25 @@ namespace WindowsFormsApp1.Formularios
        
         private void RegistrarCliente()
         {
-
-
+          
             try
             {
-                Con.Open();
-                SqlCommand cmd = new SqlCommand("insert into TblCliente(NomCliente,ApeCliente,TelCliente,CedCliente,TotalComp)values(@NC,@AC,@TC,@CC,@TT)", Con);
-                cmd.Parameters.AddWithValue("@NC", NomCliTb.Text);
-                cmd.Parameters.AddWithValue("@AC", ApeCliTb.Text);
-                cmd.Parameters.AddWithValue("@TC", TelCliTb.Text);
-                cmd.Parameters.AddWithValue("@CC", CedCliTb.Text);
-                cmd.Parameters.AddWithValue("@TT", GrdTotal);
-                cmd.ExecuteNonQuery();
-                this.Alert("¡Registrado Correctamente!", FormAlert.enmType.Success);
- 
-                 ShowFact();
-                Con.Close();
+
+                TblCliente cl = new TblCliente();
+                cl.NomCliente = NomCliTb.Text;
+                cl.ApeCliente = ApeCliTb.Text;
+                cl.TelCliente = TelCliTb.Text;
+                cl.CedCliente = CedCliTb.Text;
+                cl.TotalComp = GrdTotal;
+                if (op.Guardar(cl) == true)
+                {
+
+                    ShowFact();
+                }
+                else
+                {
+
+                }
 
             }
             catch (Exception Ex)
@@ -157,19 +294,19 @@ namespace WindowsFormsApp1.Formularios
         {
             try
             {
-                Con.Open();
-                SqlCommand cmd = new SqlCommand("insert into TblFactura(NomVen,NomCliente,ApeCliente,TelCliente,CedCliente,FactFecha,FactCantidad)values(@NV,@NC,@AC,@TC,@CC,@FF,@FC)", Con);
-                cmd.Parameters.AddWithValue("@NV", lblNomVen.Text);
-                cmd.Parameters.AddWithValue("@NC", NomCliTb.Text);
-                cmd.Parameters.AddWithValue("@AC", ApeCliTb.Text);
-                cmd.Parameters.AddWithValue("@TC", TelCliTb.Text);
-                cmd.Parameters.AddWithValue("@CC", CedCliTb.Text);
-                cmd.Parameters.AddWithValue("@FF", DateTime.Today.Date);
-                cmd.Parameters.AddWithValue("@FC", GrdTotal);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Factura guardada");
-                Con.Close();
-                ShowFact();
+                TblFactura fct = new TblFactura();
+                fct.NomVen = lblNomVen.Text;
+                fct.NomCliente = NomCliTb.Text;
+                fct.ApeCliente = ApeCliTb.Text;
+                fct.TelCliente = TelCliTb.Text;
+                fct.CedCliente = CedCliTb.Text;
+                fct.FactFecha = DateTime.Today.Date;
+                fct.FactCantidad =  GrdTotal;
+                if (op2.Guardar(fct) == true)
+                {
+                   
+                    ShowFact();
+                }
             }
             catch (Exception Ex)
             {
@@ -222,7 +359,7 @@ namespace WindowsFormsApp1.Formularios
             sda.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                telCliente = (string)dr["TelCliente"];
+                telCliente = Convert.ToString(dr["TelCliente"]);
             }
 
             if (telCliente != TelCliTb.Text)
@@ -348,6 +485,55 @@ namespace WindowsFormsApp1.Formularios
             ApeCliTb.Text = "";
             TelCliTb.Text = "";
         }
+
+        private void NomCliTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloLetras(e);
+            NomCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(NomCliTb.Text);
+            NomCliTb.SelectionStart = NomCliTb.Text.Length;
+        }
+
+        private void ApeCliTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloLetras(e);
+           ApeCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(ApeCliTb.Text);
+            ApeCliTb.SelectionStart = ApeCliTb  .Text.Length;
+        }
+
+        private void TelCliTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumeros(e);
+        }
+
+        private void CantMedTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumeros(e);
+        }
+
+        private void CedCliTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           CedCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(CedCliTb.Text);
+          CedCliTb.SelectionStart = CedCliTb.Text.Length;
+        }
+
+        private void DGVMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            NomMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[1].Value.ToString();
+            //TipMedCb.SelectedItem = DGVMedicamentos.SelectedRows[0].Cells[2].Value.ToString();
+            Stock = Convert.ToInt32(DGVMedicamentos.SelectedRows[0].Cells[3].Value.ToString());
+            PrecMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[4].Value.ToString();
+            //FabMedCb.SelectedValue = DGVMedicamentos.SelectedRows[0].Cells[5].Value.ToString();
+            //FabMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[6].Value.ToString();
+            if (NomMedTb.Text == "")
+            {
+                key = 0;
+            }
+            else
+            {
+                key = Convert.ToInt32(DGVMedicamentos.SelectedRows[0].Cells[0].Value.ToString());
+            }
+        }
+
         int n = 0, GrdTotal = 0;
         int ContCuenta = 0;
         private void BtnAgregar_Click(object sender, EventArgs e)

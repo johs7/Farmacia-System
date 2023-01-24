@@ -34,7 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVendedores));
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.BtnClose = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.DgvCuentas = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panelContainer = new System.Windows.Forms.Panel();
@@ -54,6 +56,7 @@
             this.txtDirec = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.dtpNac = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.txtDni = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTel = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,15 +65,13 @@
             this.txtNombre = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dtpNac = new Bunifu.UI.WinForms.BunifuDatePicker();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.BtnClose = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCuentas)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Error)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -84,6 +85,18 @@
             this.panelTitleBar.Size = new System.Drawing.Size(729, 45);
             this.panelTitleBar.TabIndex = 20;
             // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.icons8_vara_de_esculapio_48;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(284, 0);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(48, 45);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 20;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -95,6 +108,19 @@
             this.label1.Size = new System.Drawing.Size(183, 20);
             this.label1.TabIndex = 19;
             this.label1.Text = "Detalles del vendedor";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Image = global::WindowsFormsApp1.Properties.Resources.icons8_cerrar_ventana_48;
+            this.BtnClose.Location = new System.Drawing.Point(681, 1);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
+            this.BtnClose.Size = new System.Drawing.Size(48, 45);
+            this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnClose.TabIndex = 2;
+            this.BtnClose.TabStop = false;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // label6
             // 
@@ -170,6 +196,7 @@
             // panelContainer
             // 
             this.panelContainer.BackColor = System.Drawing.Color.White;
+            this.panelContainer.Controls.Add(this.guna2Separator1);
             this.panelContainer.Controls.Add(this.DgvCuentas);
             this.panelContainer.Controls.Add(this.txtBuscar);
             this.panelContainer.Controls.Add(this.label11);
@@ -490,6 +517,30 @@
             this.label8.TabIndex = 33;
             this.label8.Text = "Fecha de nacimiento:";
             // 
+            // dtpNac
+            // 
+            this.dtpNac.BackColor = System.Drawing.Color.Transparent;
+            this.dtpNac.BorderRadius = 6;
+            this.dtpNac.Color = System.Drawing.Color.Silver;
+            this.dtpNac.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
+            this.dtpNac.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Right;
+            this.dtpNac.DisabledColor = System.Drawing.Color.Gray;
+            this.dtpNac.DisplayWeekNumbers = false;
+            this.dtpNac.DPHeight = 0;
+            this.dtpNac.FillDatePicker = false;
+            this.dtpNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNac.ForeColor = System.Drawing.Color.Black;
+            this.dtpNac.Icon = ((System.Drawing.Image)(resources.GetObject("dtpNac.Icon")));
+            this.dtpNac.IconColor = System.Drawing.Color.SteelBlue;
+            this.dtpNac.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Left;
+            this.dtpNac.LeftTextMargin = 5;
+            this.dtpNac.Location = new System.Drawing.Point(413, 75);
+            this.dtpNac.MinimumSize = new System.Drawing.Size(4, 32);
+            this.dtpNac.Name = "dtpNac";
+            this.dtpNac.Size = new System.Drawing.Size(220, 32);
+            this.dtpNac.TabIndex = 32;
+            this.dtpNac.Value = new System.DateTime(2023, 1, 25, 0, 0, 0, 0);
+            // 
             // txtDni
             // 
             this.txtDni.BackColor = System.Drawing.Color.Transparent;
@@ -630,54 +681,12 @@
             // 
             this.Error.ContainerControl = this;
             // 
-            // dtpNac
+            // guna2Separator1
             // 
-            this.dtpNac.BackColor = System.Drawing.Color.Transparent;
-            this.dtpNac.BorderRadius = 6;
-            this.dtpNac.Color = System.Drawing.Color.Silver;
-            this.dtpNac.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.dtpNac.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Right;
-            this.dtpNac.DisabledColor = System.Drawing.Color.Gray;
-            this.dtpNac.DisplayWeekNumbers = false;
-            this.dtpNac.DPHeight = 0;
-            this.dtpNac.FillDatePicker = false;
-            this.dtpNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNac.ForeColor = System.Drawing.Color.Black;
-            this.dtpNac.Icon = ((System.Drawing.Image)(resources.GetObject("dtpNac.Icon")));
-            this.dtpNac.IconColor = System.Drawing.Color.SteelBlue;
-            this.dtpNac.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Left;
-            this.dtpNac.LeftTextMargin = 5;
-            this.dtpNac.Location = new System.Drawing.Point(413, 75);
-            this.dtpNac.MinimumSize = new System.Drawing.Size(4, 32);
-            this.dtpNac.Name = "dtpNac";
-            this.dtpNac.Size = new System.Drawing.Size(220, 32);
-            this.dtpNac.TabIndex = 32;
-            this.dtpNac.Value = new System.DateTime(2023, 1, 25, 0, 0, 0, 0);
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.icons8_vara_de_esculapio_48;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(284, 0);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(48, 45);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 20;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Image = global::WindowsFormsApp1.Properties.Resources.icons8_cerrar_ventana_48;
-            this.BtnClose.Location = new System.Drawing.Point(681, 1);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
-            this.BtnClose.Size = new System.Drawing.Size(48, 45);
-            this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BtnClose.TabIndex = 2;
-            this.BtnClose.TabStop = false;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            this.guna2Separator1.Location = new System.Drawing.Point(612, 118);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(117, 10);
+            this.guna2Separator1.TabIndex = 55;
             // 
             // FormVendedores
             // 
@@ -694,12 +703,12 @@
             this.Load += new System.EventHandler(this.FormVendedores_Load);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCuentas)).EndInit();
             this.panelContainer.ResumeLayout(false);
             this.panelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Error)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -739,5 +748,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ErrorProvider Error;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }
 }

@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFabricante));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblMedicamentos = new System.Windows.Forms.Label();
+            this.BtnClose = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.txtTel = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.dtpNac = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.txtDirec = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
@@ -55,15 +58,12 @@
             this.txtNomFab = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.Error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dtpNac = new Bunifu.UI.WinForms.BunifuDatePicker();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.BtnClose = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFabricantes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Error)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -77,6 +77,18 @@
             this.panelTitleBar.Size = new System.Drawing.Size(750, 45);
             this.panelTitleBar.TabIndex = 22;
             // 
+            // guna2CirclePictureBox1
+            // 
+            this.guna2CirclePictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.icons8_vara_de_esculapio_48;
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(294, 0);
+            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(48, 45);
+            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox1.TabIndex = 20;
+            this.guna2CirclePictureBox1.TabStop = false;
+            // 
             // lblMedicamentos
             // 
             this.lblMedicamentos.AutoSize = true;
@@ -88,6 +100,19 @@
             this.lblMedicamentos.Size = new System.Drawing.Size(104, 20);
             this.lblMedicamentos.TabIndex = 19;
             this.lblMedicamentos.Text = "Fabricantes";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Image = global::WindowsFormsApp1.Properties.Resources.icons8_cerrar_ventana_48;
+            this.BtnClose.Location = new System.Drawing.Point(702, 0);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
+            this.BtnClose.Size = new System.Drawing.Size(48, 45);
+            this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnClose.TabIndex = 2;
+            this.BtnClose.TabStop = false;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // panelContainer
             // 
@@ -177,6 +202,30 @@
             this.label8.TabIndex = 57;
             this.label8.Text = "Fecha de ingreso:";
             // 
+            // dtpNac
+            // 
+            this.dtpNac.BackColor = System.Drawing.Color.Transparent;
+            this.dtpNac.BorderRadius = 6;
+            this.dtpNac.Color = System.Drawing.Color.Silver;
+            this.dtpNac.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
+            this.dtpNac.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Right;
+            this.dtpNac.DisabledColor = System.Drawing.Color.Gray;
+            this.dtpNac.DisplayWeekNumbers = false;
+            this.dtpNac.DPHeight = 0;
+            this.dtpNac.FillDatePicker = false;
+            this.dtpNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNac.ForeColor = System.Drawing.Color.Black;
+            this.dtpNac.Icon = ((System.Drawing.Image)(resources.GetObject("dtpNac.Icon")));
+            this.dtpNac.IconColor = System.Drawing.Color.SteelBlue;
+            this.dtpNac.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Left;
+            this.dtpNac.LeftTextMargin = 5;
+            this.dtpNac.Location = new System.Drawing.Point(444, 79);
+            this.dtpNac.MinimumSize = new System.Drawing.Size(4, 32);
+            this.dtpNac.Name = "dtpNac";
+            this.dtpNac.Size = new System.Drawing.Size(220, 32);
+            this.dtpNac.TabIndex = 56;
+            this.dtpNac.Value = new System.DateTime(2023, 1, 31, 0, 0, 0, 0);
+            // 
             // txtDirec
             // 
             this.txtDirec.BackColor = System.Drawing.Color.Transparent;
@@ -261,30 +310,30 @@
             // 
             // DgvFabricantes
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvFabricantes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.DgvFabricantes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvFabricantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvFabricantes.BackgroundColor = System.Drawing.Color.White;
             this.DgvFabricantes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvFabricantes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvFabricantes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvFabricantes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFabricantes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DgvFabricantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvFabricantes.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvFabricantes.DefaultCellStyle = dataGridViewCellStyle6;
             this.DgvFabricantes.EnableHeadersVisualStyles = false;
             this.DgvFabricantes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
             this.DgvFabricantes.Location = new System.Drawing.Point(0, 206);
@@ -484,54 +533,6 @@
             // 
             this.Error.ContainerControl = this;
             // 
-            // dtpNac
-            // 
-            this.dtpNac.BackColor = System.Drawing.Color.Transparent;
-            this.dtpNac.BorderRadius = 6;
-            this.dtpNac.Color = System.Drawing.Color.Silver;
-            this.dtpNac.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.dtpNac.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Right;
-            this.dtpNac.DisabledColor = System.Drawing.Color.Gray;
-            this.dtpNac.DisplayWeekNumbers = false;
-            this.dtpNac.DPHeight = 0;
-            this.dtpNac.FillDatePicker = false;
-            this.dtpNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNac.ForeColor = System.Drawing.Color.Black;
-            this.dtpNac.Icon = ((System.Drawing.Image)(resources.GetObject("dtpNac.Icon")));
-            this.dtpNac.IconColor = System.Drawing.Color.SteelBlue;
-            this.dtpNac.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Left;
-            this.dtpNac.LeftTextMargin = 5;
-            this.dtpNac.Location = new System.Drawing.Point(444, 79);
-            this.dtpNac.MinimumSize = new System.Drawing.Size(4, 32);
-            this.dtpNac.Name = "dtpNac";
-            this.dtpNac.Size = new System.Drawing.Size(220, 32);
-            this.dtpNac.TabIndex = 56;
-            this.dtpNac.Value = new System.DateTime(2023, 1, 31, 0, 0, 0, 0);
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.icons8_vara_de_esculapio_48;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(294, 0);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(48, 45);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox1.TabIndex = 20;
-            this.guna2CirclePictureBox1.TabStop = false;
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Image = global::WindowsFormsApp1.Properties.Resources.icons8_cerrar_ventana_48;
-            this.BtnClose.Location = new System.Drawing.Point(702, 0);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
-            this.BtnClose.Size = new System.Drawing.Size(48, 45);
-            this.BtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BtnClose.TabIndex = 2;
-            this.BtnClose.TabStop = false;
-            // 
             // FormFabricante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -545,12 +546,12 @@
             this.Load += new System.EventHandler(this.FormFabricante_Load);
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
             this.panelContainer.ResumeLayout(false);
             this.panelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFabricantes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Error)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
             this.ResumeLayout(false);
 
         }

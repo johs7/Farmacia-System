@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -62,11 +63,6 @@
             this.BtnRegistrar = new Guna.UI2.WinForms.Guna2Button();
             this.BtnAgregar = new Guna.UI2.WinForms.Guna2Button();
             this.DGVCuenta = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Medicamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTotal = new System.Windows.Forms.Label();
             this.TotalLbl = new System.Windows.Forms.Label();
             this.DGVTransacciones = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -75,12 +71,20 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.btnValidarDni = new Guna.UI2.WinForms.Guna2Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMedicamentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCuenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVTransacciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Error)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -171,6 +175,7 @@
             this.ApeCliTb.ShadowDecoration.Parent = this.ApeCliTb;
             this.ApeCliTb.Size = new System.Drawing.Size(99, 29);
             this.ApeCliTb.TabIndex = 51;
+            this.ApeCliTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApeCliTb_KeyPress);
             // 
             // label2
             // 
@@ -211,6 +216,7 @@
             this.NomCliTb.ShadowDecoration.Parent = this.NomCliTb;
             this.NomCliTb.Size = new System.Drawing.Size(99, 29);
             this.NomCliTb.TabIndex = 49;
+            this.NomCliTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NomCliTb_KeyPress);
             // 
             // lblNomC
             // 
@@ -251,6 +257,7 @@
             this.CedCliTb.ShadowDecoration.Parent = this.CedCliTb;
             this.CedCliTb.Size = new System.Drawing.Size(99, 29);
             this.CedCliTb.TabIndex = 55;
+            this.CedCliTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CedCliTb_KeyPress);
             // 
             // label1
             // 
@@ -284,6 +291,7 @@
             this.TelCliTb.HoverState.Parent = this.TelCliTb;
             this.TelCliTb.Location = new System.Drawing.Point(370, 66);
             this.TelCliTb.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TelCliTb.MaxLength = 8;
             this.TelCliTb.Name = "TelCliTb";
             this.TelCliTb.PasswordChar = '\0';
             this.TelCliTb.PlaceholderText = "";
@@ -291,6 +299,7 @@
             this.TelCliTb.ShadowDecoration.Parent = this.TelCliTb;
             this.TelCliTb.Size = new System.Drawing.Size(99, 29);
             this.TelCliTb.TabIndex = 53;
+            this.TelCliTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TelCliTb_KeyPress);
             // 
             // label3
             // 
@@ -371,6 +380,7 @@
             this.CantMedTb.ShadowDecoration.Parent = this.CantMedTb;
             this.CantMedTb.Size = new System.Drawing.Size(99, 29);
             this.CantMedTb.TabIndex = 57;
+            this.CantMedTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantMedTb_KeyPress);
             // 
             // label5
             // 
@@ -483,6 +493,7 @@
             this.DGVMedicamentos.ThemeStyle.RowsStyle.Height = 22;
             this.DGVMedicamentos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.DGVMedicamentos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DGVMedicamentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVMedicamentos_CellClick);
             this.DGVMedicamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMedicamentos_CellContentClick);
             // 
             // label7
@@ -549,11 +560,11 @@
             this.DGVCuenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DGVCuenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DGVCuenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Medicamento,
-            this.Cantidad,
-            this.Precio,
-            this.Total});
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -594,36 +605,6 @@
             this.DGVCuenta.ThemeStyle.RowsStyle.Height = 22;
             this.DGVCuenta.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.DGVCuenta.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Medicamento
-            // 
-            this.Medicamento.HeaderText = "Medicamento";
-            this.Medicamento.Name = "Medicamento";
-            this.Medicamento.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
             // 
             // lblTotal
             // 
@@ -746,6 +727,7 @@
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
             this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
             this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
             this.printPreviewDialog1.Enabled = true;
             this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
             this.printPreviewDialog1.Name = "printPreviewDialog1";
@@ -767,6 +749,40 @@
             this.btnValidarDni.TabIndex = 72;
             this.btnValidarDni.Text = "Validar cedula";
             this.btnValidarDni.Click += new System.EventHandler(this.btnValidarDni_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Medicamento";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Cantidad";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Precio";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Total";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Error
+            // 
+            this.Error.ContainerControl = this;
             // 
             // FormFactura
             // 
@@ -810,6 +826,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVMedicamentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCuenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVTransacciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Error)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -848,11 +865,13 @@
         private Guna.UI2.WinForms.Guna2Button BtnImprimir;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Medicamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private Guna.UI2.WinForms.Guna2Button btnValidarDni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.ErrorProvider Error;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
