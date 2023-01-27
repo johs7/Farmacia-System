@@ -19,7 +19,7 @@ namespace WindowsFormsApp1.Formularios
         public FormMedicamentos()
         {
             InitializeComponent();
-            ObtenerFabricante();
+    
         }
          ClassMedicamentos op=new ClassMedicamentos();
         public void Alert(string msg, Formularios.FormAlert.enmType type)
@@ -34,6 +34,20 @@ namespace WindowsFormsApp1.Formularios
             DataTable dt = new DataTable();
             adaptador.Fill(dt);
             DgvMedicamentos.DataSource = dt;
+        }
+        private void CargarID()
+        {
+           Con.Open();
+
+            string consulta = "Select*from TblMedicamentos where NumMed='" + txtBuscar.Text + "'";
+            SqlDataAdapter adaptador = new SqlDataAdapter(consulta,Con);
+            DataTable dt = new DataTable();
+            adaptador.Fill(dt);
+          DgvMedicamentos.DataSource = dt;
+            SqlCommand comando = new SqlCommand(consulta,Con);
+            SqlDataReader lector;
+            lector = comando.ExecuteReader();
+            Con.Close();
         }
         public static void SoloLetras(KeyPressEventArgs v)
         {
@@ -191,6 +205,8 @@ namespace WindowsFormsApp1.Formularios
         {
             cmbTipoMed.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbFabricante.DropDownStyle= ComboBoxStyle.DropDownList;
+            ObtenerFabricante();
+            CmbFabricante_SelectionChangeCommitted(sender,e);
             CargarDatos();
         }
        new public TblMedicamentos Update()
@@ -274,6 +290,7 @@ namespace WindowsFormsApp1.Formularios
         {
             try
             {
+               
                 TblMedicamentos ven = op.Buscar(int.Parse(txtBuscar.Text));
                 if (ven != null)
                 {

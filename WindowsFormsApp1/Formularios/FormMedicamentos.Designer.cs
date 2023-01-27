@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblMedicamentos = new System.Windows.Forms.Label();
@@ -41,7 +41,6 @@
             this.cmbTipoMed = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblTipMed = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
             this.llbIdBus = new System.Windows.Forms.Label();
             this.DgvMedicamentos = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -71,8 +70,11 @@
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.DarkBlue;
             this.panelTitleBar.Controls.Add(this.guna2CirclePictureBox1);
+            this.panelTitleBar.Controls.Add(this.txtBuscar);
             this.panelTitleBar.Controls.Add(this.lblMedicamentos);
+            this.panelTitleBar.Controls.Add(this.llbIdBus);
             this.panelTitleBar.Controls.Add(this.BtnClose);
+            this.panelTitleBar.Controls.Add(this.BtnBuscar);
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(695, 45);
@@ -81,7 +83,7 @@
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.icons8_vara_de_esculapio_48;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(208, 0);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(141, 0);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.ShadowDecoration.Parent = this.guna2CirclePictureBox1;
@@ -96,7 +98,7 @@
             this.lblMedicamentos.BackColor = System.Drawing.Color.Transparent;
             this.lblMedicamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMedicamentos.ForeColor = System.Drawing.Color.White;
-            this.lblMedicamentos.Location = new System.Drawing.Point(274, 12);
+            this.lblMedicamentos.Location = new System.Drawing.Point(200, 12);
             this.lblMedicamentos.Name = "lblMedicamentos";
             this.lblMedicamentos.Size = new System.Drawing.Size(125, 20);
             this.lblMedicamentos.TabIndex = 19;
@@ -197,14 +199,10 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.Controls.Add(this.guna2Separator1);
-            this.panelContainer.Controls.Add(this.txtBuscar);
-            this.panelContainer.Controls.Add(this.llbIdBus);
             this.panelContainer.Controls.Add(this.DgvMedicamentos);
             this.panelContainer.Controls.Add(this.label12);
             this.panelContainer.Controls.Add(this.BtnEliminar);
             this.panelContainer.Controls.Add(this.BtnEditar);
-            this.panelContainer.Controls.Add(this.BtnBuscar);
             this.panelContainer.Controls.Add(this.BtnRegistrar);
             this.panelContainer.Controls.Add(this.txtNomFabricante);
             this.panelContainer.Controls.Add(this.lblNomFab);
@@ -218,13 +216,6 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(695, 409);
             this.panelContainer.TabIndex = 42;
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.Location = new System.Drawing.Point(415, 87);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(280, 10);
-            this.guna2Separator1.TabIndex = 54;
             // 
             // txtBuscar
             // 
@@ -244,14 +235,14 @@
             this.txtBuscar.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBuscar.HoverState.Parent = this.txtBuscar;
-            this.txtBuscar.Location = new System.Drawing.Point(537, 97);
+            this.txtBuscar.Location = new System.Drawing.Point(410, 9);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PasswordChar = '\0';
             this.txtBuscar.PlaceholderText = "";
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.ShadowDecoration.Parent = this.txtBuscar;
-            this.txtBuscar.Size = new System.Drawing.Size(57, 25);
+            this.txtBuscar.Size = new System.Drawing.Size(84, 25);
             this.txtBuscar.TabIndex = 53;
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
@@ -260,39 +251,39 @@
             this.llbIdBus.AutoSize = true;
             this.llbIdBus.BackColor = System.Drawing.Color.Transparent;
             this.llbIdBus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbIdBus.ForeColor = System.Drawing.Color.DarkBlue;
-            this.llbIdBus.Location = new System.Drawing.Point(433, 100);
+            this.llbIdBus.ForeColor = System.Drawing.Color.DarkGray;
+            this.llbIdBus.Location = new System.Drawing.Point(371, 12);
             this.llbIdBus.Name = "llbIdBus";
-            this.llbIdBus.Size = new System.Drawing.Size(107, 20);
+            this.llbIdBus.Size = new System.Drawing.Size(33, 20);
             this.llbIdBus.TabIndex = 52;
-            this.llbIdBus.Text = "Buscar x ID:";
+            this.llbIdBus.Text = "ID:";
             // 
             // DgvMedicamentos
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvMedicamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.DgvMedicamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DgvMedicamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvMedicamentos.BackgroundColor = System.Drawing.Color.White;
             this.DgvMedicamentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvMedicamentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvMedicamentos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvMedicamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvMedicamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.DgvMedicamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvMedicamentos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvMedicamentos.DefaultCellStyle = dataGridViewCellStyle9;
             this.DgvMedicamentos.EnableHeadersVisualStyles = false;
             this.DgvMedicamentos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
             this.DgvMedicamentos.Location = new System.Drawing.Point(0, 212);
@@ -347,7 +338,7 @@
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnEliminar.HoverState.Parent = this.BtnEliminar;
-            this.BtnEliminar.Location = new System.Drawing.Point(479, 137);
+            this.BtnEliminar.Location = new System.Drawing.Point(426, 137);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.ShadowDecoration.Parent = this.BtnEliminar;
             this.BtnEliminar.Size = new System.Drawing.Size(95, 24);
@@ -364,7 +355,7 @@
             this.BtnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEditar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnEditar.HoverState.Parent = this.BtnEditar;
-            this.BtnEditar.Location = new System.Drawing.Point(376, 138);
+            this.BtnEditar.Location = new System.Drawing.Point(327, 138);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.ShadowDecoration.Parent = this.BtnEditar;
             this.BtnEditar.Size = new System.Drawing.Size(95, 24);
@@ -381,7 +372,7 @@
             this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBuscar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnBuscar.HoverState.Parent = this.BtnBuscar;
-            this.BtnBuscar.Location = new System.Drawing.Point(275, 138);
+            this.BtnBuscar.Location = new System.Drawing.Point(503, 9);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.ShadowDecoration.Parent = this.BtnBuscar;
             this.BtnBuscar.Size = new System.Drawing.Size(95, 24);
@@ -398,7 +389,7 @@
             this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnRegistrar.HoverState.Parent = this.BtnRegistrar;
-            this.BtnRegistrar.Location = new System.Drawing.Point(174, 138);
+            this.BtnRegistrar.Location = new System.Drawing.Point(225, 138);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.ShadowDecoration.Parent = this.BtnRegistrar;
             this.BtnRegistrar.Size = new System.Drawing.Size(95, 24);
@@ -622,6 +613,5 @@
         private System.Windows.Forms.ErrorProvider Error;
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
         private System.Windows.Forms.Label llbIdBus;
-        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }
 }

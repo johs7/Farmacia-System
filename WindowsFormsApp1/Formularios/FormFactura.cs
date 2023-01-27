@@ -519,11 +519,10 @@ namespace WindowsFormsApp1.Formularios
         private void DGVMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             NomMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[1].Value.ToString();
-            //TipMedCb.SelectedItem = DGVMedicamentos.SelectedRows[0].Cells[2].Value.ToString();
+
             Stock = Convert.ToInt32(DGVMedicamentos.SelectedRows[0].Cells[3].Value.ToString());
             PrecMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[4].Value.ToString();
-            //FabMedCb.SelectedValue = DGVMedicamentos.SelectedRows[0].Cells[5].Value.ToString();
-            //FabMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[6].Value.ToString();
+
             if (NomMedTb.Text == "")
             {
                 key = 0;
@@ -534,19 +533,106 @@ namespace WindowsFormsApp1.Formularios
             }
         }
 
+        private void CedCliTb_Validating(object sender, CancelEventArgs e)
+        {
+            //____________________________Validar Longitud_________________________
+
+            if (string.IsNullOrEmpty(CedCliTb.Text) || CedCliTb.Text.ToString().Length < 16 || CedCliTb.Text.ToString().Length > 16)
+            {
+                Error.SetError(CedCliTb, "La longitud minima es 16");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+
+            //_______________________________Validar Solo Numeros_________________________
+
+            if (!CedCliTb.Text.Substring(0, 3).All(char.IsDigit))
+            {
+                Error.SetError(CedCliTb, "Formato incorrecto");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+
+            if (!CedCliTb.Text.Substring(4, 6).All(char.IsDigit))
+            {
+                Error.SetError(CedCliTb, "Formato incorrecto");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+
+            if (!CedCliTb.Text.Substring(11, 4).All(char.IsDigit))
+            {
+                Error.SetError(CedCliTb, "Formato incorrecto");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+
+            //________________________VAlidar DIa, mes, año____________________________
+
+            int Validia = Convert.ToInt32(CedCliTb.Text.Substring(4, 2));
+
+            if (Validia > 31 || Validia < 01)
+            {
+                Error.SetError(CedCliTb, "Formato del dia incorrecto");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+
+            int ValiMes = Convert.ToInt32(CedCliTb.Text.Substring(6, 2));
+
+            if (ValiMes > 09 || ValiMes > 12)
+            {
+                Error.SetError(CedCliTb, "Formato del mes incorrecto");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+
+            //________________________Ultima Letra_______________________________________
+            if (!char.IsLetter(CedCliTb.Text.Last()))
+            {
+                Error.SetError(CedCliTb, "Formato incorrecto");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+
+            //________________________Validar Guiones__________________________________________
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(CedCliTb.Text.Substring(3, 1), "[-]"))
+            {
+                Error.SetError(CedCliTb, "Formato incorrecto");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(CedCliTb.Text.Substring(10, 1), "[-]"))
+            {
+                Error.SetError(CedCliTb, "Formato incorrecto");
+                CedCliTb.Text = string.Empty;
+                return;
+            }
+        }
+
         int n = 0, GrdTotal = 0;
         int ContCuenta = 0;
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-            if (NomCliTb.Text == "" || ApeCliTb.Text == "" || TelCliTb.Text == "" || CedCliTb.Text == "")
-            {
-                MessageBox.Show("Ingrese todos los datos del cliente.");
-            }
+            if (ValidarNom() == false)
+            { return; }
+            if (ValidarApe() == false)
+            { return; }
+            if (ValidarCedula() == false)
+            { return; }
+            if(ValidarCant()==false)
+            { return; }
+            if(ValidarTel() == false)
+            { return; }
+
             else
             {
                 if (CantMedTb.Text == "" || Convert.ToInt32(CantMedTb.Text) > Stock || CantMedTb.Text == "0")
                 {
-                    MessageBox.Show("Ingrese la cantidad correcta");
+                    this.Alert("¡Cantidad incorrecta!", FormAlert.enmType.Error);
                 }
                 else
                 {
