@@ -315,7 +315,8 @@ namespace WindowsFormsApp1.Formularios
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Formularios.FormMain frmP = new Formularios.FormMain();
+            frmP.ShowDialog();
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)

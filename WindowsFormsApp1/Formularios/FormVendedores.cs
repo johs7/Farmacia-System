@@ -355,7 +355,8 @@ namespace WindowsFormsApp1.Formularios
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Formularios.FormMain frmP = new Formularios.FormMain();
+            frmP.ShowDialog();
         }
 
         private void txtDni_Validating(object sender, CancelEventArgs e)

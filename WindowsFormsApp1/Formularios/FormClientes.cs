@@ -1,16 +1,8 @@
-﻿using FontAwesome.Sharp;
+﻿
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using System.Data.SqlClient;
 namespace WindowsFormsApp1.Formularios
 {
@@ -35,17 +27,15 @@ namespace WindowsFormsApp1.Formularios
             DgvClientes.DataSource = ds.Tables[0];
             Con.Close();
         }
-
         private void FormClientes_Load(object sender, EventArgs e)
         {
             CargarDatos();
         }
-
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Formularios.FormMain frmP = new Formularios.FormMain();
+            frmP.ShowDialog();
         }
-
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();

@@ -455,7 +455,8 @@ namespace WindowsFormsApp1.Formularios
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormLogin frmP = new FormLogin();
+            frmP.ShowDialog();
         }
 
       

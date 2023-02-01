@@ -1,27 +1,28 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using WindowsFormsApp1.Formularios;
 
 namespace WindowsFormsApp1
 {
     public partial class FormLogin : Form
     {
-
-
         SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
         public FormLogin()
         {
             InitializeComponent();
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         public void Alert(string msg, Formularios.FormAlert.enmType type)
         {
             Formularios.FormAlert frm = new Formularios.FormAlert();
             frm.showAlert(msg, type);
         }
-
         private void FormLogin_Load(object sender, EventArgs e)
         {
             this.Alert("¡Bienvenido!", Formularios.FormAlert.enmType.Success);
@@ -29,8 +30,6 @@ namespace WindowsFormsApp1
         public static string Usuario = "";
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-
-       
             Con.Open();
             SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from TblVendedor where NomVen='" + txtUser.Text + "'and ContraVen='" + txtPass.Text + "'", Con);
             DataTable dt = new DataTable();
@@ -48,8 +47,6 @@ namespace WindowsFormsApp1
                 this.Alert("¡Credenciales incorrectas!", Formularios.FormAlert.enmType.Error);
                 Con.Close();
             }
-            
-
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
