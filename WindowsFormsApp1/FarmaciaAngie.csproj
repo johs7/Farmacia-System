@@ -396,7 +396,7 @@
     <None Include="webfonts\fa-solid-900.woff2" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="AppModel\App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\all.css" />
@@ -415,10 +415,10 @@
     <Content Include="Content\v4-shims.min.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
-    <Content Include="FarmaciaAngieDB.mdf">
+    <Content Include="DB\FarmaciaAngieDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="FarmaciaAngieDB_log.ldf">
+    <Content Include="DB\FarmaciaAngieDB_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>FarmaciaAngieDB.mdf</DependentUpon>
     </Content>

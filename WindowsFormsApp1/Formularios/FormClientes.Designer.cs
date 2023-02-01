@@ -54,6 +54,7 @@
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(721, 45);
             this.panelTitleBar.TabIndex = 20;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
             // guna2CirclePictureBox1
             // 

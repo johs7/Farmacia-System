@@ -75,6 +75,12 @@ namespace WindowsFormsApp1
         {
             this.Close();
         }
+
+        private void pnlContainer_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }
 

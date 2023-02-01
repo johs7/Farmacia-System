@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using WindowsFormsApp1.AppModel;
 using WindowsFormsApp1.Clases;
+using System.Runtime.InteropServices;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -21,7 +22,11 @@ namespace WindowsFormsApp1.Formularios
             InitializeComponent();
     
         }
-         ClassMedicamentos op=new ClassMedicamentos();
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        ClassMedicamentos op=new ClassMedicamentos();
         public void Alert(string msg, Formularios.FormAlert.enmType type)
         {
             Formularios.FormAlert frm = new Formularios.FormAlert();
@@ -379,6 +384,12 @@ namespace WindowsFormsApp1.Formularios
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloNumeros(e);
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
     }

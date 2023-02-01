@@ -228,5 +228,11 @@ namespace WindowsFormsApp1.Formularios
             Formularios.FormFabricante fm2= new Formularios.FormFabricante();
             fm2.ShowDialog();
         }
+
+        private void Panelbottom_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

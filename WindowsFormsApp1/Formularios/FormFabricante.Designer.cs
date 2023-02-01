@@ -72,10 +72,14 @@
             this.panelTitleBar.Controls.Add(this.guna2CirclePictureBox1);
             this.panelTitleBar.Controls.Add(this.lblMedicamentos);
             this.panelTitleBar.Controls.Add(this.BtnClose);
+            this.panelTitleBar.Controls.Add(this.llbIdBus);
+            this.panelTitleBar.Controls.Add(this.txtBuscar);
+            this.panelTitleBar.Controls.Add(this.BtnBuscar);
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(750, 45);
             this.panelTitleBar.TabIndex = 22;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
             // guna2CirclePictureBox1
             // 
@@ -123,21 +127,18 @@
             this.panelContainer.Controls.Add(this.dtpNac);
             this.panelContainer.Controls.Add(this.txtDirec);
             this.panelContainer.Controls.Add(this.label9);
-            this.panelContainer.Controls.Add(this.txtBuscar);
-            this.panelContainer.Controls.Add(this.llbIdBus);
             this.panelContainer.Controls.Add(this.DgvFabricantes);
             this.panelContainer.Controls.Add(this.label12);
             this.panelContainer.Controls.Add(this.BtnEliminar);
             this.panelContainer.Controls.Add(this.BtnEditar);
-            this.panelContainer.Controls.Add(this.BtnBuscar);
             this.panelContainer.Controls.Add(this.BtnRegistrar);
             this.panelContainer.Controls.Add(this.txtDni);
             this.panelContainer.Controls.Add(this.lblPrecioMed);
             this.panelContainer.Controls.Add(this.txtNomFab);
             this.panelContainer.Controls.Add(this.lblCantidad);
-            this.panelContainer.Location = new System.Drawing.Point(0, 47);
+            this.panelContainer.Location = new System.Drawing.Point(0, 40);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(750, 413);
+            this.panelContainer.Size = new System.Drawing.Size(750, 420);
             this.panelContainer.TabIndex = 43;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
@@ -168,7 +169,6 @@
             this.txtTel.HoverState.Parent = this.txtTel;
             this.txtTel.Location = new System.Drawing.Point(407, 44);
             this.txtTel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtTel.MaxLength = 8;
             this.txtTel.Name = "txtTel";
             this.txtTel.PasswordChar = '\0';
             this.txtTel.PlaceholderText = "";
@@ -285,14 +285,14 @@
             this.txtBuscar.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtBuscar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtBuscar.HoverState.Parent = this.txtBuscar;
-            this.txtBuscar.Location = new System.Drawing.Point(625, 122);
+            this.txtBuscar.Location = new System.Drawing.Point(503, 9);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PasswordChar = '\0';
             this.txtBuscar.PlaceholderText = "";
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.ShadowDecoration.Parent = this.txtBuscar;
-            this.txtBuscar.Size = new System.Drawing.Size(57, 25);
+            this.txtBuscar.Size = new System.Drawing.Size(80, 25);
             this.txtBuscar.TabIndex = 53;
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
@@ -301,12 +301,12 @@
             this.llbIdBus.AutoSize = true;
             this.llbIdBus.BackColor = System.Drawing.Color.Transparent;
             this.llbIdBus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbIdBus.ForeColor = System.Drawing.Color.DarkBlue;
-            this.llbIdBus.Location = new System.Drawing.Point(519, 124);
+            this.llbIdBus.ForeColor = System.Drawing.Color.DarkGray;
+            this.llbIdBus.Location = new System.Drawing.Point(464, 12);
             this.llbIdBus.Name = "llbIdBus";
-            this.llbIdBus.Size = new System.Drawing.Size(107, 20);
+            this.llbIdBus.Size = new System.Drawing.Size(33, 20);
             this.llbIdBus.TabIndex = 52;
-            this.llbIdBus.Text = "Buscar x ID:";
+            this.llbIdBus.Text = "ID:";
             // 
             // DgvFabricantes
             // 
@@ -336,7 +336,7 @@
             this.DgvFabricantes.DefaultCellStyle = dataGridViewCellStyle6;
             this.DgvFabricantes.EnableHeadersVisualStyles = false;
             this.DgvFabricantes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DgvFabricantes.Location = new System.Drawing.Point(0, 206);
+            this.DgvFabricantes.Location = new System.Drawing.Point(2, 204);
             this.DgvFabricantes.Name = "DgvFabricantes";
             this.DgvFabricantes.ReadOnly = true;
             this.DgvFabricantes.RowHeadersVisible = false;
@@ -422,7 +422,7 @@
             this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBuscar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnBuscar.HoverState.Parent = this.BtnBuscar;
-            this.BtnBuscar.Location = new System.Drawing.Point(278, 156);
+            this.BtnBuscar.Location = new System.Drawing.Point(588, 8);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.ShadowDecoration.Parent = this.BtnBuscar;
             this.BtnBuscar.Size = new System.Drawing.Size(95, 24);
@@ -439,7 +439,7 @@
             this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnRegistrar.HoverState.Parent = this.BtnRegistrar;
-            this.BtnRegistrar.Location = new System.Drawing.Point(177, 156);
+            this.BtnRegistrar.Location = new System.Drawing.Point(279, 156);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.ShadowDecoration.Parent = this.BtnRegistrar;
             this.BtnRegistrar.Size = new System.Drawing.Size(95, 24);
@@ -474,6 +474,7 @@
             this.txtDni.ShadowDecoration.Parent = this.txtDni;
             this.txtDni.Size = new System.Drawing.Size(169, 29);
             this.txtDni.TabIndex = 45;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
             // 
             // lblPrecioMed

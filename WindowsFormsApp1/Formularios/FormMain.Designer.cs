@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Panelbottom = new System.Windows.Forms.Panel();
             this.lblCantV = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,7 +48,7 @@
             this.BtnVendedores = new FontAwesome.Sharp.IconButton();
             this.BtnFabricante = new FontAwesome.Sharp.IconButton();
             this.panelContainer.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.Panelbottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -58,7 +58,7 @@
             // panelContainer
             // 
             this.panelContainer.BackColor = System.Drawing.Color.GhostWhite;
-            this.panelContainer.Controls.Add(this.panel1);
+            this.panelContainer.Controls.Add(this.Panelbottom);
             this.panelContainer.Controls.Add(this.panelTitleBar);
             this.panelContainer.Controls.Add(this.label5);
             this.panelContainer.Controls.Add(this.label4);
@@ -76,16 +76,17 @@
             this.panelContainer.TabIndex = 2;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
-            // panel1
+            // Panelbottom
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkBlue;
-            this.panel1.Controls.Add(this.lblCantV);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(1, 446);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(679, 100);
-            this.panel1.TabIndex = 18;
+            this.Panelbottom.BackColor = System.Drawing.Color.DarkBlue;
+            this.Panelbottom.Controls.Add(this.lblCantV);
+            this.Panelbottom.Controls.Add(this.label8);
+            this.Panelbottom.Controls.Add(this.pictureBox1);
+            this.Panelbottom.Location = new System.Drawing.Point(1, 446);
+            this.Panelbottom.Name = "Panelbottom";
+            this.Panelbottom.Size = new System.Drawing.Size(679, 100);
+            this.Panelbottom.TabIndex = 18;
+            this.Panelbottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panelbottom_MouseDown);
             // 
             // lblCantV
             // 
@@ -321,8 +322,8 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);
             this.panelContainer.ResumeLayout(false);
             this.panelContainer.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Panelbottom.ResumeLayout(false);
+            this.Panelbottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
@@ -348,7 +349,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox BtnClose;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Panelbottom;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCantV;
         private System.Windows.Forms.Label label8;

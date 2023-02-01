@@ -65,7 +65,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(7)))), ((int)(((byte)(8)))));
-            this.ClientSize = new System.Drawing.Size(551, 147);
+            this.ClientSize = new System.Drawing.Size(612, 147);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblMsg);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

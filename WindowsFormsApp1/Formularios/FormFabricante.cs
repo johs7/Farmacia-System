@@ -13,6 +13,7 @@ using WindowsFormsApp1.AppModel;
 using System.Windows.Media;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Net.WebRequestMethods;
+using System.Runtime.InteropServices;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -28,6 +29,10 @@ namespace WindowsFormsApp1.Formularios
         {
             CargarDatos();
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         public void Alert(string msg, Formularios.FormAlert.enmType type)
         {
             Formularios.FormAlert frm = new Formularios.FormAlert();
@@ -301,6 +306,8 @@ namespace WindowsFormsApp1.Formularios
         private void txtNomFab_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
+            txtNomFab.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNomFab.Text);
+            txtNomFab.SelectionStart = txtNomFab.Text.Length;
         }
 
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
@@ -396,6 +403,18 @@ namespace WindowsFormsApp1.Formularios
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtDni.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtDni.Text);
+            txtDni.SelectionStart = txtDni.Text.Length;
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

@@ -269,6 +269,7 @@
             this.pnlContainer.Quality = 10;
             this.pnlContainer.Size = new System.Drawing.Size(522, 182);
             this.pnlContainer.TabIndex = 0;
+            this.pnlContainer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlContainer_MouseDown);
             // 
             // BtnClose
             // 

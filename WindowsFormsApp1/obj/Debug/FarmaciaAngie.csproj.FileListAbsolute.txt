@@ -96,8 +96,6 @@ C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFo
 C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Formularios.FormMedicamentos.resources
 C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Formularios.FormFabricante.resources
 C:\Users\DELL\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Formularios.FormFactura.resources
-C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\bin\Debug\FarmaciaAngieDB.mdf
-C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\bin\Debug\FarmaciaAngieDB_log.ldf
 C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
@@ -194,3 +192,5 @@ C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\obj\Debug\FarmaciaAngi
 C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\obj\Debug\FarmaciaAngie.csproj.CopyComplete
 C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\bin\Debug\DB\FarmaciaAngieDB.mdf
+C:\Users\DELL\source\repos\Farmacia-repo\WindowsFormsApp1\bin\Debug\DB\FarmaciaAngieDB_log.ldf

@@ -463,6 +463,11 @@ namespace WindowsFormsApp1.Formularios
         {
             SoloNumeros(e);
         }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }
 
