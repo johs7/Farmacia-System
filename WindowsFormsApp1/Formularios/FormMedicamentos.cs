@@ -270,8 +270,7 @@ namespace WindowsFormsApp1.Formularios
         private void txtNombreMed_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
-            txtNombreMed.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombreMed.Text);
-            txtNombreMed.SelectionStart = txtNombreMed.Text.Length;
+          
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -308,15 +307,14 @@ namespace WindowsFormsApp1.Formularios
                     txtNomFabricante.Text=ven.FabricanteMed;
                 }
                 else
-                    this.Alert("No se pudo encontrar el registro", FormAlert.enmType.Error);
+                    this.Alert("No encontrado", FormAlert.enmType.Error); 
             }
-            catch { this.Alert("No se pudo encontrar el registro", FormAlert.enmType.Error); }
+            catch { this.Alert("No encontrado", FormAlert.enmType.Error); }
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            Formularios.FormMain frmP = new Formularios.FormMain();
-            frmP.ShowDialog();
+            this.Close();
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -391,6 +389,17 @@ namespace WindowsFormsApp1.Formularios
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void txtNombreMed_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtNomFabricante_TextChanged(object sender, EventArgs e)
+        {
+            txtNombreMed.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombreMed.Text);
+            txtNombreMed.SelectionStart = txtNombreMed.Text.Length;
         }
     }
     }

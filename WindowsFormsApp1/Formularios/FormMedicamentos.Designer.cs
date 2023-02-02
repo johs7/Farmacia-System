@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
@@ -77,7 +77,7 @@
             this.panelTitleBar.Controls.Add(this.BtnBuscar);
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(695, 45);
+            this.panelTitleBar.Size = new System.Drawing.Size(724, 45);
             this.panelTitleBar.TabIndex = 21;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -149,7 +149,7 @@
             // BtnClose
             // 
             this.BtnClose.Image = global::WindowsFormsApp1.Properties.Resources.icons8_cerrar_ventana_48;
-            this.BtnClose.Location = new System.Drawing.Point(643, 0);
+            this.BtnClose.Location = new System.Drawing.Point(679, -4);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
@@ -215,6 +215,7 @@
             this.txtNombreMed.ShadowDecoration.Parent = this.txtNombreMed;
             this.txtNombreMed.Size = new System.Drawing.Size(99, 29);
             this.txtNombreMed.TabIndex = 22;
+            this.txtNombreMed.TextChanged += new System.EventHandler(this.txtNombreMed_TextChanged);
             this.txtNombreMed.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMed_KeyPress);
             // 
             // cmbTipoMed
@@ -273,35 +274,35 @@
             this.panelContainer.Controls.Add(this.lblCantidad);
             this.panelContainer.Location = new System.Drawing.Point(0, 44);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(695, 409);
+            this.panelContainer.Size = new System.Drawing.Size(724, 409);
             this.panelContainer.TabIndex = 42;
             // 
             // DgvMedicamentos
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
-            this.DgvMedicamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
+            this.DgvMedicamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvMedicamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvMedicamentos.BackgroundColor = System.Drawing.Color.White;
             this.DgvMedicamentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DgvMedicamentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DgvMedicamentos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvMedicamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvMedicamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DgvMedicamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvMedicamentos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvMedicamentos.DefaultCellStyle = dataGridViewCellStyle6;
             this.DgvMedicamentos.EnableHeadersVisualStyles = false;
             this.DgvMedicamentos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
             this.DgvMedicamentos.Location = new System.Drawing.Point(0, 212);
@@ -310,7 +311,7 @@
             this.DgvMedicamentos.RowHeadersVisible = false;
             this.DgvMedicamentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DgvMedicamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvMedicamentos.Size = new System.Drawing.Size(695, 197);
+            this.DgvMedicamentos.Size = new System.Drawing.Size(724, 197);
             this.DgvMedicamentos.TabIndex = 50;
             this.DgvMedicamentos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
             this.DgvMedicamentos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
@@ -341,7 +342,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label12.Location = new System.Drawing.Point(269, 189);
+            this.label12.Location = new System.Drawing.Point(296, 193);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(194, 20);
             this.label12.TabIndex = 51;
@@ -356,7 +357,7 @@
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnEliminar.HoverState.Parent = this.BtnEliminar;
-            this.BtnEliminar.Location = new System.Drawing.Point(426, 137);
+            this.BtnEliminar.Location = new System.Drawing.Point(453, 141);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.ShadowDecoration.Parent = this.BtnEliminar;
             this.BtnEliminar.Size = new System.Drawing.Size(95, 24);
@@ -373,7 +374,7 @@
             this.BtnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEditar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnEditar.HoverState.Parent = this.BtnEditar;
-            this.BtnEditar.Location = new System.Drawing.Point(327, 138);
+            this.BtnEditar.Location = new System.Drawing.Point(354, 142);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.ShadowDecoration.Parent = this.BtnEditar;
             this.BtnEditar.Size = new System.Drawing.Size(95, 24);
@@ -390,7 +391,7 @@
             this.BtnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegistrar.ForeColor = System.Drawing.Color.Lavender;
             this.BtnRegistrar.HoverState.Parent = this.BtnRegistrar;
-            this.BtnRegistrar.Location = new System.Drawing.Point(225, 138);
+            this.BtnRegistrar.Location = new System.Drawing.Point(252, 142);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.ShadowDecoration.Parent = this.BtnRegistrar;
             this.BtnRegistrar.Size = new System.Drawing.Size(95, 24);
@@ -416,7 +417,7 @@
             this.txtNomFabricante.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtNomFabricante.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNomFabricante.HoverState.Parent = this.txtNomFabricante;
-            this.txtNomFabricante.Location = new System.Drawing.Point(309, 95);
+            this.txtNomFabricante.Location = new System.Drawing.Point(336, 99);
             this.txtNomFabricante.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNomFabricante.Name = "txtNomFabricante";
             this.txtNomFabricante.PasswordChar = '\0';
@@ -425,6 +426,7 @@
             this.txtNomFabricante.ShadowDecoration.Parent = this.txtNomFabricante;
             this.txtNomFabricante.Size = new System.Drawing.Size(99, 29);
             this.txtNomFabricante.TabIndex = 43;
+            this.txtNomFabricante.TextChanged += new System.EventHandler(this.txtNomFabricante_TextChanged);
             this.txtNomFabricante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomFabricante_KeyPress);
             // 
             // lblNomFab
@@ -433,7 +435,7 @@
             this.lblNomFab.BackColor = System.Drawing.Color.Transparent;
             this.lblNomFab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomFab.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblNomFab.Location = new System.Drawing.Point(118, 100);
+            this.lblNomFab.Location = new System.Drawing.Point(145, 104);
             this.lblNomFab.Name = "lblNomFab";
             this.lblNomFab.Size = new System.Drawing.Size(191, 20);
             this.lblNomFab.TabIndex = 43;
@@ -453,7 +455,7 @@
             this.CmbFabricante.HoverState.Parent = this.CmbFabricante;
             this.CmbFabricante.ItemHeight = 30;
             this.CmbFabricante.ItemsAppearance.Parent = this.CmbFabricante;
-            this.CmbFabricante.Location = new System.Drawing.Point(483, 52);
+            this.CmbFabricante.Location = new System.Drawing.Point(510, 56);
             this.CmbFabricante.Name = "CmbFabricante";
             this.CmbFabricante.ShadowDecoration.Parent = this.CmbFabricante;
             this.CmbFabricante.Size = new System.Drawing.Size(140, 36);
@@ -466,7 +468,7 @@
             this.lblFabId.BackColor = System.Drawing.Color.Transparent;
             this.lblFabId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFabId.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblFabId.Location = new System.Drawing.Point(377, 63);
+            this.lblFabId.Location = new System.Drawing.Point(404, 67);
             this.lblFabId.Name = "lblFabId";
             this.lblFabId.Size = new System.Drawing.Size(100, 20);
             this.lblFabId.TabIndex = 43;
@@ -490,7 +492,7 @@
             this.txtPrecio.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtPrecio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrecio.HoverState.Parent = this.txtPrecio;
-            this.txtPrecio.Location = new System.Drawing.Point(271, 59);
+            this.txtPrecio.Location = new System.Drawing.Point(298, 63);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.PasswordChar = '\0';
@@ -507,7 +509,7 @@
             this.lblPrecioMed.BackColor = System.Drawing.Color.Transparent;
             this.lblPrecioMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioMed.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblPrecioMed.Location = new System.Drawing.Point(205, 63);
+            this.lblPrecioMed.Location = new System.Drawing.Point(232, 67);
             this.lblPrecioMed.Name = "lblPrecioMed";
             this.lblPrecioMed.Size = new System.Drawing.Size(64, 20);
             this.lblPrecioMed.TabIndex = 44;
@@ -531,7 +533,7 @@
             this.txtCantidad.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtCantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCantidad.HoverState.Parent = this.txtCantidad;
-            this.txtCantidad.Location = new System.Drawing.Point(99, 58);
+            this.txtCantidad.Location = new System.Drawing.Point(126, 62);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.PasswordChar = '\0';
@@ -548,7 +550,7 @@
             this.lblCantidad.BackColor = System.Drawing.Color.Transparent;
             this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidad.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblCantidad.Location = new System.Drawing.Point(12, 64);
+            this.lblCantidad.Location = new System.Drawing.Point(39, 68);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(86, 20);
             this.lblCantidad.TabIndex = 24;
@@ -562,7 +564,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 450);
+            this.ClientSize = new System.Drawing.Size(724, 450);
             this.Controls.Add(this.cmbTipoMed);
             this.Controls.Add(this.lblTipMed);
             this.Controls.Add(this.lblNomMed);

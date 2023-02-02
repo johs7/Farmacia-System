@@ -14,6 +14,8 @@ using System.Windows.Media;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Net.WebRequestMethods;
 using System.Runtime.InteropServices;
+using System.Globalization;
+using System.Windows.Controls;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -265,9 +267,9 @@ namespace WindowsFormsApp1.Formularios
                    
                 }
                 else
-                    this.Alert("No se pudo encontrar el registro", FormAlert.enmType.Error);
+                    this.Alert("No encontrado", FormAlert.enmType.Error);
             }
-            catch { this.Alert("No se pudo encontrar el registro", FormAlert.enmType.Error); }
+            catch { this.Alert("No encontrado", FormAlert.enmType.Error); }
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -317,82 +319,86 @@ namespace WindowsFormsApp1.Formularios
 
         private void txtDni_Validating(object sender, CancelEventArgs e)
         {
-              //____________________________Validar Longitud_________________________
-
-            if (string.IsNullOrEmpty(txtDni.Text) || txtDni.Text.ToString().Length < 16 || txtDni.Text.ToString().Length > 16)
+           
             {
-                Error.SetError(txtDni, "La longitud minima es 16");
-                txtDni.Text = string.Empty;
-                return;
+                string[] validCombinations = {/*Managua*/ "001", "002", "003", "004", "005", "006", "007", "008", "009", 
+                    /*Nueva segovia*/ "481", "482", "483", "484", "485", "486", "487", "488", "489", "490", "491", "492", "493",
+                    /*Madriz*/"321","322","323","324","325","326","327","328","329",
+                    /*Esteli*/"161","162","163","164","165","166",
+                    /*Leon*/"281","282","283","284","285","286","287","288","289","290","291",
+                    /*Chinandega*/ "081","082","083","084","085","086","087","088","089","090","091","092","093",
+                    /*Granada*/"201","202","203","204",
+                    /*Masaya*/ "401","402","403","404","405","406","407","408","409",
+                     /*Carazo*/ "041","042","043","044","045","046","047","048",
+                   /*Rivas*/ "561","562","563","564","565","566","567","568","569","570"
+                   /*Boaco*/
+                   /*Chontales*/
+                   /*Jinotega*/
+                   /*Matagalpa*/
+                   /*RAAN*/
+                   /*RAAS*/
+                   /*RIO SAN JUAN*/
+                };
+                  
+                string cedula = txtDni.Text.Trim();
+                // Verifica si la longitud es correcta
+                if (cedula.Length != 16)
+                {
+                    Error.SetError(txtDni, "La cédula debe tener 16 caracteres.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Verifica si los guiones están en las posiciones correctas
+                if (cedula[3] != '-' || cedula[10] != '-')
+                {
+                    Error.SetError(txtDni, "Los guiones deben estar en las posiciones 4 y 11.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Verifica si el primer tres digitos es una combinación válida
+                string firstThree = cedula.Substring(0, 3);
+                if (!validCombinations.Contains(firstThree))
+                {
+                    Error.SetError(txtDni, "Los primeros 3 dígitos no son válidos.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Verifica si los siguientes 6 digitos es una fecha válida
+                string dateString = cedula.Substring(4, 6);
+                DateTime date;
+                if (!DateTime.TryParseExact(dateString, "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+                {
+                    Error.SetError(txtDni, "Los siguientes 6 dígitos no son una fecha válida.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Verifica si la persona es mayor de 16 años
+                if (DateTime.Now.Subtract(date).TotalDays / 365 < 16)
+                {
+                    Error.SetError(txtDni, "La persona debe ser mayor de 16 años.");
+                    e.Cancel = true;
+
+                    return;
+                }
+
+                // Verifica si el último dígito es una letra
+                char lastChar = cedula[15];
+                if (!char.IsLetter(lastChar))
+                {
+                    Error.SetError(txtDni, "El último caracter debe ser una letra.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Si todas las validaciones pasaron, elimina el error
+                Error.SetError(txtDni, "");
+                e.Cancel = false;
             }
 
-            //_______________________________Validar Solo Numeros_________________________
-
-            if (!txtDni.Text.Substring(0, 3).All(char.IsDigit))
-            { 
-                Error.SetError(txtDni, "Formato incorrecto");
-                txtDni.Text = string.Empty;
-                return;
-            }
-
-            if (!txtDni.Text.Substring(4, 6).All(char.IsDigit))
-            {
-                Error.SetError(txtDni, "Formato incorrecto");
-                txtDni.Text = string.Empty;
-                return;
-            }
-
-            if (!txtDni.Text.Substring(11, 4).All(char.IsDigit))
-            {
-                Error.SetError(txtDni, "Formato incorrecto");
-                txtDni.Text = string.Empty;
-                return;
-            }
-
-            //________________________VAlidar DIa, mes, año____________________________
-
-            int Validia = Convert.ToInt32(txtDni.Text.Substring(4, 2));
-
-            if (Validia > 31 || Validia < 01)
-            {
-                Error.SetError(txtDni, "Formato del dia incorrecto");
-                txtDni.Text = string.Empty;
-                return;
-            }
-
-            int ValiMes = Convert.ToInt32(txtDni.Text.Substring(6, 2));
-
-            if (ValiMes > 09 || ValiMes > 12)
-            {
-                Error.SetError(txtDni, "Formato del mes incorrecto");
-                txtDni.Text = string.Empty;
-                return;
-            }
-
-            //________________________Ultima Letra_______________________________________
-   if (!char.IsLetter(txtDni.Text.Last()))
-            {
-                Error.SetError(txtDni, "Formato incorrecto");
-               txtDni.Text = string.Empty;
-                return;
-            }
-
-            //________________________Validar Guiones__________________________________________
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDni.Text.Substring(3, 1), "[-]"))
-            {
-                Error.SetError(txtDni, "Formato incorrecto");
-                txtDni.Text = string.Empty;
-                return;
-            }
-
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtDni.Text.Substring(10, 1), "[-]"))
-            {
-                Error.SetError(txtDni, "Formato incorrecto");
-                txtDni.Text = string.Empty;
-                return;
-            }
         }
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
@@ -402,20 +408,24 @@ namespace WindowsFormsApp1.Formularios
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            Formularios.FormMain frmP = new Formularios.FormMain();
-            frmP.ShowDialog();
+            this.Close();
         }
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
-            txtDni.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtDni.Text);
-            txtDni.SelectionStart = txtDni.Text.Length;
+
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            txtDni.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtDni.Text);
+            txtDni.SelectionStart = txtDni.Text.Length;
         }
     }
 }

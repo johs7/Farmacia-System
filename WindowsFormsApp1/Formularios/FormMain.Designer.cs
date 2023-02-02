@@ -72,7 +72,7 @@
             this.panelContainer.Controls.Add(this.BtnFabricante);
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(679, 546);
+            this.panelContainer.Size = new System.Drawing.Size(724, 546);
             this.panelContainer.TabIndex = 2;
             this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
@@ -84,7 +84,7 @@
             this.Panelbottom.Controls.Add(this.pictureBox1);
             this.Panelbottom.Location = new System.Drawing.Point(1, 446);
             this.Panelbottom.Name = "Panelbottom";
-            this.Panelbottom.Size = new System.Drawing.Size(679, 100);
+            this.Panelbottom.Size = new System.Drawing.Size(723, 100);
             this.Panelbottom.TabIndex = 18;
             this.Panelbottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panelbottom_MouseDown);
             // 
@@ -130,7 +130,7 @@
             this.panelTitleBar.Controls.Add(this.BtnClose);
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(679, 72);
+            this.panelTitleBar.Size = new System.Drawing.Size(724, 72);
             this.panelTitleBar.TabIndex = 15;
             this.panelTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitleBar_Paint);
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
@@ -160,7 +160,7 @@
             // BtnClose
             // 
             this.BtnClose.Image = global::WindowsFormsApp1.Properties.Resources.icons8_cerrar_ventana_48;
-            this.BtnClose.Location = new System.Drawing.Point(638, -5);
+            this.BtnClose.Location = new System.Drawing.Point(681, -5);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(43, 41);
             this.BtnClose.TabIndex = 0;
@@ -173,7 +173,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label5.Location = new System.Drawing.Point(279, 201);
+            this.label5.Location = new System.Drawing.Point(338, 202);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 20);
             this.label5.TabIndex = 14;
@@ -185,7 +185,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label4.Location = new System.Drawing.Point(487, 280);
+            this.label4.Location = new System.Drawing.Point(546, 281);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 20);
             this.label4.TabIndex = 13;
@@ -197,7 +197,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label3.Location = new System.Drawing.Point(284, 360);
+            this.label3.Location = new System.Drawing.Point(343, 361);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 20);
             this.label3.TabIndex = 12;
@@ -209,7 +209,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label2.Location = new System.Drawing.Point(70, 360);
+            this.label2.Location = new System.Drawing.Point(129, 361);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 11;
@@ -221,7 +221,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label1.Location = new System.Drawing.Point(70, 199);
+            this.label1.Location = new System.Drawing.Point(129, 200);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 20);
             this.label1.TabIndex = 10;
@@ -236,7 +236,7 @@
             this.BtnCuentas.IconColor = System.Drawing.Color.LimeGreen;
             this.BtnCuentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnCuentas.IconSize = 98;
-            this.BtnCuentas.Location = new System.Drawing.Point(12, 100);
+            this.BtnCuentas.Location = new System.Drawing.Point(71, 101);
             this.BtnCuentas.Name = "BtnCuentas";
             this.BtnCuentas.Size = new System.Drawing.Size(181, 132);
             this.BtnCuentas.TabIndex = 2;
@@ -252,7 +252,7 @@
             this.BtnMedic.IconColor = System.Drawing.Color.PaleVioletRed;
             this.BtnMedic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnMedic.IconSize = 80;
-            this.BtnMedic.Location = new System.Drawing.Point(249, 100);
+            this.BtnMedic.Location = new System.Drawing.Point(308, 101);
             this.BtnMedic.Name = "BtnMedic";
             this.BtnMedic.Size = new System.Drawing.Size(181, 132);
             this.BtnMedic.TabIndex = 3;
@@ -268,7 +268,7 @@
             this.BtnClientes.IconColor = System.Drawing.Color.RosyBrown;
             this.BtnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnClientes.IconSize = 98;
-            this.BtnClientes.Location = new System.Drawing.Point(12, 259);
+            this.BtnClientes.Location = new System.Drawing.Point(71, 260);
             this.BtnClientes.Name = "BtnClientes";
             this.BtnClientes.Size = new System.Drawing.Size(181, 132);
             this.BtnClientes.TabIndex = 4;
@@ -284,7 +284,7 @@
             this.BtnVendedores.IconColor = System.Drawing.Color.Crimson;
             this.BtnVendedores.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnVendedores.IconSize = 98;
-            this.BtnVendedores.Location = new System.Drawing.Point(446, 175);
+            this.BtnVendedores.Location = new System.Drawing.Point(505, 176);
             this.BtnVendedores.Name = "BtnVendedores";
             this.BtnVendedores.Size = new System.Drawing.Size(181, 132);
             this.BtnVendedores.TabIndex = 6;
@@ -300,7 +300,7 @@
             this.BtnFabricante.IconColor = System.Drawing.Color.Turquoise;
             this.BtnFabricante.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnFabricante.IconSize = 98;
-            this.BtnFabricante.Location = new System.Drawing.Point(249, 259);
+            this.BtnFabricante.Location = new System.Drawing.Point(308, 260);
             this.BtnFabricante.Name = "BtnFabricante";
             this.BtnFabricante.Size = new System.Drawing.Size(181, 132);
             this.BtnFabricante.TabIndex = 5;
@@ -311,7 +311,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 546);
+            this.ClientSize = new System.Drawing.Size(724, 546);
             this.Controls.Add(this.panelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMain";

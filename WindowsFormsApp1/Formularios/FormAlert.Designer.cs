@@ -42,11 +42,11 @@
             // lblMsg
             // 
             this.lblMsg.AutoSize = true;
-            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsg.ForeColor = System.Drawing.Color.Transparent;
-            this.lblMsg.Location = new System.Drawing.Point(147, 67);
+            this.lblMsg.Location = new System.Drawing.Point(152, 77);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(115, 39);
+            this.lblMsg.Size = new System.Drawing.Size(92, 31);
             this.lblMsg.TabIndex = 0;
             this.lblMsg.Text = "label1";
             // 

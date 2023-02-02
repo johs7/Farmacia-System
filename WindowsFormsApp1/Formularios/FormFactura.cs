@@ -14,7 +14,7 @@ using WindowsFormsApp1.AppModel;
 using WindowsFormsApp1.Clases;
 using System.Windows.Input;
 using System.Drawing.Printing;
-
+using System.Globalization;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -455,8 +455,7 @@ namespace WindowsFormsApp1.Formularios
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            FormLogin frmP = new FormLogin();
-            frmP.ShowDialog();
+            this.Close();
         }
 
       
@@ -490,15 +489,13 @@ namespace WindowsFormsApp1.Formularios
         private void NomCliTb_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
-            NomCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(NomCliTb.Text);
-            NomCliTb.SelectionStart = NomCliTb.Text.Length;
+           
         }
 
         private void ApeCliTb_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
-           ApeCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(ApeCliTb.Text);
-            ApeCliTb.SelectionStart = ApeCliTb  .Text.Length;
+         
         }
 
         private void TelCliTb_KeyPress(object sender, KeyPressEventArgs e)
@@ -513,8 +510,7 @@ namespace WindowsFormsApp1.Formularios
 
         private void CedCliTb_KeyPress(object sender, KeyPressEventArgs e)
         {
-           CedCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(CedCliTb.Text);
-          CedCliTb.SelectionStart = CedCliTb.Text.Length;
+           
         }
 
         private void DGVMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -536,82 +532,102 @@ namespace WindowsFormsApp1.Formularios
 
         private void CedCliTb_Validating(object sender, CancelEventArgs e)
         {
-            //____________________________Validar Longitud_________________________
-
-            if (string.IsNullOrEmpty(CedCliTb.Text) || CedCliTb.Text.ToString().Length < 16 || CedCliTb.Text.ToString().Length > 16)
             {
-                Error.SetError(CedCliTb, "La longitud minima es 16");
-                CedCliTb.Text = string.Empty;
-                return;
+                string[] validCombinations = {/*Managua*/ "001", "002", "003", "004", "005", "006", "007", "008", "009", 
+                    /*Nueva segovia*/ "481", "482", "483", "484", "485", "486", "487", "488", "489", "490", "491", "492", "493",
+                    /*Madriz*/"321","322","323","324","325","326","327","328","329",
+                    /*Esteli*/"161","162","163","164","165","166",
+                    /*Leon*/"281","282","283","284","285","286","287","288","289","290","291",
+                    /*Chinandega*/ "081","082","083","084","085","086","087","088","089","090","091","092","093",
+                    /*Granada*/"201","202","203","204",
+                    /*Masaya*/ "401","402","403","404","405","406","407","408","409",
+                     /*Carazo*/ "041","042","043","044","045","046","047","048",
+                   /*Rivas*/ "561","562","563","564","565","566","567","568","569","570"
+                   /*Boaco*/
+                   /*Chontales*/
+                   /*Jinotega*/
+                   /*Matagalpa*/
+                   /*RAAN*/
+                   /*RAAS*/
+                   /*RIO SAN JUAN*/
+                };
+
+                string cedula = CedCliTb.Text.Trim();
+                // Verifica si la longitud es correcta
+                if (cedula.Length != 16)
+                {
+                    Error.SetError(CedCliTb, "La cédula debe tener 16 caracteres.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Verifica si los guiones están en las posiciones correctas
+                if (cedula[3] != '-' || cedula[10] != '-')
+                {
+                    Error.SetError(CedCliTb, "Los guiones deben estar en las posiciones 4 y 11.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Verifica si el primer tres digitos es una combinación válida
+                string firstThree = cedula.Substring(0, 3);
+                if (!validCombinations.Contains(firstThree))
+                {
+                    Error.SetError(CedCliTb, "Los primeros 3 dígitos no son válidos.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Verifica si los siguientes 6 digitos es una fecha válida
+                string dateString = cedula.Substring(4, 6);
+                DateTime date;
+                if (!DateTime.TryParseExact(dateString, "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+                {
+                    Error.SetError(CedCliTb, "Los siguientes 6 dígitos no son una fecha válida.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Verifica si la persona es mayor de 16 años
+                if (DateTime.Now.Subtract(date).TotalDays / 365 < 16)
+                {
+                    Error.SetError(CedCliTb, "La persona debe ser mayor de 16 años.");
+                    e.Cancel = true;
+
+                    return;
+                }
+
+                // Verifica si el último dígito es una letra
+                char lastChar = cedula[15];
+                if (!char.IsLetter(lastChar))
+                {
+                    Error.SetError(CedCliTb, "El último caracter debe ser una letra.");
+                    e.Cancel = true;
+                    return;
+                }
+
+                // Si todas las validaciones pasaron, elimina el error
+                Error.SetError(CedCliTb, "");
+                e.Cancel = false;
             }
+        }
 
-            //_______________________________Validar Solo Numeros_________________________
+        private void NomCliTb_TextChanged(object sender, EventArgs e)
+        {
+            NomCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(NomCliTb.Text);
+            NomCliTb.SelectionStart = NomCliTb.Text.Length;
+        }
 
-            if (!CedCliTb.Text.Substring(0, 3).All(char.IsDigit))
-            {
-                Error.SetError(CedCliTb, "Formato incorrecto");
-                CedCliTb.Text = string.Empty;
-                return;
-            }
+        private void ApeCliTb_TextChanged(object sender, EventArgs e)
+        {
+            ApeCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(ApeCliTb.Text);
+            ApeCliTb.SelectionStart = ApeCliTb.Text.Length;
+        }
 
-            if (!CedCliTb.Text.Substring(4, 6).All(char.IsDigit))
-            {
-                Error.SetError(CedCliTb, "Formato incorrecto");
-                CedCliTb.Text = string.Empty;
-                return;
-            }
-
-            if (!CedCliTb.Text.Substring(11, 4).All(char.IsDigit))
-            {
-                Error.SetError(CedCliTb, "Formato incorrecto");
-                CedCliTb.Text = string.Empty;
-                return;
-            }
-
-            //________________________VAlidar DIa, mes, año____________________________
-
-            int Validia = Convert.ToInt32(CedCliTb.Text.Substring(4, 2));
-
-            if (Validia > 31 || Validia < 01)
-            {
-                Error.SetError(CedCliTb, "Formato del dia incorrecto");
-                CedCliTb.Text = string.Empty;
-                return;
-            }
-
-            int ValiMes = Convert.ToInt32(CedCliTb.Text.Substring(6, 2));
-
-            if (ValiMes > 09 || ValiMes > 12)
-            {
-                Error.SetError(CedCliTb, "Formato del mes incorrecto");
-                CedCliTb.Text = string.Empty;
-                return;
-            }
-
-            //________________________Ultima Letra_______________________________________
-            if (!char.IsLetter(CedCliTb.Text.Last()))
-            {
-                Error.SetError(CedCliTb, "Formato incorrecto");
-                CedCliTb.Text = string.Empty;
-                return;
-            }
-
-            //________________________Validar Guiones__________________________________________
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(CedCliTb.Text.Substring(3, 1), "[-]"))
-            {
-                Error.SetError(CedCliTb, "Formato incorrecto");
-                CedCliTb.Text = string.Empty;
-                return;
-            }
-
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(CedCliTb.Text.Substring(10, 1), "[-]"))
-            {
-                Error.SetError(CedCliTb, "Formato incorrecto");
-                CedCliTb.Text = string.Empty;
-                return;
-            }
+        private void CedCliTb_TextChanged(object sender, EventArgs e)
+        {
+            CedCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(CedCliTb.Text);
+            CedCliTb.SelectionStart = CedCliTb.Text.Length;
         }
 
         int n = 0, GrdTotal = 0;
