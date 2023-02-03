@@ -38,7 +38,10 @@ namespace WindowsFormsApp1.Clases
 
             return db.TblFactura.ToList();
         }
-
+        public int ContarRegistros()
+        {
+            return db.TblFactura.Count();
+        }
 
     }
 }

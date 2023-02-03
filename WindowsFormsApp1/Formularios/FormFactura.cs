@@ -15,6 +15,7 @@ using WindowsFormsApp1.Clases;
 using System.Windows.Input;
 using System.Drawing.Printing;
 using System.Globalization;
+using System.Runtime.Remoting.Contexts;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -28,9 +29,10 @@ namespace WindowsFormsApp1.Formularios
             ShowFact();
         }
         SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
-        ClassCliente op = new ClassCliente();
-        ClassFactura op2=new ClassFactura();
-        ClassCuentas op3=new ClassCuentas();
+        ClassCliente opCl = new ClassCliente();
+        ClassFactura opFct=new ClassFactura();
+        ClassCuentas opCuenta=new ClassCuentas();
+        ClassMedicamentos opMed=new ClassMedicamentos();
         public void Alert(string msg, Formularios.FormAlert.enmType type)
         {
             Formularios.FormAlert frm = new Formularios.FormAlert();
@@ -207,29 +209,15 @@ namespace WindowsFormsApp1.Formularios
         int pos = 60;
         private void ShowMed()
         {
-            Con.Open();
-            string Query = "select NumMed,NomMed,TipoMed,CantMed,PrecioMed from TblMedicamentos";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            DGVMedicamentos.DataSource = ds.Tables[0];
-            Con.Close();
+            List<TblMedicamentos> listaMedicamentos = opMed.Listar();
+            DGVMedicamentos.DataSource = listaMedicamentos;
         }
       
         private void ShowFact()
         {
-            Con.Open();
-            string Query = "select * from TblFactura where NomVen='" + lblNomVen.Text + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            DGVTransacciones.DataSource = ds.Tables[0];
-            Con.Close();
-
+            var result = opFct.Listar().Where(f => f.NomVen == lblNomVen.Text);
+            DGVTransacciones.DataSource = result.ToList();
         }
-
         private void GuardarCuentas()
         {
             ContFact();
@@ -246,10 +234,9 @@ namespace WindowsFormsApp1.Formularios
                 cuent.CantMed = Convert.ToInt32(row.Cells[2].Value);
                 cuent.PrecioMed=Convert.ToInt32(row.Cells[3].Value);
                 cuent.TotalCuenta = Convert.ToInt32(row.Cells[4].Value);
-                if (op3.Guardar(cuent) == true)
+                if (opCuenta.Guardar(cuent) == true)
                 {
 
-                    
                     ShowFact();
                 }
                 else
@@ -274,7 +261,7 @@ namespace WindowsFormsApp1.Formularios
                 cl.TelCliente = TelCliTb.Text;
                 cl.CedCliente = CedCliTb.Text;
                 cl.TotalComp = GrdTotal;
-                if (op.Guardar(cl) == true)
+                if (opCl.Guardar(cl) == true)
                 {
 
                     ShowFact();
@@ -302,7 +289,7 @@ namespace WindowsFormsApp1.Formularios
                 fct.CedCliente = CedCliTb.Text;
                 fct.FactFecha = DateTime.Today.Date;
                 fct.FactCantidad =  GrdTotal;
-                if (op2.Guardar(fct) == true)
+                if (opFct.Guardar(fct) == true)
                 {
                    
                     ShowFact();
@@ -316,12 +303,7 @@ namespace WindowsFormsApp1.Formularios
         int ContVentas;
         private void ContFact()
         {
-            Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from TblFactura", Con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            ContVentas = (int)dt.Rows[0][0];
-            Con.Close();
+            opFct.ContarRegistros();
         }
         bool encontrado = false;
         private void ActualizarTotalCliente()
@@ -347,6 +329,13 @@ namespace WindowsFormsApp1.Formularios
             MessageBox.Show("Total del cliente actualizado.");
             Con.Close();
         }
+        /*using (FarmaciaEntities db = new FarmaciaEntities())
+{
+TblCliente cliente = db.TblCliente.FirstOrDefault(c => c.CedCliente == CedCliTb.Text);
+cliente.TotalComp += GrdTotal;
+db.SaveChanges();
+MessageBox.Show("Total del cliente actualizado.");
+}*/
         private void ActualizarTelefonoCliente()
         {
             string telCliente = "";
@@ -628,6 +617,11 @@ namespace WindowsFormsApp1.Formularios
         {
             CedCliTb.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(CedCliTb.Text);
             CedCliTb.SelectionStart = CedCliTb.Text.Length;
+        }
+
+        private void DGVTransacciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         int n = 0, GrdTotal = 0;

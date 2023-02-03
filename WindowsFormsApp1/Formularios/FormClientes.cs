@@ -4,6 +4,11 @@ using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using WindowsFormsApp1.Clases;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using WindowsFormsApp1.AppModel;
+
 namespace WindowsFormsApp1.Formularios
 {
     public partial class FormClientes : Form
@@ -13,19 +18,16 @@ namespace WindowsFormsApp1.Formularios
         {
             InitializeComponent();
         }
+        ClassCliente opC=new ClassCliente();
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         public void CargarDatos()
         {
-            string Query = "select * from TblCliente";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            DgvClientes.DataSource = ds.Tables[0];
-            Con.Close();
+            
+            List<TblCliente> listaClientes = opC.Listar();
+            DgvClientes.DataSource = listaClientes;
         }
         private void FormClientes_Load(object sender, EventArgs e)
         {

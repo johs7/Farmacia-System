@@ -155,14 +155,14 @@ namespace WindowsFormsApp1.Formularios
         }
         private bool ValidarIdFab()
         {
-            if (string.IsNullOrEmpty(CmbFabricante.Text))
+            if (string.IsNullOrEmpty(txtfabricante.Text))
             {
-                Error.SetError(CmbFabricante, "Debe Escribir El id del fabricante");
+                Error.SetError(txtfabricante, "Debe Escribir El id del fabricante");
                 return false;
             }
             else
             {
-                Error.SetError(CmbFabricante, "");
+                Error.SetError(txtfabricante, "");
                 return true;
             }
         }
@@ -185,31 +185,41 @@ namespace WindowsFormsApp1.Formularios
             SqlCommand cmd = new SqlCommand("Select FabId from TblFabricante", Con);
             SqlDataReader Rdr;
             Rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("FabId", typeof(int));
-            dt.Load(Rdr);
-            CmbFabricante.ValueMember = "FabId";
-            CmbFabricante.DataSource = dt;
+            string fabId = "";
+            while (Rdr.Read())
+            {
+                fabId += Rdr["FabId"].ToString() + "\n";
+            }
+            txtfabricante.Text = fabId;
             Con.Close();
         }
+
         private void ObtenerNomFab()
         {
             Con.Open();
-            string Query = "Select * from TblFabricante where FabId='" + CmbFabricante.SelectedValue.ToString() + "'";
-            SqlCommand cmd = new SqlCommand(Query, Con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+            int fabId;
+            if (Int32.TryParse(txtfabricante.Text.ToString(), out fabId))
             {
-                txtNomFabricante.Text = dr["NomFab"].ToString();
+                string Query = "Select * from TblFabricante where FabId=" + fabId;
+                SqlCommand cmd = new SqlCommand(Query, Con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    txtNomFabricante.Text = dr["NomFab"].ToString();
+                }
+            }
+            else
+            {
+                txtNomFabricante.Text = "";
             }
             Con.Close();
         }
         private void FormMedicamentos_Load(object sender, EventArgs e)
         {
             cmbTipoMed.DropDownStyle = ComboBoxStyle.DropDownList;
-            CmbFabricante.DropDownStyle= ComboBoxStyle.DropDownList;
+       
             ObtenerFabricante();
             CmbFabricante_SelectionChangeCommitted(sender,e);
             CargarDatos();
@@ -246,7 +256,7 @@ namespace WindowsFormsApp1.Formularios
                 med.TipoMed = cmbTipoMed.Text;
                 med.CantMed = int.Parse(txtCantidad.Text);
                 med.PrecioMed=int.Parse(txtPrecio.Text);
-                med.FabMedId=int.Parse(CmbFabricante.Text);
+                med.FabMedId=int.Parse(txtfabricante.Text);
                 med.FabricanteMed=txtNomFabricante.Text;
                 if (op.Guardar(med) == true)
                 {
@@ -255,7 +265,7 @@ namespace WindowsFormsApp1.Formularios
                     cmbTipoMed.Text = "";
                     txtCantidad.Text = "";
                     txtPrecio.Text = "";
-                    CmbFabricante.Text = "";
+                    txtfabricante.Text = "";
                     txtNomFabricante.Text = "";
                     CargarDatos();
                 }
@@ -303,7 +313,7 @@ namespace WindowsFormsApp1.Formularios
                     cmbTipoMed.Text = ven.TipoMed;
                     txtCantidad.Text = ven.CantMed.ToString();
                      txtPrecio.Text = ven.PrecioMed.ToString();
-                    CmbFabricante.Text=ven.FabMedId.ToString();
+                    txtfabricante.Text=ven.FabMedId.ToString();
                     txtNomFabricante.Text=ven.FabricanteMed;
                 }
                 else
@@ -328,7 +338,7 @@ namespace WindowsFormsApp1.Formularios
                     med.TipoMed = cmbTipoMed.Text;
                     med.CantMed = int.Parse(txtCantidad.Text);
                     med.PrecioMed = int.Parse(txtPrecio.Text);
-                    med.FabMedId = int.Parse(CmbFabricante.Text);
+                    med.FabMedId = int.Parse(txtfabricante.Text);
                     med.FabricanteMed = txtNomFabricante.Text;
                     if (op.Modificar(med) == true)
                     {
@@ -337,7 +347,7 @@ namespace WindowsFormsApp1.Formularios
                         cmbTipoMed.Text = "";
                         txtCantidad.Text = "";
                         txtPrecio.Text = "";
-                        CmbFabricante.Text = "";
+                        txtfabricante.Text = "";
                         txtNomFabricante.Text = "";
                         CargarDatos();
                     }
@@ -400,6 +410,14 @@ namespace WindowsFormsApp1.Formularios
         {
             txtNombreMed.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombreMed.Text);
             txtNombreMed.SelectionStart = txtNombreMed.Text.Length;
+        }
+
+        private void txtfabricante_TextChanged(object sender, EventArgs e)
+        {
+            if (Con.State == ConnectionState.Closed)
+            {
+                ObtenerNomFab();
+            }
         }
     }
     }

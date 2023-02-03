@@ -12,7 +12,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Data.SqlClient;
-
+using System.Runtime.InteropServices.ComTypes;
+using WindowsFormsApp1.Clases;
+using WindowsFormsApp1.AppModel;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -24,6 +26,7 @@ namespace WindowsFormsApp1.Formularios
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.FromArgb(239, 35, 60);
+        ClassCuentas op=new ClassCuentas();
         public FormCuentas()
         {
          
@@ -189,14 +192,9 @@ namespace WindowsFormsApp1.Formularios
 
         private void FormCuentas_Load(object sender, EventArgs e)
         {
-         
-            string Query = "select * from TblCuentas";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            DgvCuentas.DataSource = ds.Tables[0];
-            Con.Close();
+
+            List<TblCuentas> listacuentas = op.Listar();
+           DgvCuentas.DataSource = listacuentas;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

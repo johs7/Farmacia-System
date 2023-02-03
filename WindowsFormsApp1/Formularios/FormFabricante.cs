@@ -30,6 +30,7 @@ namespace WindowsFormsApp1.Formularios
         private void FormFabricante_Load(object sender, EventArgs e)
         {
             CargarDatos();
+            dtpIng.Value=DateTime.Now;
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -49,6 +50,7 @@ namespace WindowsFormsApp1.Formularios
             else
                 return null;
         }
+    
         public static void SoloLetras(KeyPressEventArgs v)
         {
             if (char.IsLetter(v.KeyChar))
@@ -96,13 +98,11 @@ namespace WindowsFormsApp1.Formularios
                 MessageBox.Show("Digite solo números porfavor");
             }
         }
+
         private void CargarDatos()
         {
-            string consulta = " select*from TblFabricante";
-            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, Con);
-            DataTable dt = new DataTable();
-            adaptador.Fill(dt);
-            DgvFabricantes.DataSource = dt;
+            List<TblFabricante> listaFabricantes = op.Listar();
+            DgvFabricantes.DataSource = listaFabricantes;
         }
         private bool ValidarNombre()
         {
@@ -159,14 +159,14 @@ namespace WindowsFormsApp1.Formularios
         private bool ValidarFecha()
         {
             DateTime hoy = DateTime.Today;
-            if (dtpNac.Value.Date > hoy)
+            if (dtpIng.Value.Date > hoy)
             {
-                Error.SetError(dtpNac, "Debe Escribir una fecha presente o pasada");
+                Error.SetError(dtpIng, "Debe Escribir una fecha presente o pasada");
                 return false;
             }
             else
             {
-                Error.SetError(dtpNac, "");
+                Error.SetError(dtpIng, "");
                 return true;
             }
 
@@ -229,7 +229,7 @@ namespace WindowsFormsApp1.Formularios
                 fab.DirFab = txtDirec.Text;
                 fab.CedulaFab = txtDni.Text;
                 fab.TelFab = txtTel.Text;
-                fab.FechaInFab = DateTime.Parse(dtpNac.Text);
+                fab.FechaInFab = DateTime.Parse(dtpIng.Text);
      
                 if (op.Guardar(fab) == true)
             {
@@ -239,7 +239,7 @@ namespace WindowsFormsApp1.Formularios
                     txtDirec.Text = "";
                     txtDni.Text = "";
                     txtTel.Text = "";
-                    dtpNac.Text = "";
+                    dtpIng.Text = "";
                      
             }
             else
@@ -263,7 +263,7 @@ namespace WindowsFormsApp1.Formularios
                     txtDirec.Text = fab.DirFab;
                     txtDni.Text = fab.CedulaFab;
                     txtTel.Text = fab.TelFab;
-                    dtpNac.Text = fab.FechaInFab.ToString();
+                    dtpIng.Text = fab.FechaInFab.ToString();
                    
                 }
                 else
@@ -283,7 +283,7 @@ namespace WindowsFormsApp1.Formularios
                     fab.DirFab = txtDirec.Text;
                     fab.CedulaFab = txtDni.Text;
                     fab.TelFab = txtTel.Text;
-                    fab.FechaInFab = DateTime.Parse(dtpNac.Text);
+                    fab.FechaInFab = DateTime.Parse(dtpIng.Text);
                     if (op.Modificar(fab) == true)
                     {
                         CargarDatos();
@@ -292,7 +292,7 @@ namespace WindowsFormsApp1.Formularios
                         txtDirec.Text = "";
                         txtDni.Text = "";
                         txtTel.Text = "";
-                        dtpNac.Text = "";
+                        dtpIng.Text = "";
 
                     }
                     else
@@ -308,8 +308,7 @@ namespace WindowsFormsApp1.Formularios
         private void txtNomFab_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
-            txtNomFab.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNomFab.Text);
-            txtNomFab.SelectionStart = txtNomFab.Text.Length;
+          
         }
 
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
@@ -426,6 +425,11 @@ namespace WindowsFormsApp1.Formularios
         {
             txtDni.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtDni.Text);
             txtDni.SelectionStart = txtDni.Text.Length;
+        }
+
+        private void txtNomFab_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -51,13 +51,13 @@
             this.BtnRegistrar = new Guna.UI2.WinForms.Guna2Button();
             this.txtNomFabricante = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNomFab = new System.Windows.Forms.Label();
-            this.CmbFabricante = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblFabId = new System.Windows.Forms.Label();
             this.txtPrecio = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblPrecioMed = new System.Windows.Forms.Label();
             this.txtCantidad = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.Error = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtfabricante = new Guna.UI2.WinForms.Guna2TextBox();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
@@ -259,6 +259,7 @@
             // 
             // panelContainer
             // 
+            this.panelContainer.Controls.Add(this.txtfabricante);
             this.panelContainer.Controls.Add(this.DgvMedicamentos);
             this.panelContainer.Controls.Add(this.label12);
             this.panelContainer.Controls.Add(this.BtnEliminar);
@@ -266,7 +267,6 @@
             this.panelContainer.Controls.Add(this.BtnRegistrar);
             this.panelContainer.Controls.Add(this.txtNomFabricante);
             this.panelContainer.Controls.Add(this.lblNomFab);
-            this.panelContainer.Controls.Add(this.CmbFabricante);
             this.panelContainer.Controls.Add(this.lblFabId);
             this.panelContainer.Controls.Add(this.txtPrecio);
             this.panelContainer.Controls.Add(this.lblPrecioMed);
@@ -441,27 +441,6 @@
             this.lblNomFab.TabIndex = 43;
             this.lblNomFab.Text = "Nombre del fabricante:";
             // 
-            // CmbFabricante
-            // 
-            this.CmbFabricante.BackColor = System.Drawing.Color.Transparent;
-            this.CmbFabricante.BorderRadius = 6;
-            this.CmbFabricante.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CmbFabricante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbFabricante.FocusedColor = System.Drawing.Color.Empty;
-            this.CmbFabricante.FocusedState.Parent = this.CmbFabricante;
-            this.CmbFabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmbFabricante.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.CmbFabricante.FormattingEnabled = true;
-            this.CmbFabricante.HoverState.Parent = this.CmbFabricante;
-            this.CmbFabricante.ItemHeight = 30;
-            this.CmbFabricante.ItemsAppearance.Parent = this.CmbFabricante;
-            this.CmbFabricante.Location = new System.Drawing.Point(510, 56);
-            this.CmbFabricante.Name = "CmbFabricante";
-            this.CmbFabricante.ShadowDecoration.Parent = this.CmbFabricante;
-            this.CmbFabricante.Size = new System.Drawing.Size(140, 36);
-            this.CmbFabricante.TabIndex = 43;
-            this.CmbFabricante.SelectionChangeCommitted += new System.EventHandler(this.CmbFabricante_SelectionChangeCommitted);
-            // 
             // lblFabId
             // 
             this.lblFabId.AutoSize = true;
@@ -560,6 +539,35 @@
             // 
             this.Error.ContainerControl = this;
             // 
+            // txtfabricante
+            // 
+            this.txtfabricante.BackColor = System.Drawing.Color.Transparent;
+            this.txtfabricante.BorderColor = System.Drawing.Color.LightPink;
+            this.txtfabricante.BorderRadius = 8;
+            this.txtfabricante.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtfabricante.DefaultText = "";
+            this.txtfabricante.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtfabricante.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtfabricante.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtfabricante.DisabledState.Parent = this.txtfabricante;
+            this.txtfabricante.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtfabricante.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtfabricante.FocusedState.Parent = this.txtfabricante;
+            this.txtfabricante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfabricante.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtfabricante.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtfabricante.HoverState.Parent = this.txtfabricante;
+            this.txtfabricante.Location = new System.Drawing.Point(511, 63);
+            this.txtfabricante.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtfabricante.Name = "txtfabricante";
+            this.txtfabricante.PasswordChar = '\0';
+            this.txtfabricante.PlaceholderText = "";
+            this.txtfabricante.SelectedText = "";
+            this.txtfabricante.ShadowDecoration.Parent = this.txtfabricante;
+            this.txtfabricante.Size = new System.Drawing.Size(99, 29);
+            this.txtfabricante.TabIndex = 52;
+            this.txtfabricante.TextChanged += new System.EventHandler(this.txtfabricante_TextChanged);
+            // 
             // FormMedicamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,7 +607,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmbTipoMed;
         private System.Windows.Forms.Label lblTipMed;
         private System.Windows.Forms.Panel panelContainer;
-        private Guna.UI2.WinForms.Guna2ComboBox CmbFabricante;
         private System.Windows.Forms.Label lblFabId;
         private Guna.UI2.WinForms.Guna2TextBox txtPrecio;
         private System.Windows.Forms.Label lblPrecioMed;
@@ -616,5 +623,6 @@
         private System.Windows.Forms.ErrorProvider Error;
         private Guna.UI2.WinForms.Guna2TextBox txtBuscar;
         private System.Windows.Forms.Label llbIdBus;
+        private Guna.UI2.WinForms.Guna2TextBox txtfabricante;
     }
 }

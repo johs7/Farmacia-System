@@ -4,11 +4,15 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using WindowsFormsApp1.Clases;
 
 namespace WindowsFormsApp1
 {
     public partial class FormLogin : Form
     {
+
+        ClassVendedor op=new ClassVendedor();
         SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
         public FormLogin()
         {
@@ -30,22 +34,17 @@ namespace WindowsFormsApp1
         public static string Usuario = "";
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) from TblVendedor where NomVen='" + txtUser.Text + "'and ContraVen='" + txtPass.Text + "'", Con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
+            string name = txtUser.Text;
+            string pass = txtPass.Text;
+            if (op.Verificar(name, pass))
             {
                 Usuario = txtUser.Text;
                 Formularios.FormFactura obj = new Formularios.FormFactura();
-                obj.Show();
-                this.Hide();
-                Con.Close();
+                obj.ShowDialog();
             }
             else
             {
                 this.Alert("¡Credenciales incorrectas!", Formularios.FormAlert.enmType.Error);
-                Con.Close();
             }
         }
 

@@ -45,7 +45,7 @@
             this.txtTel = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dtpNac = new Bunifu.UI.WinForms.BunifuDatePicker();
+            this.dtpIng = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.txtDirec = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.DgvFabricantes = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -182,7 +182,7 @@
             this.panelContainer.Controls.Add(this.txtTel);
             this.panelContainer.Controls.Add(this.label5);
             this.panelContainer.Controls.Add(this.label8);
-            this.panelContainer.Controls.Add(this.dtpNac);
+            this.panelContainer.Controls.Add(this.dtpIng);
             this.panelContainer.Controls.Add(this.txtDirec);
             this.panelContainer.Controls.Add(this.label9);
             this.panelContainer.Controls.Add(this.DgvFabricantes);
@@ -260,29 +260,29 @@
             this.label8.TabIndex = 57;
             this.label8.Text = "Fecha de ingreso:";
             // 
-            // dtpNac
+            // dtpIng
             // 
-            this.dtpNac.BackColor = System.Drawing.Color.Transparent;
-            this.dtpNac.BorderRadius = 6;
-            this.dtpNac.Color = System.Drawing.Color.Silver;
-            this.dtpNac.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.dtpNac.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Right;
-            this.dtpNac.DisabledColor = System.Drawing.Color.Gray;
-            this.dtpNac.DisplayWeekNumbers = false;
-            this.dtpNac.DPHeight = 0;
-            this.dtpNac.FillDatePicker = false;
-            this.dtpNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNac.ForeColor = System.Drawing.Color.Black;
-            this.dtpNac.Icon = ((System.Drawing.Image)(resources.GetObject("dtpNac.Icon")));
-            this.dtpNac.IconColor = System.Drawing.Color.SteelBlue;
-            this.dtpNac.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Left;
-            this.dtpNac.LeftTextMargin = 5;
-            this.dtpNac.Location = new System.Drawing.Point(444, 79);
-            this.dtpNac.MinimumSize = new System.Drawing.Size(4, 32);
-            this.dtpNac.Name = "dtpNac";
-            this.dtpNac.Size = new System.Drawing.Size(220, 32);
-            this.dtpNac.TabIndex = 56;
-            this.dtpNac.Value = new System.DateTime(2023, 1, 31, 0, 0, 0, 0);
+            this.dtpIng.BackColor = System.Drawing.Color.Transparent;
+            this.dtpIng.BorderRadius = 6;
+            this.dtpIng.Color = System.Drawing.Color.Silver;
+            this.dtpIng.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
+            this.dtpIng.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Right;
+            this.dtpIng.DisabledColor = System.Drawing.Color.Gray;
+            this.dtpIng.DisplayWeekNumbers = false;
+            this.dtpIng.DPHeight = 0;
+            this.dtpIng.FillDatePicker = false;
+            this.dtpIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpIng.ForeColor = System.Drawing.Color.Black;
+            this.dtpIng.Icon = ((System.Drawing.Image)(resources.GetObject("dtpIng.Icon")));
+            this.dtpIng.IconColor = System.Drawing.Color.SteelBlue;
+            this.dtpIng.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Left;
+            this.dtpIng.LeftTextMargin = 5;
+            this.dtpIng.Location = new System.Drawing.Point(444, 79);
+            this.dtpIng.MinimumSize = new System.Drawing.Size(4, 32);
+            this.dtpIng.Name = "dtpIng";
+            this.dtpIng.Size = new System.Drawing.Size(220, 32);
+            this.dtpIng.TabIndex = 56;
+            this.dtpIng.Value = new System.DateTime(2023, 1, 31, 0, 0, 0, 0);
             // 
             // txtDirec
             // 
@@ -517,6 +517,7 @@
             this.txtNomFab.ShadowDecoration.Parent = this.txtNomFab;
             this.txtNomFab.Size = new System.Drawing.Size(99, 29);
             this.txtNomFab.TabIndex = 43;
+            this.txtNomFab.TextChanged += new System.EventHandler(this.txtNomFab_TextChanged);
             this.txtNomFab.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomFab_KeyPress);
             // 
             // lblCantidad
@@ -580,7 +581,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtDirec;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private Bunifu.UI.WinForms.BunifuDatePicker dtpNac;
+        private Bunifu.UI.WinForms.BunifuDatePicker dtpIng;
         private Guna.UI2.WinForms.Guna2TextBox txtTel;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
