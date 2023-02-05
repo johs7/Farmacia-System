@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using WindowsFormsApp1.AppModel;
@@ -37,7 +38,15 @@ namespace WindowsFormsApp1.Clases
         {
             return db.TblMedicamentos.ToList();
         }
-
+        public void EliminarVencidos()
+        {
+            var medicamentosVencidos = db.TblMedicamentos.Where(m => m.FechaVencimiento< DateTime.Now).ToList();
+            foreach (var medicamento in medicamentosVencidos)
+            {
+                db.TblMedicamentos.Remove(medicamento);
+            }
+            db.SaveChanges();
+        }
 
     }
 }

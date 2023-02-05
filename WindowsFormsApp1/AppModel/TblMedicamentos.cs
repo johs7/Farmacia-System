@@ -21,5 +21,6 @@ namespace WindowsFormsApp1.AppModel
         public int PrecioMed { get; set; }
         public int FabMedId { get; set; }
         public string FabricanteMed { get; set; }
+        public System.DateTime FechaVencimiento { get; set; }
     }
 }

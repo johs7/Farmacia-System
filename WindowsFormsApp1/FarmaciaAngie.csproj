@@ -233,6 +233,21 @@
     <Compile Include="Clases\ClassCliente.cs" />
     <Compile Include="Clases\ClassCuentas.cs" />
     <Compile Include="Clases\ClassFabricante.cs" />
+    <Compile Include="FarmaciaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FarmaciaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FarmaciaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FarmaciaDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FarmaciaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FarmaciaDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormAlert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +375,40 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.Config" />
+    <None Include="FarmaciaDataSet.xsc">
+      <DependentUpon>FarmaciaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FarmaciaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FarmaciaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FarmaciaDataSet.xss">
+      <DependentUpon>FarmaciaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FarmaciaDataSet1.xsc">
+      <DependentUpon>FarmaciaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FarmaciaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FarmaciaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FarmaciaDataSet1.xss">
+      <DependentUpon>FarmaciaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="FarmaciaDataSet2.xsc">
+      <DependentUpon>FarmaciaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="FarmaciaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FarmaciaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FarmaciaDataSet2.xss">
+      <DependentUpon>FarmaciaDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="fonts\fontawesome-webfont.eot" />
     <None Include="fonts\fontawesome-webfont.ttf" />
     <None Include="fonts\fontawesome-webfont.woff" />

@@ -359,7 +359,7 @@
             this.DgvFabricantes.RowHeadersVisible = false;
             this.DgvFabricantes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DgvFabricantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvFabricantes.Size = new System.Drawing.Size(749, 203);
+            this.DgvFabricantes.Size = new System.Drawing.Size(725, 203);
             this.DgvFabricantes.TabIndex = 50;
             this.DgvFabricantes.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
             this.DgvFabricantes.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));

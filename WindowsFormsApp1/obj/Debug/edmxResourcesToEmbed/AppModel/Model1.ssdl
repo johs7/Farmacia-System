@@ -58,6 +58,7 @@
     <Property Name="PrecioMed" Type="int" Nullable="false" />
     <Property Name="FabMedId" Type="int" Nullable="false" />
     <Property Name="FabricanteMed" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="TblVendedor">
     <Key>

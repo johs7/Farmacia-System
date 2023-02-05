@@ -16,6 +16,7 @@ using System.Windows.Input;
 using System.Drawing.Printing;
 using System.Globalization;
 using System.Runtime.Remoting.Contexts;
+using System.IdentityModel.Configuration;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -30,9 +31,9 @@ namespace WindowsFormsApp1.Formularios
         }
         SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
         ClassCliente opCl = new ClassCliente();
-        ClassFactura opFct=new ClassFactura();
-        ClassCuentas opCuenta=new ClassCuentas();
-        ClassMedicamentos opMed=new ClassMedicamentos();
+        ClassFactura opFct = new ClassFactura();
+        ClassCuentas opCuenta = new ClassCuentas();
+        ClassMedicamentos opMed = new ClassMedicamentos();
         public void Alert(string msg, Formularios.FormAlert.enmType type)
         {
             Formularios.FormAlert frm = new Formularios.FormAlert();
@@ -164,7 +165,7 @@ namespace WindowsFormsApp1.Formularios
                 return true;
             }
         }
-        
+
         private void BloquearCliente()
         {
             NomCliTb.Enabled = false;
@@ -183,7 +184,7 @@ namespace WindowsFormsApp1.Formularios
         int NumMed, PrecioMed, CantMed, TotalMed;
         private void DisminuirCantidad()
         {
-           
+
             try
             {
                 int NewCant = Stock - Convert.ToInt32(CantMedTb.Text);
@@ -195,16 +196,16 @@ namespace WindowsFormsApp1.Formularios
                 this.Alert("¡Registrado Correctamente!", FormAlert.enmType.Success);
                 Con.Close();
                 ShowMed();
-            
+
             }
             catch
             {
 
                 this.Alert("¡Error al registrar!", FormAlert.enmType.Error);
             }
-       
+
         }
-       
+
 
         int pos = 60;
         private void ShowMed()
@@ -212,7 +213,7 @@ namespace WindowsFormsApp1.Formularios
             List<TblMedicamentos> listaMedicamentos = opMed.Listar();
             DGVMedicamentos.DataSource = listaMedicamentos;
         }
-      
+
         private void ShowFact()
         {
             var result = opFct.Listar().Where(f => f.NomVen == lblNomVen.Text);
@@ -222,17 +223,17 @@ namespace WindowsFormsApp1.Formularios
         {
             ContFact();
 
-      
+
 
             foreach (DataGridViewRow row in DGVCuenta.Rows)
             {
 
-                TblCuentas cuent=new TblCuentas();
+                TblCuentas cuent = new TblCuentas();
                 cuent.NumFact = ContVentas;
                 cuent.NomVen = lblNomVen.Text;
                 cuent.NomMed = Convert.ToString(row.Cells[1].Value);
                 cuent.CantMed = Convert.ToInt32(row.Cells[2].Value);
-                cuent.PrecioMed=Convert.ToInt32(row.Cells[3].Value);
+                cuent.PrecioMed = Convert.ToInt32(row.Cells[3].Value);
                 cuent.TotalCuenta = Convert.ToInt32(row.Cells[4].Value);
                 if (opCuenta.Guardar(cuent) == true)
                 {
@@ -247,11 +248,11 @@ namespace WindowsFormsApp1.Formularios
         }
 
 
-        
-       
+
+
         private void RegistrarCliente()
         {
-          
+
             try
             {
 
@@ -288,10 +289,10 @@ namespace WindowsFormsApp1.Formularios
                 fct.TelCliente = TelCliTb.Text;
                 fct.CedCliente = CedCliTb.Text;
                 fct.FactFecha = DateTime.Today.Date;
-                fct.FactCantidad =  GrdTotal;
+                fct.FactCantidad = GrdTotal;
                 if (opFct.Guardar(fct) == true)
                 {
-                   
+
                     ShowFact();
                 }
             }
@@ -447,7 +448,7 @@ MessageBox.Show("Total del cliente actualizado.");
             this.Close();
         }
 
-      
+
 
         private void btnValidarDni_Click(object sender, EventArgs e)
         {
@@ -478,13 +479,13 @@ MessageBox.Show("Total del cliente actualizado.");
         private void NomCliTb_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
-           
+
         }
 
         private void ApeCliTb_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
-         
+
         }
 
         private void TelCliTb_KeyPress(object sender, KeyPressEventArgs e)
@@ -499,13 +500,13 @@ MessageBox.Show("Total del cliente actualizado.");
 
         private void CedCliTb_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void DGVMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            NomMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[1].Value.ToString();
 
+            NomMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[1].Value.ToString();
             Stock = Convert.ToInt32(DGVMedicamentos.SelectedRows[0].Cells[3].Value.ToString());
             PrecMedTb.Text = DGVMedicamentos.SelectedRows[0].Cells[4].Value.ToString();
 
@@ -517,6 +518,7 @@ MessageBox.Show("Total del cliente actualizado.");
             {
                 key = Convert.ToInt32(DGVMedicamentos.SelectedRows[0].Cells[0].Value.ToString());
             }
+    
         }
 
         private void CedCliTb_Validating(object sender, CancelEventArgs e)
@@ -619,11 +621,45 @@ MessageBox.Show("Total del cliente actualizado.");
             CedCliTb.SelectionStart = CedCliTb.Text.Length;
         }
 
-        private void DGVTransacciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DGVMedicamentos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (e.ColumnIndex == 3)
+            {
+                if (e.Value != null && e.Value != DBNull.Value)
+                {
+                    int cantidad;
+                    if (int.TryParse(e.Value.ToString(), out cantidad))
+                    {
+                        if (cantidad <= 30)
+                        {
+                            e.CellStyle.ForeColor = Color.White;
+                            e.CellStyle.BackColor = Color.FromArgb(255, 175, 204);
 
+                        }
+                        else if (cantidad <= 70)
+                        {
+                            e.CellStyle.ForeColor = Color.White;
+                            e.CellStyle.BackColor = Color.FromArgb(233, 196, 106);
+                        }
+                    }
+                }
+                if (e.ColumnIndex == 8)
+                {
+                    if (e.Value != null && e.Value != DBNull.Value)
+                    {
+                        DateTime fechaVencimiento;
+                        if (DateTime.TryParse(e.Value.ToString(), out fechaVencimiento))
+                        {
+                            if (fechaVencimiento.Subtract(DateTime.Now).Days <= 10)
+                            {
+                                e.CellStyle.ForeColor = Color.White;
+                                e.CellStyle.BackColor = Color.FromArgb(255, 175, 204);
+                            }
+                        }
+                    }
+                }
+            }
         }
-
         int n = 0, GrdTotal = 0;
         int ContCuenta = 0;
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -634,9 +670,9 @@ MessageBox.Show("Total del cliente actualizado.");
             { return; }
             if (ValidarCedula() == false)
             { return; }
-            if(ValidarCant()==false)
+            if (ValidarCant() == false)
             { return; }
-            if(ValidarTel() == false)
+            if (ValidarTel() == false)
             { return; }
 
             else
@@ -674,8 +710,16 @@ MessageBox.Show("Total del cliente actualizado.");
 
         private void FormFactura_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'farmaciaDataSet2.TblMedicamentos' Puede moverla o quitarla según sea necesario.
+            this.tblMedicamentosTableAdapter2.Fill(this.farmaciaDataSet2.TblMedicamentos);
+            // TODO: esta línea de código carga datos en la tabla 'farmaciaDataSet1.TblMedicamentos' Puede moverla o quitarla según sea necesario.
+            this.tblMedicamentosTableAdapter1.Fill(this.farmaciaDataSet1.TblMedicamentos);
+            // TODO: esta línea de código carga datos en la tabla 'farmaciaDataSet.TblMedicamentos' Puede moverla o quitarla según sea necesario.
+            this.tblMedicamentosTableAdapter.Fill(this.farmaciaDataSet.TblMedicamentos);
+            opMed.EliminarVencidos();
           
-           
         }
+
     }
 }
+

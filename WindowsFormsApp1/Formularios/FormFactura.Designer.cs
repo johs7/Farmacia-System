@@ -59,6 +59,7 @@
             this.NomMedTb = new Guna.UI2.WinForms.Guna2TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.DGVMedicamentos = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.farmaciaDataSet = new WindowsFormsApp1.FarmaciaDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnRegistrar = new Guna.UI2.WinForms.Guna2Button();
             this.BtnAgregar = new Guna.UI2.WinForms.Guna2Button();
@@ -78,13 +79,31 @@
             this.btnValidarDni = new Guna.UI2.WinForms.Guna2Button();
             this.Error = new System.Windows.Forms.ErrorProvider(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.tblMedicamentosTableAdapter = new WindowsFormsApp1.FarmaciaDataSetTableAdapters.TblMedicamentosTableAdapter();
+            this.farmaciaDataSet1 = new WindowsFormsApp1.FarmaciaDataSet1();
+            this.tblMedicamentosTableAdapter1 = new WindowsFormsApp1.FarmaciaDataSet1TableAdapters.TblMedicamentosTableAdapter();
+            this.farmaciaDataSet2 = new WindowsFormsApp1.FarmaciaDataSet2();
+            this.tblMedicamentosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblMedicamentosTableAdapter2 = new WindowsFormsApp1.FarmaciaDataSet2TableAdapters.TblMedicamentosTableAdapter();
+            this.numMedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomMedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoMedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantMedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioMedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fabMedIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fabricanteMedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaVencimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMedicamentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmaciaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCuenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVTransacciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Error)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmaciaDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmaciaDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblMedicamentosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitleBar
@@ -96,7 +115,7 @@
             this.panelTitleBar.Controls.Add(this.BtnClose);
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(1207, 45);
+            this.panelTitleBar.Size = new System.Drawing.Size(1263, 45);
             this.panelTitleBar.TabIndex = 21;
             // 
             // lblNomVen
@@ -138,7 +157,7 @@
             // BtnClose
             // 
             this.BtnClose.Image = global::WindowsFormsApp1.Properties.Resources.icons8_cerrar_ventana_48;
-            this.BtnClose.Location = new System.Drawing.Point(1158, 0);
+            this.BtnClose.Location = new System.Drawing.Point(1214, 0);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.BtnClose.ShadowDecoration.Parent = this.BtnClose;
@@ -442,6 +461,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
             this.DGVMedicamentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGVMedicamentos.AutoGenerateColumns = false;
             this.DGVMedicamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVMedicamentos.BackgroundColor = System.Drawing.Color.White;
             this.DGVMedicamentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -456,6 +476,16 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DGVMedicamentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGVMedicamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.DGVMedicamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.numMedDataGridViewTextBoxColumn,
+            this.nomMedDataGridViewTextBoxColumn,
+            this.tipoMedDataGridViewTextBoxColumn,
+            this.cantMedDataGridViewTextBoxColumn,
+            this.precioMedDataGridViewTextBoxColumn,
+            this.fabMedIdDataGridViewTextBoxColumn,
+            this.fabricanteMedDataGridViewTextBoxColumn,
+            this.fechaVencimientoDataGridViewTextBoxColumn});
+            this.DGVMedicamentos.DataSource = this.tblMedicamentosBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(233)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -466,13 +496,13 @@
             this.DGVMedicamentos.DefaultCellStyle = dataGridViewCellStyle3;
             this.DGVMedicamentos.EnableHeadersVisualStyles = false;
             this.DGVMedicamentos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DGVMedicamentos.Location = new System.Drawing.Point(1, 219);
+            this.DGVMedicamentos.Location = new System.Drawing.Point(0, 219);
             this.DGVMedicamentos.Name = "DGVMedicamentos";
             this.DGVMedicamentos.ReadOnly = true;
             this.DGVMedicamentos.RowHeadersVisible = false;
             this.DGVMedicamentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DGVMedicamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVMedicamentos.Size = new System.Drawing.Size(468, 244);
+            this.DGVMedicamentos.Size = new System.Drawing.Size(592, 244);
             this.DGVMedicamentos.TabIndex = 62;
             this.DGVMedicamentos.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
             this.DGVMedicamentos.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
@@ -498,6 +528,12 @@
             this.DGVMedicamentos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DGVMedicamentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVMedicamentos_CellClick);
             this.DGVMedicamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMedicamentos_CellContentClick);
+            this.DGVMedicamentos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGVMedicamentos_CellFormatting);
+            // 
+            // farmaciaDataSet
+            // 
+            this.farmaciaDataSet.DataSetName = "FarmaciaDataSet";
+            this.farmaciaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -584,7 +620,7 @@
             this.DGVCuenta.RowHeadersVisible = false;
             this.DGVCuenta.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DGVCuenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVCuenta.Size = new System.Drawing.Size(538, 194);
+            this.DGVCuenta.Size = new System.Drawing.Size(596, 194);
             this.DGVCuenta.TabIndex = 66;
             this.DGVCuenta.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
             this.DGVCuenta.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
@@ -691,13 +727,13 @@
             this.DGVTransacciones.DefaultCellStyle = dataGridViewCellStyle9;
             this.DGVTransacciones.EnableHeadersVisualStyles = false;
             this.DGVTransacciones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(222)))), ((int)(((byte)(251)))));
-            this.DGVTransacciones.Location = new System.Drawing.Point(480, 264);
+            this.DGVTransacciones.Location = new System.Drawing.Point(598, 264);
             this.DGVTransacciones.Name = "DGVTransacciones";
             this.DGVTransacciones.ReadOnly = true;
             this.DGVTransacciones.RowHeadersVisible = false;
             this.DGVTransacciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DGVTransacciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGVTransacciones.Size = new System.Drawing.Size(725, 199);
+            this.DGVTransacciones.Size = new System.Drawing.Size(665, 199);
             this.DGVTransacciones.TabIndex = 69;
             this.DGVTransacciones.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Blue;
             this.DGVTransacciones.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(223)))), ((int)(((byte)(251)))));
@@ -721,7 +757,6 @@
             this.DGVTransacciones.ThemeStyle.RowsStyle.Height = 22;
             this.DGVTransacciones.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.DGVTransacciones.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.DGVTransacciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVTransacciones_CellContentClick);
             // 
             // label8
             // 
@@ -788,11 +823,94 @@
             // 
             this.Error.ContainerControl = this;
             // 
+            // tblMedicamentosTableAdapter
+            // 
+            this.tblMedicamentosTableAdapter.ClearBeforeFill = true;
+            // 
+            // farmaciaDataSet1
+            // 
+            this.farmaciaDataSet1.DataSetName = "FarmaciaDataSet1";
+            this.farmaciaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblMedicamentosTableAdapter1
+            // 
+            this.tblMedicamentosTableAdapter1.ClearBeforeFill = true;
+            // 
+            // farmaciaDataSet2
+            // 
+            this.farmaciaDataSet2.DataSetName = "FarmaciaDataSet2";
+            this.farmaciaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblMedicamentosBindingSource
+            // 
+            this.tblMedicamentosBindingSource.DataMember = "TblMedicamentos";
+            this.tblMedicamentosBindingSource.DataSource = this.farmaciaDataSet2;
+            // 
+            // tblMedicamentosTableAdapter2
+            // 
+            this.tblMedicamentosTableAdapter2.ClearBeforeFill = true;
+            // 
+            // numMedDataGridViewTextBoxColumn
+            // 
+            this.numMedDataGridViewTextBoxColumn.DataPropertyName = "NumMed";
+            this.numMedDataGridViewTextBoxColumn.HeaderText = "NumMed";
+            this.numMedDataGridViewTextBoxColumn.Name = "numMedDataGridViewTextBoxColumn";
+            this.numMedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomMedDataGridViewTextBoxColumn
+            // 
+            this.nomMedDataGridViewTextBoxColumn.DataPropertyName = "NomMed";
+            this.nomMedDataGridViewTextBoxColumn.HeaderText = "NomMed";
+            this.nomMedDataGridViewTextBoxColumn.Name = "nomMedDataGridViewTextBoxColumn";
+            this.nomMedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tipoMedDataGridViewTextBoxColumn
+            // 
+            this.tipoMedDataGridViewTextBoxColumn.DataPropertyName = "TipoMed";
+            this.tipoMedDataGridViewTextBoxColumn.HeaderText = "TipoMed";
+            this.tipoMedDataGridViewTextBoxColumn.Name = "tipoMedDataGridViewTextBoxColumn";
+            this.tipoMedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantMedDataGridViewTextBoxColumn
+            // 
+            this.cantMedDataGridViewTextBoxColumn.DataPropertyName = "CantMed";
+            this.cantMedDataGridViewTextBoxColumn.HeaderText = "CantMed";
+            this.cantMedDataGridViewTextBoxColumn.Name = "cantMedDataGridViewTextBoxColumn";
+            this.cantMedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioMedDataGridViewTextBoxColumn
+            // 
+            this.precioMedDataGridViewTextBoxColumn.DataPropertyName = "PrecioMed";
+            this.precioMedDataGridViewTextBoxColumn.HeaderText = "PrecioMed";
+            this.precioMedDataGridViewTextBoxColumn.Name = "precioMedDataGridViewTextBoxColumn";
+            this.precioMedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fabMedIdDataGridViewTextBoxColumn
+            // 
+            this.fabMedIdDataGridViewTextBoxColumn.DataPropertyName = "FabMedId";
+            this.fabMedIdDataGridViewTextBoxColumn.HeaderText = "FabMedId";
+            this.fabMedIdDataGridViewTextBoxColumn.Name = "fabMedIdDataGridViewTextBoxColumn";
+            this.fabMedIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fabricanteMedDataGridViewTextBoxColumn
+            // 
+            this.fabricanteMedDataGridViewTextBoxColumn.DataPropertyName = "FabricanteMed";
+            this.fabricanteMedDataGridViewTextBoxColumn.HeaderText = "FabricanteMed";
+            this.fabricanteMedDataGridViewTextBoxColumn.Name = "fabricanteMedDataGridViewTextBoxColumn";
+            this.fabricanteMedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaVencimientoDataGridViewTextBoxColumn
+            // 
+            this.fechaVencimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaVencimiento";
+            this.fechaVencimientoDataGridViewTextBoxColumn.HeaderText = "FechaVencimiento";
+            this.fechaVencimientoDataGridViewTextBoxColumn.Name = "fechaVencimientoDataGridViewTextBoxColumn";
+            this.fechaVencimientoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // FormFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 462);
+            this.ClientSize = new System.Drawing.Size(1263, 462);
             this.Controls.Add(this.DGVMedicamentos);
             this.Controls.Add(this.btnValidarDni);
             this.Controls.Add(this.BtnImprimir);
@@ -828,9 +946,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVMedicamentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmaciaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCuenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVTransacciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Error)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmaciaDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.farmaciaDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblMedicamentosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -877,5 +999,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.ErrorProvider Error;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private FarmaciaDataSet farmaciaDataSet;
+        private FarmaciaDataSetTableAdapters.TblMedicamentosTableAdapter tblMedicamentosTableAdapter;
+        private FarmaciaDataSet1 farmaciaDataSet1;
+        private FarmaciaDataSet1TableAdapters.TblMedicamentosTableAdapter tblMedicamentosTableAdapter1;
+        private FarmaciaDataSet2 farmaciaDataSet2;
+        private System.Windows.Forms.BindingSource tblMedicamentosBindingSource;
+        private FarmaciaDataSet2TableAdapters.TblMedicamentosTableAdapter tblMedicamentosTableAdapter2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numMedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomMedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoMedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantMedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioMedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fabMedIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fabricanteMedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaVencimientoDataGridViewTextBoxColumn;
     }
 }

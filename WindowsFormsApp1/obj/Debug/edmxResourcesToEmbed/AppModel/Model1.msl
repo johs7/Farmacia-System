@@ -55,6 +55,7 @@
     <EntitySetMapping Name="TblMedicamentos">
       <EntityTypeMapping TypeName="FarmaciaModel.TblMedicamentos">
         <MappingFragment StoreEntitySet="TblMedicamentos">
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
           <ScalarProperty Name="NumMed" ColumnName="NumMed" />
           <ScalarProperty Name="NomMed" ColumnName="NomMed" />
           <ScalarProperty Name="TipoMed" ColumnName="TipoMed" />

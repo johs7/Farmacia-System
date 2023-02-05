@@ -34,15 +34,22 @@ namespace WindowsFormsApp1
         public static string Usuario = "";
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string name = txtUser.Text;
-            string pass = txtPass.Text;
-            if (op.Verificar(name, pass))
+            try
             {
-                Usuario = txtUser.Text;
-                Formularios.FormFactura obj = new Formularios.FormFactura();
-                obj.ShowDialog();
+                string name = txtUser.Text;
+                string pass = txtPass.Text;
+                if (op.Verificar(name, pass))
+                {
+                    Usuario = txtUser.Text;
+                    Formularios.FormFactura obj = new Formularios.FormFactura();
+                    obj.ShowDialog();
+                }
+                else
+                {
+                    this.Alert("¡Credenciales incorrectas!", Formularios.FormAlert.enmType.Error);
+                }
             }
-            else
+            catch
             {
                 this.Alert("¡Credenciales incorrectas!", Formularios.FormAlert.enmType.Error);
             }
@@ -50,21 +57,24 @@ namespace WindowsFormsApp1
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if (txtPass.Text == "")
+            try
             {
-                MessageBox.Show("Ingrese la contraseña del administrador.");
+                if (txtPass.Text == "")
+                {
+                    this.Alert("¡Credenciales incorrectas!", Formularios.FormAlert.enmType.Error);
+                }
+                else
+                if (txtPass.Text == "Admin" && txtUser.Text == "Admin")
+                {
+                    Formularios.FormMain frmP = new Formularios.FormMain();
+                    frmP.ShowDialog();
+                }
+                else
+                {
+                    this.Alert("¡Credenciales incorrectas!", Formularios.FormAlert.enmType.Error);
+                }
             }
-            else
-            if (txtPass.Text == "Admin" && txtUser.Text=="Admin")
-            {
-                Formularios.FormMain frmP = new Formularios.FormMain ();
-                frmP.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Contraseña de administrador incorrecta");
-                txtPass.Text = "";
-            }
+            catch { this.Alert("¡Credenciales incorrectas!", Formularios.FormAlert.enmType.Error); }
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

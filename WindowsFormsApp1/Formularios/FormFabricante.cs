@@ -429,7 +429,8 @@ namespace WindowsFormsApp1.Formularios
 
         private void txtNomFab_TextChanged(object sender, EventArgs e)
         {
-
+            txtNomFab.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNomFab.Text);
+            txtNomFab.SelectionStart = txtNomFab.Text.Length;
         }
     }
 }

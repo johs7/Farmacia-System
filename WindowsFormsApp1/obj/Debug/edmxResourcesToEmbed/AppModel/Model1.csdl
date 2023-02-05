@@ -58,6 +58,7 @@
     <Property Name="PrecioMed" Type="Int32" Nullable="false" />
     <Property Name="FabMedId" Type="Int32" Nullable="false" />
     <Property Name="FabricanteMed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
   <EntityType Name="TblVendedor">
     <Key>

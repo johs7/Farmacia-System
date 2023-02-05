@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using WindowsFormsApp1.AppModel;
 using WindowsFormsApp1.Clases;
 using System.Runtime.InteropServices;
+using System.Windows.Media;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -258,6 +259,7 @@ namespace WindowsFormsApp1.Formularios
                 med.PrecioMed=int.Parse(txtPrecio.Text);
                 med.FabMedId=int.Parse(txtfabricante.Text);
                 med.FabricanteMed=txtNomFabricante.Text;
+                med.FechaVencimiento = DateTime.Parse(dtpVen.Text);
                 if (op.Guardar(med) == true)
                 {
                     this.Alert("¡Registrado Correctamente!", FormAlert.enmType.Success);
@@ -315,6 +317,7 @@ namespace WindowsFormsApp1.Formularios
                      txtPrecio.Text = ven.PrecioMed.ToString();
                     txtfabricante.Text=ven.FabMedId.ToString();
                     txtNomFabricante.Text=ven.FabricanteMed;
+                    dtpVen.Text = ven.FechaVencimiento.ToString();
                 }
                 else
                     this.Alert("No encontrado", FormAlert.enmType.Error); 
@@ -340,6 +343,7 @@ namespace WindowsFormsApp1.Formularios
                     med.PrecioMed = int.Parse(txtPrecio.Text);
                     med.FabMedId = int.Parse(txtfabricante.Text);
                     med.FabricanteMed = txtNomFabricante.Text;
+                    med.FechaVencimiento = DateTime.Parse(dtpVen.Text);
                     if (op.Modificar(med) == true)
                     {
                         this.Alert("¡Registro modificado!", Formularios.FormAlert.enmType.Info);
@@ -403,13 +407,14 @@ namespace WindowsFormsApp1.Formularios
 
         private void txtNombreMed_TextChanged(object sender, EventArgs e)
         {
-          
+            txtNombreMed.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombreMed.Text);
+            txtNombreMed.SelectionStart = txtNombreMed.Text.Length;
         }
 
         private void txtNomFabricante_TextChanged(object sender, EventArgs e)
         {
-            txtNombreMed.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombreMed.Text);
-            txtNombreMed.SelectionStart = txtNombreMed.Text.Length;
+            txtNomFabricante.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNomFabricante.Text);
+           txtNomFabricante.SelectionStart = txtNomFabricante.Text.Length;
         }
 
         private void txtfabricante_TextChanged(object sender, EventArgs e)
