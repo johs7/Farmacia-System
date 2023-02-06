@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
     {
 
         ClassVendedor op=new ClassVendedor();
-        SqlConnection Con = new SqlConnection("server=DESKTOP-GFGGUM9\\SQL; database=Farmacia; integrated security=true");
+      
         public FormLogin()
         {
             InitializeComponent();

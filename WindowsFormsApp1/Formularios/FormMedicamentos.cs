@@ -12,6 +12,8 @@ using WindowsFormsApp1.AppModel;
 using WindowsFormsApp1.Clases;
 using System.Runtime.InteropServices;
 using System.Windows.Media;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -35,25 +37,26 @@ namespace WindowsFormsApp1.Formularios
         }
         private void CargarDatos()
         {
-            string consulta = " select*from TblMedicamentos";
-            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, Con);
-            DataTable dt = new DataTable();
-            adaptador.Fill(dt);
-            DgvMedicamentos.DataSource = dt;
+           
+            
+                List<TblMedicamentos> listaMedicamentos = op.Listar();
+                DgvMedicamentos.DataSource = listaMedicamentos;
+            
         }
-        private void CargarID()
+        private bool ValidarFecha()
         {
-           Con.Open();
+            DateTime hoy = DateTime.Today;
+            if (dtpVen.Value.Date >= hoy.AddDays(25))
+            {
+                Error.SetError(dtpVen, "");
+                return true;
+            }
+            else
+            {
+                Error.SetError(dtpVen, "Debe Escribir una fecha futura con más de 15 días");
+                return false;
+            }
 
-            string consulta = "Select*from TblMedicamentos where NumMed='" + txtBuscar.Text + "'";
-            SqlDataAdapter adaptador = new SqlDataAdapter(consulta,Con);
-            DataTable dt = new DataTable();
-            adaptador.Fill(dt);
-          DgvMedicamentos.DataSource = dt;
-            SqlCommand comando = new SqlCommand(consulta,Con);
-            SqlDataReader lector;
-            lector = comando.ExecuteReader();
-            Con.Close();
         }
         public static void SoloLetras(KeyPressEventArgs v)
         {
@@ -182,40 +185,21 @@ namespace WindowsFormsApp1.Formularios
         }
         private void ObtenerFabricante()
         {
-            Con.Open();
-            SqlCommand cmd = new SqlCommand("Select FabId from TblFabricante", Con);
-            SqlDataReader Rdr;
-            Rdr = cmd.ExecuteReader();
-            string fabId = "";
-            while (Rdr.Read())
-            {
-                fabId += Rdr["FabId"].ToString() + "\n";
-            }
-            txtfabricante.Text = fabId;
-            Con.Close();
+            txtfabricante.Text = op.ObtenerIdsFabricantes();
         }
 
         private void ObtenerNomFab()
         {
-            Con.Open();
             int fabId;
             if (Int32.TryParse(txtfabricante.Text.ToString(), out fabId))
             {
-                string Query = "Select * from TblFabricante where FabId=" + fabId;
-                SqlCommand cmd = new SqlCommand(Query, Con);
-                DataTable dt = new DataTable();
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                sda.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    txtNomFabricante.Text = dr["NomFab"].ToString();
-                }
+                ClassFabricante classFabricante = new ClassFabricante();
+                txtNomFabricante.Text = op.ObtenerNomFab(fabId);
             }
             else
             {
                 txtNomFabricante.Text = "";
             }
-            Con.Close();
         }
         private void FormMedicamentos_Load(object sender, EventArgs e)
         {
@@ -241,6 +225,7 @@ namespace WindowsFormsApp1.Formularios
             {
                 if (ValidarNombre() == false)
                 { return; }
+                if(ValidarFecha() == false) { return; }
                 if (ValidarTipoMed() == false)
                 { return; }
                 if (ValidarPrecioMed() == false)

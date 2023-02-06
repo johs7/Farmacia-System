@@ -47,6 +47,18 @@ namespace WindowsFormsApp1.Clases
             }
             db.SaveChanges();
         }
+        public string ObtenerIdsFabricantes()
+        {
+            var fabricantes = from fab in db.TblFabricante
+                              select fab.FabId;
+            string fabId = string.Join("\n", fabricantes);
+            return fabId;
+        }
+        public string ObtenerNomFab(int fabId)
+        {
+            var fabricante = db.TblFabricante.FirstOrDefault(f => f.FabId == fabId);
+            return fabricante?.NomFab;
+        }
 
     }
 }
