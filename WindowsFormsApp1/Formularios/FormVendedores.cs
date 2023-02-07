@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using WindowsFormsApp1.Clases;
 using WindowsFormsApp1.AppModel;
 using System.Globalization;
+using Guna.UI2.WinForms;
+using Bunifu.UI.WinForms;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -28,6 +30,45 @@ namespace WindowsFormsApp1.Formularios
         {
             Formularios.FormAlert frm = new Formularios.FormAlert();
             frm.showAlert(msg, type);
+        }
+        private bool ValidarCampo(Guna2TextBox control, string mensajeError)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+            {
+                Error.SetError(control, mensajeError);
+                return false;
+            }
+            else
+            {
+                Error.SetError(control, "");
+                return true;
+            }
+        }
+        private bool ValidarCampo(Guna2ComboBox control, string mensajeError)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+            {
+                Error.SetError(control, mensajeError);
+                return false;
+            }
+            else
+            {
+                Error.SetError(control, "");
+                return true;
+            }
+        }
+        private bool ValidarCampo(BunifuDatePicker control, string mensajeError)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+            {
+                Error.SetError(control, mensajeError);
+                return false;
+            }
+            else
+            {
+                Error.SetError(control, "");
+                return true;
+            }
         }
         public static void SoloLetras(KeyPressEventArgs v)
         {
@@ -88,108 +129,38 @@ namespace WindowsFormsApp1.Formularios
             }}
         private bool ValidarNombre()
         {
-            if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                Error.SetError(txtNombre, "Debe Escribir El nombre");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtNombre, "");
-                return true;
-            }}
+            return ValidarCampo(txtNombre,"Debe escribir el nombre del vendedor");
+        }
         private bool ValidarDirec()
         {
-            if (string.IsNullOrEmpty(txtDirec.Text))
-            {
-                Error.SetError(txtDirec, "Debe Escribir la direccion del vendedor");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtDirec, "");
-                return true;
-            }
+            return ValidarCampo(txtDirec, "Debe escribir la direccion del vendedor");
         }
         private bool ValidarContraseña()
         {
-            if (string.IsNullOrEmpty(txtPass.Text))
-            {
-                Error.SetError(txtPass, "Debe Escribir la contraseña");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtPass, "");
-                return true;
-            }
+            return ValidarCampo(txtPass, "Debe escribir el nombre del vendedor");
         }
         private bool ValidarTelefono()
         {
-            if (string.IsNullOrEmpty(txtTel.Text))
-            {
-                Error.SetError(txtTel, "Debe Escribir el telefono del vendedor");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtTel, "");
-                return true;
-            }
+            return ValidarCampo(txtTel, "Debe escribir el nombre del vendedor");
         }
         private bool ValidarDni()
         {
-            if (string.IsNullOrEmpty(txtDni.Text))
-            {
-                Error.SetError(txtDni, "Debe Escribir la cedula del vendedor");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtDni, "");
-                return true;
-            }
+            return ValidarCampo(txtDni, "Debe escribir el nombre del vendedor");
         }
         private bool ValidarFechaNac()
         {
-            if (string.IsNullOrEmpty(dtpNac.Text))
-            {
-                Error.SetError(dtpNac, "Debe Escribir lá fecha de nacimiento del vendedor");
-                return false;
-            }
-            else
-            {
-                Error.SetError(dtpNac, "");
-                return true;
-            }
+            return ValidarCampo(dtpNac, "Debe escribir la fecha de nacimiento");
         }
      
         private bool ValidarSexo()
         {
-            if (string.IsNullOrEmpty(cmbSexo.Text))
-            {
-                Error.SetError(cmbSexo, "Debe Escribir el sexo del vendedor");
-                return false;
-            }
-            else
-            {
-                Error.SetError(cmbSexo, "");
-                return true;
-            }
+            return ValidarCampo(cmbSexo, "Debe escribir el sexo del vendedor");
         }
         private bool ValidarSalario()
         {
-            if (string.IsNullOrEmpty(txtSal.Text))
-            {
-                Error.SetError(txtSal, "Debe Escribir el salario del vendedor");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtSal, "");
-                return true;
-            }
+            return ValidarCampo(txtTel, "Debe escribir el salario del vendedor");
         }
+    
        new public TblVendedor Update()
         {
             int id = int.Parse(txtBuscar.Text);
@@ -260,17 +231,13 @@ namespace WindowsFormsApp1.Formularios
 
         private void CargarDatos()
         {
-            string consulta = " select*from TblVendedor";
-            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, Con);
-            DataTable dt = new DataTable();
-            adaptador.Fill(dt);
-            DgvCuentas.DataSource = dt;
+            List<TblVendedor> listaVendedor = op.Listar();
+            DgvCuentas.DataSource =listaVendedor;
+
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {SoloLetras(e);
-           
-        }
+        {SoloLetras(e);  }
 
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
         {SoloNumeros(e);}
@@ -360,7 +327,7 @@ namespace WindowsFormsApp1.Formularios
 
         private void txtDni_Validating(object sender, CancelEventArgs e)
         {
-            {
+           {
                 string[] validCombinations = {/*Managua*/ "001", "002", "003", "004", "005", "006", "007", "008", "009", 
                     /*Nueva segovia*/ "481", "482", "483", "484", "485", "486", "487", "488", "489", "490", "491", "492", "493",
                     /*Madriz*/"321","322","323","324","325","326","327","328","329",
@@ -370,14 +337,14 @@ namespace WindowsFormsApp1.Formularios
                     /*Granada*/"201","202","203","204",
                     /*Masaya*/ "401","402","403","404","405","406","407","408","409",
                      /*Carazo*/ "041","042","043","044","045","046","047","048",
-                   /*Rivas*/ "561","562","563","564","565","566","567","568","569","570"
-                   /*Boaco*/
-                   /*Chontales*/
-                   /*Jinotega*/
-                   /*Matagalpa*/
-                   /*RAAN*/
-                   /*RAAS*/
-                   /*RIO SAN JUAN*/
+                   /*Rivas*/ "561","562","563","564","565","566","567","568","569","570",
+                   /*Boaco*/"361","362","363","364","365","366",
+                   /*Chontales*/"121","122","123","124","125","126","127","128","129","130","603","604","616","628",
+                   /*Jinotega*/"241","242","243","244","246","247","248","492",
+                   /*Matagalpa*/"441","442","443","444","445","446","447","448","449","450","451","452","453","454",
+                   /*RAAN*/"606","607","608","610","611","612","629",
+                   /*RAAS*/"601","602","605","615","619","624","626","627",
+                   /*RIO SAN JUAN*/"521","522","523","524","525","526"
                 };
 
                 string cedula = txtDni.Text.Trim();
@@ -454,22 +421,10 @@ namespace WindowsFormsApp1.Formularios
             }
 
         }
-
-        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           
-        }
-
         private void txtSal_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloNumeros(e);
         }
-
-        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void txtDni_TextChanged(object sender, EventArgs e)
         {
             txtDni.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtDni.Text);
@@ -480,9 +435,7 @@ namespace WindowsFormsApp1.Formularios
         {
             txtNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombre.Text);
             txtNombre.SelectionStart = txtNombre.Text.Length;
-        }
-
-       
+        }  
     }
 }
 

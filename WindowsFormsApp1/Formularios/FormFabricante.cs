@@ -16,6 +16,8 @@ using static System.Net.WebRequestMethods;
 using System.Runtime.InteropServices;
 using System.Globalization;
 using System.Windows.Controls;
+using Guna.UI2.WinForms;
+using Bunifu.UI.WinForms;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -41,7 +43,21 @@ namespace WindowsFormsApp1.Formularios
             Formularios.FormAlert frm = new Formularios.FormAlert();
             frm.showAlert(msg, type);
         }
-       new public TblFabricante Update()
+        private bool ValidarCampo(Guna2TextBox control, string mensajeError)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+            {
+                Error.SetError(control, mensajeError);
+                return false;
+            }
+            else
+            {
+                Error.SetError(control, "");
+                return true;
+            }
+        }
+    
+        new public TblFabricante Update()
         {
             int id = int.Parse(txtBuscar.Text);
            TblFabricante fab = op.Buscar(id);
@@ -132,29 +148,11 @@ namespace WindowsFormsApp1.Formularios
         }
         private bool ValidarDni()
         {
-            if (string.IsNullOrEmpty(txtDni.Text))
-            {
-                Error.SetError(txtDni, "Debe Escribir la cedula del fabricante");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtDni, "");
-                return true;
-            }
+            return ValidarCampo(txtDni, "Debe escribir la cedula del fabricante");
         }
         private bool ValidarDirec()
         {
-            if (string.IsNullOrEmpty(txtDirec.Text))
-            {
-                Error.SetError(txtDirec, "Debe Escribir la direccion del vendedor");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtDirec, "");
-                return true;
-            }
+            return ValidarCampo(txtDirec,"Debe escribir la dirección del fabricante");
         }
         private bool ValidarFecha()
         {
@@ -318,7 +316,7 @@ namespace WindowsFormsApp1.Formularios
 
         private void txtDni_Validating(object sender, CancelEventArgs e)
         {
-           
+
             {
                 string[] validCombinations = {/*Managua*/ "001", "002", "003", "004", "005", "006", "007", "008", "009", 
                     /*Nueva segovia*/ "481", "482", "483", "484", "485", "486", "487", "488", "489", "490", "491", "492", "493",
@@ -329,16 +327,16 @@ namespace WindowsFormsApp1.Formularios
                     /*Granada*/"201","202","203","204",
                     /*Masaya*/ "401","402","403","404","405","406","407","408","409",
                      /*Carazo*/ "041","042","043","044","045","046","047","048",
-                   /*Rivas*/ "561","562","563","564","565","566","567","568","569","570"
-                   /*Boaco*/
-                   /*Chontales*/
-                   /*Jinotega*/
-                   /*Matagalpa*/
-                   /*RAAN*/
-                   /*RAAS*/
-                   /*RIO SAN JUAN*/
+                   /*Rivas*/ "561","562","563","564","565","566","567","568","569","570",
+                   /*Boaco*/"361","362","363","364","365","366",
+                   /*Chontales*/"121","122","123","124","125","126","127","128","129","130","603","604","616","628",
+                   /*Jinotega*/"241","242","243","244","246","247","248","492",
+                   /*Matagalpa*/"441","442","443","444","445","446","447","448","449","450","451","452","453","454",
+                   /*RAAN*/"606","607","608","610","611","612","629",
+                   /*RAAS*/"601","602","605","615","619","624","626","627",
+                   /*RIO SAN JUAN*/"521","522","523","524","525","526"
                 };
-                  
+
                 string cedula = txtDni.Text.Trim();
                 // Verifica si la longitud es correcta
                 if (cedula.Length != 16)
@@ -360,7 +358,7 @@ namespace WindowsFormsApp1.Formularios
                 string firstThree = cedula.Substring(0, 3);
                 if (!validCombinations.Contains(firstThree))
                 {
-                    Error.SetError(txtDni, "Los primeros 3 dígitos no son válidos.");
+                    Error.SetError(txtDni   , "Los primeros 3 dígitos no son válidos.");
                     e.Cancel = true;
                     return;
                 }
@@ -370,7 +368,7 @@ namespace WindowsFormsApp1.Formularios
                 DateTime date;
                 if (!DateTime.TryParseExact(dateString, "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
                 {
-                    Error.SetError(txtDni, "Los siguientes 6 dígitos no son una fecha válida.");
+                    Error.SetError(txtDni   , "Los siguientes 6 dígitos no son una fecha válida.");
                     e.Cancel = true;
                     return;
                 }

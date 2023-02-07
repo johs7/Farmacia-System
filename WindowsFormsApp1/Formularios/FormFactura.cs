@@ -17,6 +17,8 @@ using System.Drawing.Printing;
 using System.Globalization;
 using System.Runtime.Remoting.Contexts;
 using System.IdentityModel.Configuration;
+using Bunifu.UI.WinForms;
+using Guna.UI2.WinForms;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -39,6 +41,21 @@ namespace WindowsFormsApp1.Formularios
             Formularios.FormAlert frm = new Formularios.FormAlert();
             frm.showAlert(msg, type);
         }
+
+        private bool ValidarCampo(Guna2TextBox control, string mensajeError)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+            {
+                Error.SetError(control, mensajeError);
+                return false;
+            }
+            else
+            {
+                Error.SetError(control, "");
+                return true;
+            }
+        }
+
         public static void SoloLetras(KeyPressEventArgs v)
         {
             if (char.IsLetter(v.KeyChar))
@@ -102,70 +119,24 @@ namespace WindowsFormsApp1.Formularios
 
         private bool ValidarNom()
         {
-            if (string.IsNullOrEmpty(NomCliTb.Text))
-            {
-                Error.SetError(NomCliTb, "Debe Escribir El nombre del cliente");
-                return false;
-            }
-            else
-            {
-                Error.SetError(NomCliTb, "");
-                return true;
-            }
+            return ValidarCampo(NomCliTb, "Debe escribir el nombre del cliente");
         }
         private bool ValidarApe()
         {
-            if (string.IsNullOrEmpty(ApeCliTb.Text))
-            {
-                Error.SetError(ApeCliTb, "Debe Escribir El apellido del cliente");
-                return false;
-            }
-            else
-            {
-                Error.SetError(ApeCliTb, "");
-                return true;
-            }
+            return ValidarCampo(ApeCliTb, "Debe escribir el apellido del cliente");
         }
         private bool ValidarTel()
         {
-            if (string.IsNullOrEmpty(TelCliTb.Text))
-            {
-                Error.SetError(TelCliTb, "Debe Escribir El telefono del cliente");
-                return false;
-            }
-            else
-            {
-                Error.SetError(TelCliTb, "");
-                return true;
-            }
+            return ValidarCampo(TelCliTb, "Debe escribir el telefono del cliente");
         }
         private bool ValidarCant()
         {
-            if (string.IsNullOrEmpty(CantMedTb.Text))
-            {
-                Error.SetError(CantMedTb, "Debe Escribir la cantidad de medicamentos");
-                return false;
-            }
-            else
-            {
-                Error.SetError(CantMedTb, "");
-                return true;
-            }
+            return ValidarCampo(CantMedTb, "Debe escribir la cantidad del medicamento");
         }
         private bool ValidarCedula()
         {
-            if (string.IsNullOrEmpty(CedCliTb.Text))
-            {
-                Error.SetError(CedCliTb, "Debe Escribir la cedula del cliente");
-                return false;
-            }
-            else
-            {
-                Error.SetError(CedCliTb, "");
-                return true;
-            }
+            return ValidarCampo(CedCliTb, "Debe escribir la cedula del cliente");
         }
-
         private void BloquearCliente()
         {
             NomCliTb.Enabled = false;
@@ -206,7 +177,6 @@ namespace WindowsFormsApp1.Formularios
 
         }
 
-
         int pos = 60;
         private void ShowMed()
         {
@@ -246,10 +216,6 @@ namespace WindowsFormsApp1.Formularios
                 }
             }
         }
-
-
-
-
         private void RegistrarCliente()
         {
 
@@ -533,14 +499,14 @@ MessageBox.Show("Total del cliente actualizado.");
                     /*Granada*/"201","202","203","204",
                     /*Masaya*/ "401","402","403","404","405","406","407","408","409",
                      /*Carazo*/ "041","042","043","044","045","046","047","048",
-                   /*Rivas*/ "561","562","563","564","565","566","567","568","569","570"
-                   /*Boaco*/
-                   /*Chontales*/
-                   /*Jinotega*/
-                   /*Matagalpa*/
-                   /*RAAN*/
-                   /*RAAS*/
-                   /*RIO SAN JUAN*/
+                   /*Rivas*/ "561","562","563","564","565","566","567","568","569","570",
+                   /*Boaco*/"361","362","363","364","365","366",
+                   /*Chontales*/"121","122","123","124","125","126","127","128","129","130","603","604","616","628",
+                   /*Jinotega*/"241","242","243","244","246","247","248","492",
+                   /*Matagalpa*/"441","442","443","444","445","446","447","448","449","450","451","452","453","454",
+                   /*RAAN*/"606","607","608","610","611","612","629",
+                   /*RAAS*/"601","602","605","615","619","624","626","627",
+                   /*RIO SAN JUAN*/"521","522","523","524","525","526"
                 };
 
                 string cedula = CedCliTb.Text.Trim();

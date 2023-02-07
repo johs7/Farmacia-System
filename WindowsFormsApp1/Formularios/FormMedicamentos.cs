@@ -14,6 +14,8 @@ using System.Runtime.InteropServices;
 using System.Windows.Media;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.ComTypes;
+using Guna.UI2.WinForms;
+using Bunifu.UI.WinForms;
 
 namespace WindowsFormsApp1.Formularios
 {
@@ -37,11 +39,34 @@ namespace WindowsFormsApp1.Formularios
         }
         private void CargarDatos()
         {
-           
-            
                 List<TblMedicamentos> listaMedicamentos = op.Listar();
                 DgvMedicamentos.DataSource = listaMedicamentos;
-            
+        }
+        private bool ValidarCampo(Guna2TextBox control, string mensajeError)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+            {
+                Error.SetError(control, mensajeError);
+                return false;
+            }
+            else
+            {
+                Error.SetError(control, "");
+                return true;
+            }
+        }
+        private bool ValidarCampo(Guna2ComboBox control, string mensajeError)
+        {
+            if (string.IsNullOrEmpty(control.Text))
+            {
+                Error.SetError(control, mensajeError);
+                return false;
+            }
+            else
+            {
+                Error.SetError(control, "");
+                return true;
+            }
         }
         private bool ValidarFecha()
         {
@@ -107,81 +132,30 @@ namespace WindowsFormsApp1.Formularios
         }
         private bool ValidarNombre()
         {
-            if (string.IsNullOrEmpty(txtNombreMed.Text))
-            {
-                Error.SetError(txtNombreMed, "Debe Escribir El nombre del medicamento");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtNombreMed, "");
-                return true;
-            }
+            return ValidarCampo(txtNombreMed, "Debe escribir el nombrw del fármaco");
         }
         private bool ValidarTipoMed()
         {
-            if (string.IsNullOrEmpty(cmbTipoMed.Text))
-            {
-                Error.SetError(cmbTipoMed, "Debe Escribir El tipo del medicamento");
-                return false;
-            }
-            else
-            {
-                Error.SetError(cmbTipoMed, "");
-                return true;
-            }
+            return ValidarCampo(cmbTipoMed, "Debe escribir el tipo del fármaco");
         }
         private bool ValidarCantMed()
         {
-            if (string.IsNullOrEmpty(txtCantidad.Text))
-            {
-                Error.SetError(txtCantidad, "Debe Escribir cantidad de medicamentos");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtCantidad, "");
-                return true;
-            }
+            return ValidarCampo(txtCantidad, "Debe escribir la cantidad del fármaco");
+
         }
         private bool ValidarPrecioMed()
         {
-            if (string.IsNullOrEmpty(txtPrecio.Text))
-            {
-                Error.SetError(txtPrecio, "Debe Escribir El precio del farmaco");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtPrecio, "");
-                return true;
-            }
+            return ValidarCampo(txtPrecio, "Debe escribir el precio del fármaco");
+
         }
+
         private bool ValidarIdFab()
         {
-            if (string.IsNullOrEmpty(txtfabricante.Text))
-            {
-                Error.SetError(txtfabricante, "Debe Escribir El id del fabricante");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtfabricante, "");
-                return true;
-            }
+           return ValidarCampo(txtfabricante, "Debe escribir el id del fabricante");
         }
         private bool ValidarNomFab()
         {
-            if (string.IsNullOrEmpty(txtNomFabricante.Text))
-            {
-                Error.SetError(txtNomFabricante, "Debe Escribir El nombre del fabricante");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtNomFabricante, "");
-                return true;
-            }
+            return ValidarCampo(txtNomFabricante, "Debe escribir el nombre del fármaco");
         }
         private void ObtenerFabricante()
         {

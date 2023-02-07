@@ -86,7 +86,7 @@
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(724, 45);
             this.panelTitleBar.TabIndex = 20;
-            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+           
             // 
             // guna2CirclePictureBox1
             // 
@@ -568,7 +568,7 @@
             this.txtDni.Size = new System.Drawing.Size(145, 29);
             this.txtDni.TabIndex = 31;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
-            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
+   
             this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
             // 
             // txtTel
