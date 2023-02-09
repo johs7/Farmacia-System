@@ -22,6 +22,7 @@ using Guna.UI2.WinForms;
 
 namespace WindowsFormsApp1.Formularios
 {
+
     public partial class FormFactura : Form
     {
         public FormFactura()
