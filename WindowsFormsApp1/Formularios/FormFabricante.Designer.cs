@@ -383,6 +383,7 @@
             this.DgvFabricantes.ThemeStyle.RowsStyle.Height = 22;
             this.DgvFabricantes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.DgvFabricantes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvFabricantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvFabricantes_CellClick);
             // 
             // label12
             // 

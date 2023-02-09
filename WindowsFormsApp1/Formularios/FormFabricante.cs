@@ -430,5 +430,21 @@ namespace WindowsFormsApp1.Formularios
             txtNomFab.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNomFab.Text);
             txtNomFab.SelectionStart = txtNomFab.Text.Length;
         }
+
+        private void DgvFabricantes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            int selectedRowIndex = e.RowIndex;
+
+            if (selectedRowIndex < 0)
+                return;
+            DataGridViewRow selectedRow = DgvFabricantes.Rows[selectedRowIndex];
+
+            txtNomFab.Text = selectedRow.Cells["NomFab"].Value.ToString();
+            txtDirec.Text = selectedRow.Cells["DirFab"].Value.ToString();
+            txtTel.Text = selectedRow.Cells["TelFab"].Value.ToString();
+            txtDni.Text = selectedRow.Cells["CedulaFab"].Value.ToString();
+           dtpIng.Text = selectedRow.Cells["FechaInFab"].Value.ToString();
+        }
     }
 }

@@ -115,18 +115,7 @@ namespace WindowsFormsApp1.Formularios
                 v.Handled = true;
                 MessageBox.Show("Digite solo números porfavor");
             }}
-        private bool ValidarTxtBuscar()
-        {
-            if (string.IsNullOrEmpty(txtBuscar.Text))
-            {
-                Error.SetError(txtBuscar, "Debe Escribir El id a buscar");
-                return false;
-            }
-            else
-            {
-                Error.SetError(txtBuscar, "");
-                return true;
-            }}
+      
         private bool ValidarNombre()
         {
             return ValidarCampo(txtNombre,"Debe escribir el nombre del vendedor");
@@ -435,7 +424,61 @@ namespace WindowsFormsApp1.Formularios
         {
             txtNombre.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtNombre.Text);
             txtNombre.SelectionStart = txtNombre.Text.Length;
-        }  
+        }
+
+        private void txtPass_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtPass.Text.Length < 8)
+            {
+                e.Cancel = true;
+                Error.SetError(txtPass, "La contraseña debe tener al menos 8 caracteres");
+            }
+            else
+            {
+               Error.SetError(txtPass, "");
+            }
+        }
+
+        private void txtSal_Validating(object sender, CancelEventArgs e)
+        {
+            int salario;
+            if (!int.TryParse(txtSal.Text, out salario))
+            {
+                Error.SetError(txtSal,"El valor ingresado no es válido. Por favor ingrese un número.");
+                e.Cancel = true;
+                return;
+            }
+
+            if (salario < 4000)
+            {
+                Error.SetError(txtSal,"El salario debe ser mayor a 4000.");
+                e.Cancel = true;
+            }
+        }
+
+        private void DgvCuentas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedRowIndex = e.RowIndex;
+
+            if (selectedRowIndex < 0)
+                return;
+
+            DataGridViewRow selectedRow = DgvCuentas.Rows[selectedRowIndex];
+
+            txtNombre.Text = selectedRow.Cells["Nombre"].Value.ToString();
+          dtpNac.Text= selectedRow.Cells["FechaNacimiento"].Value.ToString();
+            txtTel.Text = selectedRow.Cells["Telefono"].Value.ToString();
+            txtDirec.Text = selectedRow.Cells["Direccion"].Value.ToString();
+            txtDni.Text = selectedRow.Cells["Cedula"].Value.ToString();
+            cmbSexo.Text = selectedRow.Cells["Genero"].Value.ToString();
+            txtPass.Text = selectedRow.Cells["Contraseña"].Value.ToString();
+            txtSal.Text = selectedRow.Cells["Salario"].Value.ToString();
+        }
+
+        private void DgvCuentas_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
     }
 }
 

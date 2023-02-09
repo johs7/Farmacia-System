@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMedicamentos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMedicamentos));
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.txtBuscar = new Guna.UI2.WinForms.Guna2TextBox();
@@ -45,6 +45,8 @@
             this.cmbTipoMed = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblTipMed = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dtpVen = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.txtfabricante = new Guna.UI2.WinForms.Guna2TextBox();
             this.DgvMedicamentos = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label12 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@
             this.txtCantidad = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.Error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label8 = new System.Windows.Forms.Label();
-            this.dtpVen = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnClose)).BeginInit();
@@ -282,6 +282,42 @@
             this.panelContainer.Size = new System.Drawing.Size(724, 409);
             this.panelContainer.TabIndex = 42;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label8.Location = new System.Drawing.Point(319, 104);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(188, 20);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Fecha de Vencimiento";
+            // 
+            // dtpVen
+            // 
+            this.dtpVen.BackColor = System.Drawing.Color.Transparent;
+            this.dtpVen.BorderRadius = 6;
+            this.dtpVen.Color = System.Drawing.Color.Silver;
+            this.dtpVen.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
+            this.dtpVen.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Right;
+            this.dtpVen.DisabledColor = System.Drawing.Color.Gray;
+            this.dtpVen.DisplayWeekNumbers = false;
+            this.dtpVen.DPHeight = 0;
+            this.dtpVen.FillDatePicker = false;
+            this.dtpVen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpVen.ForeColor = System.Drawing.Color.Black;
+            this.dtpVen.Icon = ((System.Drawing.Image)(resources.GetObject("dtpVen.Icon")));
+            this.dtpVen.IconColor = System.Drawing.Color.SteelBlue;
+            this.dtpVen.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Left;
+            this.dtpVen.LeftTextMargin = 5;
+            this.dtpVen.Location = new System.Drawing.Point(513, 97);
+            this.dtpVen.MinimumSize = new System.Drawing.Size(4, 32);
+            this.dtpVen.Name = "dtpVen";
+            this.dtpVen.Size = new System.Drawing.Size(180, 32);
+            this.dtpVen.TabIndex = 58;
+            this.dtpVen.Value = new System.DateTime(2023, 1, 31, 0, 0, 0, 0);
+            // 
             // txtfabricante
             // 
             this.txtfabricante.BackColor = System.Drawing.Color.Transparent;
@@ -369,6 +405,7 @@
             this.DgvMedicamentos.ThemeStyle.RowsStyle.Height = 22;
             this.DgvMedicamentos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.DgvMedicamentos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvMedicamentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMedicamentos_CellClick);
             // 
             // label12
             // 
@@ -572,42 +609,6 @@
             // Error
             // 
             this.Error.ContainerControl = this;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label8.Location = new System.Drawing.Point(319, 104);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(188, 20);
-            this.label8.TabIndex = 59;
-            this.label8.Text = "Fecha de Vencimiento";
-            // 
-            // dtpVen
-            // 
-            this.dtpVen.BackColor = System.Drawing.Color.Transparent;
-            this.dtpVen.BorderRadius = 6;
-            this.dtpVen.Color = System.Drawing.Color.Silver;
-            this.dtpVen.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.dtpVen.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Right;
-            this.dtpVen.DisabledColor = System.Drawing.Color.Gray;
-            this.dtpVen.DisplayWeekNumbers = false;
-            this.dtpVen.DPHeight = 0;
-            this.dtpVen.FillDatePicker = false;
-            this.dtpVen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpVen.ForeColor = System.Drawing.Color.Black;
-            this.dtpVen.Icon = ((System.Drawing.Image)(resources.GetObject("dtpVen.Icon")));
-            this.dtpVen.IconColor = System.Drawing.Color.SteelBlue;
-            this.dtpVen.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Left;
-            this.dtpVen.LeftTextMargin = 5;
-            this.dtpVen.Location = new System.Drawing.Point(513, 97);
-            this.dtpVen.MinimumSize = new System.Drawing.Size(4, 32);
-            this.dtpVen.Name = "dtpVen";
-            this.dtpVen.Size = new System.Drawing.Size(180, 32);
-            this.dtpVen.TabIndex = 58;
-            this.dtpVen.Value = new System.DateTime(2023, 1, 31, 0, 0, 0, 0);
             // 
             // FormMedicamentos
             // 

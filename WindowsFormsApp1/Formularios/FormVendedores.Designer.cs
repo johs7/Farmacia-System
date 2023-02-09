@@ -86,7 +86,6 @@
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(724, 45);
             this.panelTitleBar.TabIndex = 20;
-           
             // 
             // guna2CirclePictureBox1
             // 
@@ -252,6 +251,8 @@
             this.DgvCuentas.ThemeStyle.RowsStyle.Height = 22;
             this.DgvCuentas.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.DgvCuentas.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvCuentas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCuentas_CellClick);
+            this.DgvCuentas.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCuentas_CellLeave);
             // 
             // panelContainer
             // 
@@ -374,6 +375,7 @@
             this.txtSal.Size = new System.Drawing.Size(67, 29);
             this.txtSal.TabIndex = 41;
             this.txtSal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSal_KeyPress);
+            this.txtSal.Validating += new System.ComponentModel.CancelEventHandler(this.txtSal_Validating);
             // 
             // lblSal
             // 
@@ -449,6 +451,7 @@
             this.txtPass.ShadowDecoration.Parent = this.txtPass;
             this.txtPass.Size = new System.Drawing.Size(105, 29);
             this.txtPass.TabIndex = 37;
+            this.txtPass.Validating += new System.ComponentModel.CancelEventHandler(this.txtPass_Validating);
             // 
             // label4
             // 
@@ -568,7 +571,6 @@
             this.txtDni.Size = new System.Drawing.Size(145, 29);
             this.txtDni.TabIndex = 31;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
-   
             this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
             // 
             // txtTel

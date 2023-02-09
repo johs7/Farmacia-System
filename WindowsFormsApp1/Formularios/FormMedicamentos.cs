@@ -383,6 +383,11 @@ namespace WindowsFormsApp1.Formularios
                 ObtenerNomFab();
             }
         }
+
+        private void DgvMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     }
 
