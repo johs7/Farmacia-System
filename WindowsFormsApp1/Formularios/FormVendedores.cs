@@ -115,7 +115,20 @@ namespace WindowsFormsApp1.Formularios
                 v.Handled = true;
                 MessageBox.Show("Digite solo números porfavor");
             }}
-      
+        private bool TamañoMinimoTelefono()
+        {
+            if (txtTel.Text.Length != 8)
+            {
+                Error.SetError(txtTel, "Debe escribir el tamaño minimo de caracteres");
+
+                return false;
+            }
+            else
+            {
+                Error.SetError(txtTel, "");
+                return true;
+            }
+        }
         private bool ValidarNombre()
         {
             return ValidarCampo(txtNombre,"Debe escribir el nombre del vendedor");
@@ -171,6 +184,10 @@ namespace WindowsFormsApp1.Formularios
         {
             try
             {
+                if (TamañoMinimoTelefono() == false)
+                {
+                    return;
+                }
                 if (ValidarNombre() == false)
                 { return; }
                 if (ValidarDni() == false)
@@ -229,7 +246,9 @@ namespace WindowsFormsApp1.Formularios
         {SoloLetras(e);  }
 
         private void txtTel_KeyPress(object sender, KeyPressEventArgs e)
-        {SoloNumeros(e);}
+        {
+            SoloNumeros(e);
+        }
 
         private void txtDirec_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -341,7 +360,7 @@ namespace WindowsFormsApp1.Formularios
                 if (cedula.Length != 16)
                 {
                     Error.SetError(txtDni, "La cédula debe tener 16 caracteres.");
-                    e.Cancel = true;
+                  
                     return;
                 }
 
@@ -349,7 +368,7 @@ namespace WindowsFormsApp1.Formularios
                 if (cedula[3] != '-' || cedula[10] != '-')
                 {
                     Error.SetError(txtDni, "Los guiones deben estar en las posiciones 4 y 11.");
-                    e.Cancel = true;
+              
                     return;
                 }
 
@@ -358,7 +377,7 @@ namespace WindowsFormsApp1.Formularios
                 if (!validCombinations.Contains(firstThree))
                 {
                     Error.SetError(txtDni, "Los primeros 3 dígitos no son válidos.");
-                    e.Cancel = true;
+                
                     return;
                 }
 
@@ -368,7 +387,7 @@ namespace WindowsFormsApp1.Formularios
                 if (!DateTime.TryParseExact(dateString, "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
                 {
                     Error.SetError(txtDni, "Los siguientes 6 dígitos no son una fecha válida.");
-                    e.Cancel = true;
+                   
                     return;
                 }
 
@@ -376,7 +395,7 @@ namespace WindowsFormsApp1.Formularios
                 if (DateTime.Now.Subtract(date).TotalDays / 365 < 16)
                 {
                     Error.SetError(txtDni, "La persona debe ser mayor de 16 años.");
-                    e.Cancel = true;
+                  
 
                     return;
                 }
@@ -386,13 +405,13 @@ namespace WindowsFormsApp1.Formularios
                 if (!char.IsLetter(lastChar))
                 {
                     Error.SetError(txtDni, "El último caracter debe ser una letra.");
-                    e.Cancel = true;
+                 
                     return;
                 }
 
                 // Si todas las validaciones pasaron, elimina el error
                 Error.SetError(txtDni, "");
-                e.Cancel = false;
+              
             }
         }
         private bool ValidarFecha()
@@ -430,7 +449,7 @@ namespace WindowsFormsApp1.Formularios
         {
             if (txtPass.Text.Length < 8)
             {
-                e.Cancel = true;
+            
                 Error.SetError(txtPass, "La contraseña debe tener al menos 8 caracteres");
             }
             else
@@ -445,14 +464,14 @@ namespace WindowsFormsApp1.Formularios
             if (!int.TryParse(txtSal.Text, out salario))
             {
                 Error.SetError(txtSal,"El valor ingresado no es válido. Por favor ingrese un número.");
-                e.Cancel = true;
+               
                 return;
             }
 
             if (salario < 4000)
             {
                 Error.SetError(txtSal,"El salario debe ser mayor a 4000.");
-                e.Cancel = true;
+             
             }
         }
 
@@ -465,19 +484,26 @@ namespace WindowsFormsApp1.Formularios
 
             DataGridViewRow selectedRow = DgvCuentas.Rows[selectedRowIndex];
 
-            txtNombre.Text = selectedRow.Cells["Nombre"].Value.ToString();
-          dtpNac.Text= selectedRow.Cells["FechaNacimiento"].Value.ToString();
-            txtTel.Text = selectedRow.Cells["Telefono"].Value.ToString();
-            txtDirec.Text = selectedRow.Cells["Direccion"].Value.ToString();
-            txtDni.Text = selectedRow.Cells["Cedula"].Value.ToString();
-            cmbSexo.Text = selectedRow.Cells["Genero"].Value.ToString();
-            txtPass.Text = selectedRow.Cells["Contraseña"].Value.ToString();
-            txtSal.Text = selectedRow.Cells["Salario"].Value.ToString();
+            txtNombre.Text = selectedRow.Cells["NomVen"].Value.ToString();
+          dtpNac.Text= selectedRow.Cells["FechaNacVen"].Value.ToString();
+            txtTel.Text = selectedRow.Cells["TelVen"].Value.ToString();
+            txtDirec.Text = selectedRow.Cells["DirVen"].Value.ToString();
+            txtDni.Text = selectedRow.Cells["CedulaVen"].Value.ToString();
+            cmbSexo.Text = selectedRow.Cells["GenVen"].Value.ToString();
+            txtPass.Text = selectedRow.Cells["ContraVen"].Value.ToString();
+            txtSal.Text = selectedRow.Cells["SueldoVen"].Value.ToString();
         }
 
         private void DgvCuentas_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-           
+            txtNombre.Text = "";
+            dtpNac.Text = "";
+            txtTel.Text = "";
+            txtDirec.Text = "";
+            txtDni.Text = "";
+            cmbSexo.Text = "";
+            txtPass.Text = "";
+            txtSal.Text = "";
         }
     }
 }

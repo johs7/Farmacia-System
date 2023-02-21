@@ -78,7 +78,7 @@
             // 
             // Panelbottom
             // 
-            this.Panelbottom.BackColor = System.Drawing.Color.DarkBlue;
+            this.Panelbottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(199)))));
             this.Panelbottom.Controls.Add(this.lblCantV);
             this.Panelbottom.Controls.Add(this.label8);
             this.Panelbottom.Controls.Add(this.pictureBox1);
@@ -124,7 +124,7 @@
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(199)))));
             this.panelTitleBar.Controls.Add(this.label6);
             this.panelTitleBar.Controls.Add(this.pictureBox2);
             this.panelTitleBar.Controls.Add(this.BtnClose);

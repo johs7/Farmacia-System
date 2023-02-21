@@ -406,6 +406,7 @@
             this.DgvMedicamentos.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.DgvMedicamentos.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DgvMedicamentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMedicamentos_CellClick);
+            this.DgvMedicamentos.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMedicamentos_CellLeave);
             // 
             // label12
             // 

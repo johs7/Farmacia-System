@@ -198,7 +198,6 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(724, 420);
             this.panelContainer.TabIndex = 43;
-            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
             // guna2Separator1
             // 
@@ -227,6 +226,7 @@
             this.txtTel.HoverState.Parent = this.txtTel;
             this.txtTel.Location = new System.Drawing.Point(407, 44);
             this.txtTel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtTel.MaxLength = 9;
             this.txtTel.Name = "txtTel";
             this.txtTel.PasswordChar = '\0';
             this.txtTel.PlaceholderText = "";
@@ -384,6 +384,7 @@
             this.DgvFabricantes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(185)))), ((int)(((byte)(246)))));
             this.DgvFabricantes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.DgvFabricantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvFabricantes_CellClick);
+            this.DgvFabricantes.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvFabricantes_CellLeave);
             // 
             // label12
             // 
@@ -476,7 +477,6 @@
             this.txtDni.Size = new System.Drawing.Size(169, 29);
             this.txtDni.TabIndex = 45;
             this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
-            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             this.txtDni.Validating += new System.ComponentModel.CancelEventHandler(this.txtDni_Validating);
             // 
             // lblPrecioMed

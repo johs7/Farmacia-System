@@ -193,9 +193,6 @@ namespace WindowsFormsApp1.Formularios
         private void GuardarCuentas()
         {
             ContFact();
-
-
-
             foreach (DataGridViewRow row in DGVCuenta.Rows)
             {
 
@@ -415,12 +412,8 @@ MessageBox.Show("Total del cliente actualizado.");
             this.Close();
         }
 
-
-
         private void btnValidarDni_Click(object sender, EventArgs e)
         {
-
-
 
             Con.Open();
             ResetCedula();
@@ -463,11 +456,6 @@ MessageBox.Show("Total del cliente actualizado.");
         private void CantMedTb_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloNumeros(e);
-        }
-
-        private void CedCliTb_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
 
         private void DGVMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -515,7 +503,7 @@ MessageBox.Show("Total del cliente actualizado.");
                 if (cedula.Length != 16)
                 {
                     Error.SetError(CedCliTb, "La cédula debe tener 16 caracteres.");
-                    e.Cancel = true;
+                   
                     return;
                 }
 
@@ -523,7 +511,7 @@ MessageBox.Show("Total del cliente actualizado.");
                 if (cedula[3] != '-' || cedula[10] != '-')
                 {
                     Error.SetError(CedCliTb, "Los guiones deben estar en las posiciones 4 y 11.");
-                    e.Cancel = true;
+                 
                     return;
                 }
 
@@ -532,7 +520,7 @@ MessageBox.Show("Total del cliente actualizado.");
                 if (!validCombinations.Contains(firstThree))
                 {
                     Error.SetError(CedCliTb, "Los primeros 3 dígitos no son válidos.");
-                    e.Cancel = true;
+                
                     return;
                 }
 
@@ -542,7 +530,7 @@ MessageBox.Show("Total del cliente actualizado.");
                 if (!DateTime.TryParseExact(dateString, "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
                 {
                     Error.SetError(CedCliTb, "Los siguientes 6 dígitos no son una fecha válida.");
-                    e.Cancel = true;
+         
                     return;
                 }
 
@@ -550,7 +538,7 @@ MessageBox.Show("Total del cliente actualizado.");
                 if (DateTime.Now.Subtract(date).TotalDays / 365 < 16)
                 {
                     Error.SetError(CedCliTb, "La persona debe ser mayor de 16 años.");
-                    e.Cancel = true;
+            
 
                     return;
                 }
@@ -560,13 +548,13 @@ MessageBox.Show("Total del cliente actualizado.");
                 if (!char.IsLetter(lastChar))
                 {
                     Error.SetError(CedCliTb, "El último caracter debe ser una letra.");
-                    e.Cancel = true;
+           
                     return;
                 }
 
                 // Si todas las validaciones pasaron, elimina el error
                 Error.SetError(CedCliTb, "");
-                e.Cancel = false;
+             
             }
         }
 
@@ -641,6 +629,10 @@ MessageBox.Show("Total del cliente actualizado.");
             { return; }
             if (ValidarTel() == false)
             { return; }
+            if(TamañoMinimoTelefono()==false)
+            {
+                return;
+            }
 
             else
             {

@@ -135,9 +135,10 @@ namespace WindowsFormsApp1.Formularios
         }
         private bool TamañoMinimoTelefono()
         {
-            if (txtTel.Text.Length < 8)
+            if (txtTel.Text.Length != 8)
             {
                 Error.SetError(txtTel, "Debe escribir el tamaño minimo de caracteres");
+                
                 return false;
             }
             else
@@ -169,12 +170,6 @@ namespace WindowsFormsApp1.Formularios
             }
 
         }
-
-        private void panelContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -203,6 +198,7 @@ namespace WindowsFormsApp1.Formularios
         {
             try
             {
+               
                 if (TamañoMinimoTelefono() == false)
                 {
                     return;
@@ -342,7 +338,7 @@ namespace WindowsFormsApp1.Formularios
                 if (cedula.Length != 16)
                 {
                     Error.SetError(txtDni, "La cédula debe tener 16 caracteres.");
-                    e.Cancel = true;
+           
                     return;
                 }
 
@@ -350,7 +346,7 @@ namespace WindowsFormsApp1.Formularios
                 if (cedula[3] != '-' || cedula[10] != '-')
                 {
                     Error.SetError(txtDni, "Los guiones deben estar en las posiciones 4 y 11.");
-                    e.Cancel = true;
+             
                     return;
                 }
 
@@ -359,7 +355,7 @@ namespace WindowsFormsApp1.Formularios
                 if (!validCombinations.Contains(firstThree))
                 {
                     Error.SetError(txtDni   , "Los primeros 3 dígitos no son válidos.");
-                    e.Cancel = true;
+                
                     return;
                 }
 
@@ -369,7 +365,7 @@ namespace WindowsFormsApp1.Formularios
                 if (!DateTime.TryParseExact(dateString, "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
                 {
                     Error.SetError(txtDni   , "Los siguientes 6 dígitos no son una fecha válida.");
-                    e.Cancel = true;
+                
                     return;
                 }
 
@@ -377,7 +373,7 @@ namespace WindowsFormsApp1.Formularios
                 if (DateTime.Now.Subtract(date).TotalDays / 365 < 16)
                 {
                     Error.SetError(txtDni, "La persona debe ser mayor de 16 años.");
-                    e.Cancel = true;
+      
 
                     return;
                 }
@@ -387,13 +383,13 @@ namespace WindowsFormsApp1.Formularios
                 if (!char.IsLetter(lastChar))
                 {
                     Error.SetError(txtDni, "El último caracter debe ser una letra.");
-                    e.Cancel = true;
+     
                     return;
                 }
 
                 // Si todas las validaciones pasaron, elimina el error
                 Error.SetError(txtDni, "");
-                e.Cancel = false;
+  
             }
 
         }
@@ -407,12 +403,6 @@ namespace WindowsFormsApp1.Formularios
         {
             this.Close();
         }
-
-        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -446,5 +436,20 @@ namespace WindowsFormsApp1.Formularios
             txtDni.Text = selectedRow.Cells["CedulaFab"].Value.ToString();
            dtpIng.Text = selectedRow.Cells["FechaInFab"].Value.ToString();
         }
+
+        private void DgvFabricantes_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == DgvFabricantes.CurrentRow.Index)
+            {
+                txtNomFab.Text = "";
+                txtDirec.Text = "";
+                txtDni.Text = "";
+                txtTel.Text = "";
+                dtpIng.Text = "";
+            }
+        }
+
+   
+        
     }
 }

@@ -25,6 +25,7 @@ namespace WindowsFormsApp1.Formularios
         public FormMedicamentos()
         {
             InitializeComponent();
+            dtpVen.Value = DateTime.Today;
     
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -78,7 +79,7 @@ namespace WindowsFormsApp1.Formularios
             }
             else
             {
-                Error.SetError(dtpVen, "Debe Escribir una fecha futura con más de 15 días");
+                Error.SetError(dtpVen, "Debe Escribir una fecha futura con más de 25 días");
                 return false;
             }
 
@@ -386,7 +387,27 @@ namespace WindowsFormsApp1.Formularios
 
         private void DgvMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Obtener la fila seleccionada
+            DataGridViewRow selectedRow = DgvMedicamentos.SelectedRows[0];
 
+            // Asignar los valores a los controles correspondientes
+            txtNombreMed.Text = selectedRow.Cells["NomMed"].Value.ToString();
+            cmbTipoMed.SelectedItem = selectedRow.Cells["TipoMed"].Value.ToString();
+            txtCantidad.Text = selectedRow.Cells["CantMed"].Value.ToString();
+            txtPrecio.Text = selectedRow.Cells["PrecioMed"].Value.ToString();
+            txtfabricante.Text = selectedRow.Cells["FabMedId"].Value.ToString();
+            txtNomFabricante.Text = selectedRow.Cells["FabricanteMed"].Value.ToString();
+            dtpVen.Value = Convert.ToDateTime(selectedRow.Cells["FechaVencimiento"].Value);
+        }
+
+        private void DgvMedicamentos_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            txtNombreMed.Text = "";
+      
+            txtCantidad.Text = "";
+            txtPrecio.Text = "";
+            txtfabricante.Text = "";
+            txtNomFabricante.Text = "";
         }
     }
     }

@@ -593,6 +593,7 @@
             this.txtTel.HoverState.Parent = this.txtTel;
             this.txtTel.Location = new System.Drawing.Point(488, 38);
             this.txtTel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtTel.MaxLength = 8;
             this.txtTel.Name = "txtTel";
             this.txtTel.PasswordChar = '\0';
             this.txtTel.PlaceholderText = "";
